@@ -329,7 +329,7 @@ footer ul li a:hover {
 
 .section-inner-center {
     position: absolute;
-    top: 40%;
+    top: 42%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
@@ -339,12 +339,14 @@ footer ul li a:hover {
 
 .section-inner-center h3 {
     font-size: 100px;
+    font-weight: 700;
     margin-bottom: 15px;
     animation: fadeInUp 0.5s ease-in-out;
 }
 
 .section-inner-center p {
     font-size: 20px;
+    font-weight: 500;
     animation: fadeInUp 0.5s ease-in-out 0.2s;
     animation-fill-mode: both;
 }
