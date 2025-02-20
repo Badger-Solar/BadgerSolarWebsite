@@ -4,10 +4,26 @@ const menu = document.getElementById('mobile-menu');
 const sectionInnnerCenter = document.getElementById('section-inner-center');
 const counters = document.querySelectorAll('.counter');
 const aboutSection = document.querySelector(".about");
+let lastScrollTop = 0; // To keep track of the last scroll position
+const navbar = document.querySelector('.main-header'); // Get the navbar
 let scrollStarted = false;
 
 btn.addEventListener('click', navToggle);
 document.addEventListener('scroll', scrollpage)
+window.addEventListener('scroll', function () {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Scrolling down
+        navbar.classList.add('hide-navbar');
+    } else {
+        // Scrolling up
+        navbar.classList.remove('hide-navbar');
+    }
+    
+    // Update lastScrollTop to the current scroll position
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
 
 function navToggle() {
     btn.classList.toggle('open');
@@ -87,4 +103,26 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+function isInView(element) {
+    const rect = element.getBoundingClientRect();
+    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+}
+
+// Function to handle scroll events and trigger the animation
+function handleScroll() {
+    const elements = document.querySelectorAll('.js-stagger');
+    
+    elements.forEach((element) => {
+        if (isInView(element)) {
+            element.style.opacity = 1;
+            element.style.transform = 'translateY(0)'; // Reset transform for smooth animation
+        }
+    });
+}
+
+window.addEventListener('scroll', handleScroll);
+
+// Trigger scroll check immediately to handle already-visible elements on page load
+handleScroll()
 

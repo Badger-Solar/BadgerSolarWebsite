@@ -33,6 +33,11 @@ ul {
     text-transform: uppercase;
     height: 100px;
     padding: 0 30px;
+    transition: top 0.3s;
+}
+
+.hide-navbar {
+    top: -100px; /* Adjust based on the height of your navbar */
 }
 
 .logo {
@@ -531,6 +536,7 @@ footer ul li a:hover {
 /* --------------------------------------- About Page Styles ----------------------------------------------------- */
 
 .about {
+    position: relative;
     text-align: center;
     margin: 100px 0;
     padding: 50px 50px;
@@ -545,8 +551,9 @@ footer ul li a:hover {
 
 .about p {
     font-size: 1rem;
-    color: #555;
+    color: #ccc;
     margin-bottom: 30px;
+    max-width: 600px;
     opacity: 1;
 }
 
@@ -686,4 +693,98 @@ button:hover {
 .contact-info p {
     color: #ccc;
     margin-bottom: 5px;
+}
+
+
+
+
+
+/* --------------------------------------- Services Page Styles ----------------------------------------------------- */
+/* Style for the new section below the stats */
+.section-overview {
+    padding: 50px 20px;
+    background-color: #000000;
+    position: relative;
+    z-index: 10;
+}
+.section-inner-stats {
+    padding: 20px;
+    margin-top: 50px; /* Adds space between the stats and the new section */
+    background-color: #000000; /* Optional background color */
+}
+
+/* Style the table inside the new section */
+.data {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.data td span {
+    font-size: 0.9em;
+    color: #888;
+}
+
+.js-stagger {
+    opacity: 0;
+    transform: translateY(30px); /* Optionally add a slight downward offset for smoother animation */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Optional: Add staggered animation timing to each row for a delayed effect */
+.js-stagger:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.js-stagger:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+
+/* Styling for the Reveal Inner Section with Text and Image */
+.reveal-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+}
+
+.text-container {
+    flex: 1;
+    padding-right: 20px; /* Space between text and image */
+}
+
+.text-container p {
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: rounds the corners of the image */
+
 }
