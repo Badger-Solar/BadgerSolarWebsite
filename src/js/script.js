@@ -3,6 +3,7 @@ const overlay = document.getElementById('overlay');
 const menu = document.getElementById('mobile-menu');
 const sectionInnnerCenter = document.getElementById('section-inner-center');
 const counters = document.querySelectorAll('.counter');
+const aboutSection = document.querySelector(".about");
 let scrollStarted = false;
 
 btn.addEventListener('click', navToggle);
@@ -60,4 +61,30 @@ function resetCounter() {
     counters.forEach((counter) => {
         counter.innerText = '0';
     });
+    
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+    const aboutTextElements = document.querySelectorAll(".about h2, .about p");
+
+    window.addEventListener("scroll", function () {
+        const scrollY = window.scrollY;
+        aboutTextElements.forEach(element => {
+            const rect = element.getBoundingClientRect();
+            const fadeStart = window.innerHeight / 2.5; // Start fading when halfway through the viewport
+
+            if (rect.top < fadeStart) {
+                let opacity = 1 - (fadeStart - rect.top) / 100;
+                opacity = Math.max(opacity, 0);
+                let translateY = -((fadeStart - rect.top) / 2);
+
+                element.style.opacity = opacity;
+                element.style.transform = `translateY(${translateY}px)`;
+            } else {
+                element.style.opacity = 1;
+                element.style.transform = "translateY(0px)";
+            }
+        });
+    });
+});
+
