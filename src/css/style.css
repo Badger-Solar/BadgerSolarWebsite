@@ -1,13 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap");
 
-*, *::before, *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-	font-family: "Bruno Ace SC", sans-serif;
+    font-family: "Bruno Ace SC", sans-serif;
     background: #000;
     color: #fff;
 }
@@ -63,11 +65,10 @@ ul {
     position: relative;
     margin-right: 20px;
     padding-bottom: 2px;
-    
 }
 
 .main-menu ul li a::after {
-    content: ' ';
+    content: " ";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -122,7 +123,7 @@ section {
 }
 
 .section-a {
-    background-image: url('/src/assets/bsrCarBgUgly.jpg'); 
+    background-image: url("/src/assets/bsrCarBgUgly.jpg");
 }
 
 .btn {
@@ -139,7 +140,6 @@ section {
     overflow: hidden;
     z-index: 2;
 }
-
 
 .btn:hover span {
     color: #000;
@@ -164,7 +164,7 @@ section {
 
 .scroll-arrow {
     position: absolute;
-    bottom: 50px;  
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     animation: fadeBounce 3s infinite;
@@ -175,7 +175,6 @@ section {
 footer {
     position: relative;
     padding: 55px 0;
-    
 }
 
 footer ul {
@@ -224,7 +223,7 @@ footer ul li a:hover {
     top: 0;
     left: 0;
     background: #fff;
-    transition: all 0.5s;  
+    transition: all 0.5s;
 }
 
 .hamburger-middle {
@@ -252,7 +251,6 @@ footer ul li a:hover {
     transform: translateY(15px);
 }
 
-
 /* overlay */
 
 .overlay-show {
@@ -272,7 +270,6 @@ footer ul li a:hover {
 .mobile-only {
     display: none;
 }
-
 
 /* mobile menu */
 .mobile-main-menu {
@@ -311,7 +308,7 @@ footer ul li a:hover {
     width: 100%;
     text-align: right;
     padding-bottom: 8px;
-}  
+}
 
 .mobile-main-menu ul li a {
     color: #fff;
@@ -325,7 +322,7 @@ footer ul li a:hover {
 /* car1 inner page */
 
 .bg-car-1 {
-    background-image: url('/src/assets/bsrCarBgTemp.jpg');
+    background-image: url("/src/assets/bsrCarBgTemp.jpg");
 }
 
 .section-animate {
@@ -389,7 +386,6 @@ footer ul li a:hover {
     font-weight: 300;
 }
 
-
 /* animations */
 
 @keyframes fadeInUp {
@@ -435,9 +431,7 @@ footer ul li a:hover {
         opacity: 1;
         transform: translateY(0);
     }
-
 }
-
 
 /* media queries */
 
@@ -458,6 +452,34 @@ footer ul li a:hover {
     .section-inner-center h3 {
         font-size: 60px;
     }
+<<<<<<< HEAD
+=======
+    /*
+    .main-menu ul li {
+        margin-right: 10px;
+    }
+
+    .section-inner {
+        bottom: 100px;
+        left: 20px;
+    }
+
+    .section-inner h4 {
+        font-size: 18px;
+    }
+
+    .section-inner h2 {
+        font-size: 40px;
+    }
+
+    .btn {
+        padding: 15px 30px;
+    }
+
+    footer ul li {
+        font-size: 10px;
+    } */
+>>>>>>> 7a88298 (added images)
 }
 
 @media (max-width: 600px) {
@@ -487,7 +509,6 @@ footer ul li a:hover {
         font-size: 40px;
     }
 
-    
     .section-inner-center {
         width: 80%;
     }
@@ -527,6 +548,7 @@ footer ul li a:hover {
         margin-bottom: 20px;
     }
 }
+<<<<<<< HEAD
 
 
 
@@ -788,3 +810,5 @@ button:hover {
     border-radius: 8px; /* Optional: rounds the corners of the image */
 
 }
+=======
+>>>>>>> 7a88298 (added images)
