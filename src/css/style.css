@@ -452,8 +452,7 @@ footer ul li a:hover {
     .section-inner-center h3 {
         font-size: 60px;
     }
-<<<<<<< HEAD
-=======
+
     /*
     .main-menu ul li {
         margin-right: 10px;
@@ -479,7 +478,6 @@ footer ul li a:hover {
     footer ul li {
         font-size: 10px;
     } */
->>>>>>> 7a88298 (added images)
 }
 
 @media (max-width: 600px) {
@@ -548,12 +546,6 @@ footer ul li a:hover {
         margin-bottom: 20px;
     }
 }
-<<<<<<< HEAD
-
-
-
-
-
 
 /* --------------------------------------- About Page Styles ----------------------------------------------------- */
 
@@ -597,14 +589,12 @@ footer ul li a:hover {
 }
 
 /* Fade effect for text */
-.about h2, 
+.about h2,
 .about p {
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition:
+        opacity 0.5s ease-out,
+        transform 0.5s ease-out;
 }
-
-
-
-
 
 .member img {
     width: 150px;
@@ -627,8 +617,6 @@ footer ul li a:hover {
 .member:hover {
     transform: scale(1.05);
 }
-
-
 
 /* --------------------------------------- Contact Page Styles ----------------------------------------------------- */
 body {
@@ -676,7 +664,7 @@ form {
     color: #fff;
 }
 
-.form-group input, 
+.form-group input,
 .form-group textarea {
     width: 100%;
     padding: 10px;
@@ -717,10 +705,6 @@ button:hover {
     margin-bottom: 5px;
 }
 
-
-
-
-
 /* --------------------------------------- Services Page Styles ----------------------------------------------------- */
 /* Style for the new section below the stats */
 .section-overview {
@@ -754,8 +738,12 @@ button:hover {
 
 .js-stagger {
     opacity: 0;
-    transform: translateY(30px); /* Optionally add a slight downward offset for smoother animation */
-    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(
+        30px
+    ); /* Optionally add a slight downward offset for smoother animation */
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
 }
 
 @keyframes fadeIn {
@@ -775,7 +763,6 @@ button:hover {
 .js-stagger:nth-child(even) {
     animation-delay: 0.4s;
 }
-
 
 /* Styling for the Reveal Inner Section with Text and Image */
 .reveal-inner {
@@ -808,7 +795,4 @@ button:hover {
     max-width: 100%;
     height: auto;
     border-radius: 8px; /* Optional: rounds the corners of the image */
-
 }
-=======
->>>>>>> 7a88298 (added images)

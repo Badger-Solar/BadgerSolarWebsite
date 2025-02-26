@@ -1,65 +1,69 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="src/css/style.css" />
-		<script src="src/js/script.js" defer></script>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Badger Solar</title>
-	</head>
-	<body>
-		<div id="overlay"></div>
-		<div id="mobile-menu" class="mobile-main-menu">
-			<ul>
-				<li class="mobile-only"><a href="car1.html">Helios</a></li>
-				<li class="mobile-only"><a href="car2.html">Car 2</a></li>
-				<li class="mobile-only"><a href="sponsors.html">Sponsors</a></li>
-				<li class="mobile-only"><a href="cars.html">About</a></li>
-				<li class="mobile-only"><a href="contact.html">Contact</a></li>
-				<!-- add other menu items here that are only in here -->
-				<li><a href="car1.html">blog</a></li>
-				<li><a href="car2.html">join</a></li>
-			</ul>
-		</div>
-		<header class="main-header">
-			<div class="logo">
-				<a href="index.html">
-					<img src="../src/assets/logo.png" alt="Badger Solar" />
-				</a>
-			</div>
-			<nav class="main-menu">
-				<ul>
-					<li><a href="car1.html">Helios</a></li>
-					<li><a href="car2.html">Car 2</a></li>
-					<li><a href="sponsors.html">Sponsors</a></li>
-					<li><a href="cars.html">About</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
-			</nav>
-		</header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="src/css/style.css" />
+        <script src="src/js/script.js" defer></script>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Badger Solar</title>
+    </head>
+    <body>
+        <div id="overlay"></div>
+        <div id="mobile-menu" class="mobile-main-menu">
+            <ul>
+                <li class="mobile-only"><a href="car1.html">Helios</a></li>
+                <li class="mobile-only"><a href="car2.html">Car 2</a></li>
+                <li class="mobile-only">
+                    <a href="sponsors.html">Sponsors</a>
+                </li>
+                <li class="mobile-only"><a href="cars.html">About</a></li>
+                <li class="mobile-only"><a href="contact.html">Contact</a></li>
+                <!-- add other menu items here that are only in here -->
+                <li><a href="car1.html">blog</a></li>
+                <li><a href="car2.html">join</a></li>
+            </ul>
+        </div>
+        <header class="main-header">
+            <div class="logo">
+                <a href="index.html">
+                    <img
+                        src="../src/assets/logo_imgs/logo.png"
+                        alt="Badger Solar"
+                    />
+                </a>
+            </div>
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="car1.html">Helios</a></li>
+                    <li><a href="car2.html">Car 2</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="cars.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-		<button id="menu-btn" class="hamburger" type="button">
-			<span class="hamburger-top"></span>
-			<span class="hamburger-middle"></span>
-			<span class="hamburger-bottom"></span>
-		</button>
+        <button id="menu-btn" class="hamburger" type="button">
+            <span class="hamburger-top"></span>
+            <span class="hamburger-middle"></span>
+            <span class="hamburger-bottom"></span>
+        </button>
 
-
-
-		<!-- Section A -->
-		<slot />
-		<!-- End Section A -->
-		<footer class="footer">
-			<ul>
-				<li><a href="index.html">&copy; Badger Solar Racing</a></li>
-				<li><a href="car1.html">Twitter</a></li>
-				<li><a href="car2.html">Youtube</a></li>
-				<li><a href="sponsors.html">Instagram</a></li>
-				<li><a href="cars.html">LinkedIn</a></li>
-				<li><a href="contact.html">Contact</a></li>
-			</ul>
-	</body>
+        <!-- Section A -->
+        <slot />
+        <!-- End Section A -->
+        <footer class="footer">
+            <ul>
+                <li><a href="index.html">&copy; Badger Solar Racing</a></li>
+                <li><a href="car1.html">Twitter</a></li>
+                <li><a href="car2.html">Youtube</a></li>
+                <li><a href="sponsors.html">Instagram</a></li>
+                <li><a href="cars.html">LinkedIn</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </footer>
+    </body>
 </html>
