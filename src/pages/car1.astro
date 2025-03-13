@@ -149,4 +149,61 @@ import Layout from "../layouts/Layout.astro";
     .js-stagger:nth-child(even) {
         animation-delay: 0.4s;
     }
+
+    .stats {
+        max-width: 960px;
+        margin: 0 auto;
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .stats div span {
+        font-size: 120px;
+    }
+
+    .stats div h4 {
+        font-size: 24px;
+        font-weight: 300;
+    }
+    .bg-car-1 {
+        background-image: url("/src/assets/bsrCarBgTemp.jpg");
+    }
+
+    .section-inner-center {
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-transform: uppercase;
+        max-width: 550px;
+        text-align: center;
+    }
+
+    .section-inner-center h3 {
+        font-size: 100px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        animation: fadeInUp 0.5s ease-in-out;
+    }
+
+    .section-inner-center p {
+        font-size: 20px;
+        font-weight: 500;
+        animation: fadeInUp 0.5s ease-in-out 0.2s;
+        animation-fill-mode: both;
+    }
+    /* .section-inner-center-show h3 {
+        font-size: 100px;
+        margin-bottom: 15px;
+        animation: fadeOut 0.5s ease-in-out;
+    }
+
+    .section-inner-center-show p {
+        font-size: 20px;
+        animation: fadeOut 0.5s ease-in-out 0.2s;
+    } */
 </style>

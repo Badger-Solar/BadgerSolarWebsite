@@ -203,69 +203,8 @@ section {
 
 /* car1 inner page */
 
-.bg-car-1 {
-    background-image: url("/src/assets/bsrCarBgTemp.jpg");
-}
-
 .section-animate {
     animation: fadeIn 2s ease-in-out;
-}
-
-.section-inner-center {
-    position: absolute;
-    top: 42%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-transform: uppercase;
-    max-width: 550px;
-    text-align: center;
-}
-
-.section-inner-center h3 {
-    font-size: 100px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    animation: fadeInUp 0.5s ease-in-out;
-}
-
-.section-inner-center p {
-    font-size: 20px;
-    font-weight: 500;
-    animation: fadeInUp 0.5s ease-in-out 0.2s;
-    animation-fill-mode: both;
-}
-
-.section-inner-center-show h3 {
-    font-size: 100px;
-    margin-bottom: 15px;
-    animation: fadeOut 0.5s ease-in-out;
-}
-
-.section-inner-center-show p {
-    font-size: 20px;
-    animation: fadeOut 0.5s ease-in-out 0.2s;
-}
-
-/* numbers */
-
-.stats {
-    max-width: 960px;
-    margin: 0 auto;
-    padding-top: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    text-transform: uppercase;
-}
-
-.stats div span {
-    font-size: 120px;
-}
-
-.stats div h4 {
-    font-size: 24px;
-    font-weight: 300;
 }
 
 /* animations */
@@ -429,83 +368,11 @@ section {
     }
 }
 
-/* --------------------------------------- About Page Styles ----------------------------------------------------- */
-
-.about {
-    position: relative;
-    text-align: center;
-    margin: 100px 0;
-    padding: 50px 50px;
-    background-color: #000000;
-}
-
-.about h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    opacity: 1;
-}
-
-.about p {
-    font-size: 1rem;
-    color: #ccc;
-    margin-bottom: 30px;
-    max-width: 600px;
-    opacity: 1;
-}
-
-/* Fade effect for text */
-.about h2,
-.about p {
-    transition:
-        opacity 0.5s ease-out,
-        transform 0.5s ease-out;
-}
-
-.member img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.member h3 {
-    margin: 10px 0 5px;
-    font-size: 1.2rem;
-    color: #000;
-}
-
-.member p {
-    font-size: 1rem;
-    color: #555;
-}
-
-.member:hover {
-    transform: scale(1.05);
-}
-
 /* --------------------------------------- Contact Page Styles ----------------------------------------------------- */
 body {
     background-color: #000;
     color: #fff;
     font-family: "Bruno Ace SC", sans-serif;
-}
-
-.contact {
-    text-align: center;
-    padding: 150px 20px;
-    background-color: #111;
-    border-radius: 10px;
-}
-
-.contact h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-.contact p {
-    font-size: 1.1rem;
-    color: #ccc;
 }
 
 button {

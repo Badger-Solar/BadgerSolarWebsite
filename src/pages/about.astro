@@ -51,4 +51,34 @@ import LeaderCard from "../components/LeaderCard.astro";
         flex-wrap: wrap;
         opacity: 1;
     }
+
+    .about {
+        position: relative;
+        text-align: center;
+        margin: 100px 0;
+        padding: 50px 50px;
+        background-color: #000000;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        opacity: 1;
+    }
+
+    .about p {
+        font-size: 1rem;
+        color: #ccc;
+        margin-bottom: 30px;
+        max-width: 600px;
+        opacity: 1;
+    }
+
+    /* Fade effect for text */
+    .about h2,
+    .about p {
+        transition:
+            opacity 0.5s ease-out,
+            transform 0.5s ease-out;
+    }
 </style>
