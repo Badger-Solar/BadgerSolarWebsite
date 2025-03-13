@@ -7,7 +7,7 @@ import Layout from "../layouts/Layout.astro";
         <h2>Contact Us</h2>
         <p>Have questions or want to get in touch? Fill out the form below!</p>
 
-        <form action="#" method="post">
+        <form id="contactFormTeams" action="#" method="post">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required />
@@ -23,15 +23,10 @@ import Layout from "../layouts/Layout.astro";
                 <textarea id="message" name="message" rows="5" required
                 ></textarea>
             </div>
+            <p id="statusMessage"></p>
 
             <button type="submit">Send Message</button>
         </form>
-
-        <div class="contact-info">
-            <h3>Our Contact Details</h3>
-            <p>Email: admin@buckysbombs.me</p>
-            <p>Phone: 425-943-0739</p>
-            <p>Address: 1001 University Ave, APT 813, Madison, Wi, 53715</p>
-        </div>
     </section>
+    <script src="/js/contactForm.js" defer></script>
 </Layout>
