@@ -27,11 +27,6 @@ ul {
     top: -100px; /* Adjust based on the height of your navbar */
 }
 
-.logo {
-    width: 210px;
-    height: auto;
-}
-
 .logo img {
     display: block;
     width: 100%;
@@ -78,42 +73,6 @@ section {
 
 .section-a {
     background-image: url("/src/assets/bsrCarBgUgly.jpg");
-}
-
-.btn {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    min-width: 130px;
-    padding: 15px 50px;
-    margin-top: 10px;
-    border: 2px solid #fff;
-    text-transform: uppercase;
-    font-weight: bold;
-    overflow: hidden;
-    z-index: 2;
-}
-
-.btn:hover span {
-    color: #000;
-}
-
-.btn .hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    color: #000;
-    z-index: -1;
-    transform: translateY(100%);
-    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.btn:hover .hover {
-    transform: translateY(0);
 }
 
 .scroll-arrow {
@@ -688,17 +647,4 @@ button:hover {
     line-height: 1.8;
     max-width: 900px;
     margin: 0 auto;
-}
-
-.image-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px; /* Optional: rounds the corners of the image */
 }
