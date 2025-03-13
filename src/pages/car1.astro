@@ -112,4 +112,41 @@ import Layout from "../layouts/Layout.astro";
         height: auto;
         border-radius: 8px; /* Optional: rounds the corners of the image */
     }
+
+    .text-container {
+        flex: 1;
+        padding-right: 20px; /* Space between text and image */
+    }
+
+    .text-container p {
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    /* Styling for the Reveal Inner Section with Text and Image */
+    .reveal-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 20px;
+    }
+
+    .js-stagger {
+        opacity: 0;
+        transform: translateY(
+            30px
+        ); /* Optionally add a slight downward offset for smoother animation */
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+    }
+    /* Optional: Add staggered animation timing to each row for a delayed effect */
+    .js-stagger:nth-child(odd) {
+        animation-delay: 0.2s;
+    }
+
+    .js-stagger:nth-child(even) {
+        animation-delay: 0.4s;
+    }
 </style>

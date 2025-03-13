@@ -508,38 +508,6 @@ body {
     color: #ccc;
 }
 
-form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #222;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-}
-
-.form-group {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #fff;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #555;
-    border-radius: 5px;
-    font-size: 1rem;
-    background: #333;
-    color: #fff;
-}
-
 button {
     display: inline-block;
     padding: 10px 20px;
@@ -554,20 +522,6 @@ button {
 
 button:hover {
     background: #0056b3;
-}
-
-.contact-info {
-    margin-top: 100px;
-}
-
-.contact-info h3 {
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-.contact-info p {
-    color: #ccc;
-    margin-bottom: 5px;
 }
 
 /* --------------------------------------- Services Page Styles ----------------------------------------------------- */
@@ -601,16 +555,6 @@ button:hover {
     color: #888;
 }
 
-.js-stagger {
-    opacity: 0;
-    transform: translateY(
-        30px
-    ); /* Optionally add a slight downward offset for smoother animation */
-    transition:
-        opacity 1s ease,
-        transform 1s ease;
-}
-
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -618,33 +562,4 @@ button:hover {
     100% {
         opacity: 1;
     }
-}
-
-/* Optional: Add staggered animation timing to each row for a delayed effect */
-.js-stagger:nth-child(odd) {
-    animation-delay: 0.2s;
-}
-
-.js-stagger:nth-child(even) {
-    animation-delay: 0.4s;
-}
-
-/* Styling for the Reveal Inner Section with Text and Image */
-.reveal-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 20px;
-}
-
-.text-container {
-    flex: 1;
-    padding-right: 20px; /* Space between text and image */
-}
-
-.text-container p {
-    font-size: 1rem;
-    line-height: 1.8;
-    max-width: 900px;
-    margin: 0 auto;
 }
