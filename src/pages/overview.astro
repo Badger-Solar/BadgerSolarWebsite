@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+// need to change title and header content for this page
+---
+
+<Layout title="Overview">
+    <section class="overview">
+        <div class="Electrical">
+            <h1>Electrical</h1>
+            <p>
+                Meetings and Work Sessions: Every Tuesday 6-9 pm in ME 1245
+                Description: Our Electrical team is responsible for all custom
+                hardware on the vehicle. It’s projects span from a custom MPPT
+                that achieves 97% efficiency to a 5 kWh lithium-ion battery pack
+                manufactured on campus and everything in between.
+            </p>
+
+            <h2>Software & Firmware</h2>
+            <p>Meetings and Work Sessions: Every Wednesday 6-9 pm in ME 1245</p>
+        </div>
+        <div class="Mechanical">
+            <h1>Mechanical</h1>
+            <p>Meetings and Work Sessions: Every Tuesday 6-9 pm in ME 1235</p>
+        </div>
+        <div class="Operations">
+            <h1>Operations</h1>
+            <p>Meetings and Work Sessions: Every Tuesday 6-9 pm in ME 1255</p>
+        </div>
+        <img src="src/assets/overview_map.png" />
+    </section>
+</Layout>
+
+<style>
+    .overview {
+        position: relative;
+        text-align: center;
+        margin: 100px 0;
+        padding: 50px 50px;
+        background-color: #000000;
+    }
+</style>

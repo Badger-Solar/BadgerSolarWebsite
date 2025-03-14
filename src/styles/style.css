@@ -41,7 +41,7 @@ section {
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 }
 
 .section-inner {
@@ -69,10 +69,6 @@ section {
 .section-inner a {
     animation: fadeInUp 0.5s ease-in-out 0.4s;
     animation-fill-mode: both;
-}
-
-.section-a {
-    background-image: url("/src/assets/bsrCarBgUgly.jpg");
 }
 
 .scroll-arrow {
@@ -202,10 +198,6 @@ section {
 }
 
 /* car1 inner page */
-
-.section-animate {
-    animation: fadeIn 2s ease-in-out;
-}
 
 /* animations */
 

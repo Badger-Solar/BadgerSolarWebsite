@@ -1,0 +1,104 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LeaderCard from "../components/LeaderCard.astro";
+// need to change title and header content for this page
+---
+
+<Layout title="Leadership">
+    <section class="about">
+        <h2>Our Team</h2>
+        <!-- <p>
+            Building and competing with a solar car is a complex process that
+            combines diverse knowledge and skills. At Badger Solar Racing, over
+            20 teams collaborate in tandem to design, construct, and race a
+            single solar car
+        </p> -->
+        <h4>Leadership</h4>
+        <div class="team-members">
+            <LeaderCard
+                name="Jack Verich"
+                email="jverich@wisc.edu"
+                role="President"
+                imageURL="src/assets/people_imgs/Jack_Verich.jpeg"
+            />
+            <div class="sub-members">
+                <div class="one-sub">
+                    <LeaderCard
+                        name="Ryan Van Elles"
+                        email="rvanells@wisc.edu"
+                        role="Electrical Director"
+                        imageURL="src/assets/people_imgs/Ryan_Van_Ells.jpeg"
+                    />
+                    <p>Battery: William LaCroix</p>
+                    <p>Solar Array: Sarah Gerovac</p>
+                    <p>Powertrain: Sukriti Somvanshi</p>
+                    <p>Low Voltage: Charlie Steimke</p>
+                    <p>Software: Hailey Andersen</p>
+                    <p>Firmware: Bowen Quan</p>
+                    <p>Race Strategy: Harry Luo</p>
+                </div>
+                <div class="one-sub">
+                    <LeaderCard
+                        name="Nishil Patel"
+                        email="nbpatel2@wisc.edu"
+                        role="Operations Director"
+                        imageURL="src/assets/people_imgs/Nishil_Patel.jpeg"
+                    />
+                    <p>Industry Relations: Amit Hegde</p>
+                    <p>Vehicle Logistics: Neel Shah</p>
+                </div>
+                <div class="one-sub">
+                    <LeaderCard
+                        name="Evan Alexander"
+                        email="eralexander@wisc.edu"
+                        role="Mechanical Director"
+                        imageURL="src/assets/people_imgs/Evan_Alexander.jpeg"
+                    />
+                    <p>Body: Maanik Chawla</p>
+                    <p>Structures: Devansh Kumaria</p>
+                    <p>Composites: Emma Hellen</p>
+                    <p>Vehicle Dynamics: Alex Nealy</p>
+                    <p>Mechatronics: Audric Buslim</p>
+                    <p>Braking: Owen Wagner</p>
+                    <p>Suspension: Landen Heim</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .team-members {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+    .sub-members {
+        display: flex;
+        justify-content: center;
+        align-items: top;
+    }
+    .one-sub p {
+        font-size: 0.6rem;
+        margin-top: 10px;
+    }
+
+    .about {
+        position: relative;
+        text-align: center;
+        margin: 100px 0;
+        padding: 50px 50px;
+        background-color: #000000;
+    }
+
+    .about h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        opacity: 1;
+    }
+
+    /* Fade effect for text */
+</style>

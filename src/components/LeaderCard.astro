@@ -15,11 +15,14 @@ const { name, email, role, imageURL } = Astro.props;
     }
     .member {
         background: white;
-        padding: 20px;
+        padding: 10px;
+        margin: 10px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         text-align: center;
-        max-width: 200px;
+        width: 200px;
+        justify-content: center;
+        align-items: center;
     }
     .member img {
         width: 150px;
@@ -35,7 +38,7 @@ const { name, email, role, imageURL } = Astro.props;
     }
 
     .member p {
-        font-size: 1rem;
+        font-size: 0.7rem;
         color: #555;
     }
 
