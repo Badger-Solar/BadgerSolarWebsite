@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Overview">
     <section class="overview">
-        <div class="Electrical">
+        <div class="department electrical">
             <h1>Electrical</h1>
             <p>
                 Meetings and Work Sessions: Every Tuesday 6-9 pm in ME 1245
@@ -14,15 +14,16 @@ import Layout from "../layouts/Layout.astro";
                 that achieves 97% efficiency to a 5 kWh lithium-ion battery pack
                 manufactured on campus and everything in between.
             </p>
-
-            <h2>Software & Firmware</h2>
+        </div>
+        <div class="department firmware">
+            <h1>Software & Firmware</h1>
             <p>Meetings and Work Sessions: Every Wednesday 6-9 pm in ME 1245</p>
         </div>
-        <div class="Mechanical">
+        <div class="department mechanical">
             <h1>Mechanical</h1>
             <p>Meetings and Work Sessions: Every Tuesday 6-9 pm in ME 1235</p>
         </div>
-        <div class="Operations">
+        <div class="department operations">
             <h1>Operations</h1>
             <p>Meetings and Work Sessions: Every Tuesday 6-9 pm in ME 1255</p>
         </div>
@@ -37,5 +38,14 @@ import Layout from "../layouts/Layout.astro";
         margin: 100px 0;
         padding: 50px 50px;
         background-color: #000000;
+    }
+
+    .department {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .overview img {
+        width: 700px;
     }
 </style>
