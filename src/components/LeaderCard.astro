@@ -4,9 +4,9 @@ const { name, email, role, imageURL } = Astro.props;
 
 <div class="member">
     <img src={imageURL} alt="Team Member" />
-    <p>{name}</p>
-    <p>{email}</p>
-    <p>{role}</p>
+    <h3>{name}</h3>
+    <h3>{email}</h3>
+    <h3>{role}</h3>
 </div>
 
 <style>
@@ -14,19 +14,18 @@ const { name, email, role, imageURL } = Astro.props;
         padding: 10px;
     }
     .member {
-        background: white;
+        background: rgba(0, 0, 0, 0.3);
         padding: 10px;
-        margin: 10px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         text-align: center;
-        width: 200px;
+        width: 400px;
         justify-content: center;
         align-items: center;
     }
     .member img {
-        width: 150px;
-        height: 150px;
+        width: 250px;
+        height: 250px;
         border-radius: 50%;
         object-fit: cover;
     }
@@ -34,15 +33,10 @@ const { name, email, role, imageURL } = Astro.props;
     .member h3 {
         margin: 10px 0 5px;
         font-size: 1.2rem;
-        color: #000;
+        color: #ffffff;
     }
 
-    .member p {
-        font-size: 0.7rem;
-        color: #555;
-    }
-
-    .member:hover {
+    /* .member:hover {
         transform: scale(1.05);
-    }
+    } */
 </style>
