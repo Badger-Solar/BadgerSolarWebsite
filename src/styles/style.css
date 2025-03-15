@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap"); */
 
 *,
 *::before,
@@ -7,9 +7,17 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* this is from chat */
+@font-face {
+    font-family: "D-DIN-Bold";
+    src: url("src/assets/fonts/D-DIN-Bold.otf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+}
 
 body {
-    font-family: "Bruno Ace SC", sans-serif;
+    /* font-family: "Bruno Ace SC", sans-serif; */
+    font-family: D-DIN-Bold, Arial, Verdana, sans-serif;
     background: #000;
     color: #fff;
 }
@@ -361,11 +369,6 @@ section {
 }
 
 /* --------------------------------------- Contact Page Styles ----------------------------------------------------- */
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: "Bruno Ace SC", sans-serif;
-}
 
 button {
     display: inline-block;

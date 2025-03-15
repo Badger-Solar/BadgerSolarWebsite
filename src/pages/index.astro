@@ -26,7 +26,12 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
     .section-a {
-        background-image: url("/src/assets/bsrCarBgUgly.jpg");
+        /* background-image: url("/src/assets/bsrCarBgUgly.jpg"); */
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),
+            url("/src/assets/bsrCarBgUgly.jpg");
+        background-size: cover;
+        background-position: center;
     }
     .btn {
         position: relative;
