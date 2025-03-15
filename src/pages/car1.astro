@@ -1,0 +1,210 @@
+---
+import Layout from "../layouts/Layout.astro";
+// need to change title and header content for this page
+---
+
+<Layout>
+    <section class="section-animate bg-car-1"></section>
+    <div id="section-inner-center" class="section-inner-center">
+        <h3>Helios</h3>
+        <p>Car 1 Helios is designed to be aerodynamic and energy efficient.</p>
+    </div>
+    <div class="stats">
+        <div>
+            <span class="counter" data-target="64">13</span>
+            <h4>Top Speed</h4>
+            mph
+        </div>
+        <div>
+            <span class="counter" data-target="32">5</span>
+            <h4>Fastest Lap</h4>
+            sec
+        </div>
+        <div>
+            <span class="counter" data-target="332">200</span>
+            <h4>Total Range</h4>
+            miles
+        </div>
+    </div>
+
+    <section class="our-team">
+        <div class="reveal-inner section-inner">
+            <div class="inner-left-middle">
+                <div class="text-container">
+                    <p
+                        class="animate"
+                        style="opacity: 1; visibility: inherit; translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px);"
+                    >
+                        Helios is a sleek, aerodynamic, and meticulously
+                        engineered solar-powered vehicle designed to conquer the
+                        challenging American Solar Challenge. Built by dedicated
+                        students, Helios represents the pinnacle of their
+                        ingenuity, incorporating cutting-edge photovoltaic
+                        technology to capture the sun's energy, efficient motor
+                        systems, and lightweight construction to maximize
+                        performance. More than just a race car, Helios serves as
+                        a testament to the team's commitment to sustainable
+                        transportation and a showcase for the university's
+                        engineering prowess. The vehicle's distinctive design
+                        and impressive capabilities embody the team's relentless
+                        pursuit of innovation and victory on the open road.
+                    </p>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="/src/assets/bsrCarBgTemp.jpg" alt="helios-blur" />
+            </div>
+        </div>
+    </section>
+
+    <section class="section-overview">
+        <div class="section-inner-stats">
+            <div class="inner-left-middle">
+                <p class="js-bounding" style="margin-bottom: 5px;">
+                    2023 - Helios
+                </p>
+                <h2 class="js-stagger" style="margin-bottom: 10px;">
+                    Vehicle Specifications
+                </h2>
+                <table class="data additional-toggle" style="display: table;">
+                    <tbody>
+                        <tr class="js-stagger">
+                            <td>HEIGHT</td>
+                            <td>1.46 m <span>/ 4.8 ft</span></td>
+                        </tr>
+                        <tr class="js-stagger">
+                            <td>LENGTH</td>
+                            <td>3.04 m <span>/ 10.0 ft</span></td>
+                        </tr>
+                        <tr class="js-stagger">
+                            <td>MASS</td>
+                            <td>181 kg <span>/ 400 lb</span></td>
+                        </tr>
+                        <tr class="js-stagger">
+                            <td>TOP SPEED</td>
+                            <td>64 mph <span>/ 103 km/h</span></td>
+                        </tr>
+                        <tr class="js-stagger">
+                            <td>RANGE</td>
+                            <td>332 miles <span>/ 534 km</span></td>
+                        </tr>
+                        <tr class="js-stagger">
+                            <td>ACCELERATION (0-60 mph)</td>
+                            <td>7.6 sec</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <script src="/js/script.js" defer></script>
+</Layout>
+
+<style>
+    .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px; /* Optional: rounds the corners of the image */
+    }
+
+    .text-container {
+        flex: 1;
+        padding-right: 20px; /* Space between text and image */
+    }
+
+    .text-container p {
+        font-size: 1rem;
+        line-height: 1.8;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    /* Styling for the Reveal Inner Section with Text and Image */
+    .reveal-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 20px;
+    }
+
+    .js-stagger {
+        opacity: 0;
+        transform: translateY(
+            30px
+        ); /* Optionally add a slight downward offset for smoother animation */
+        transition:
+            opacity 1s ease,
+            transform 1s ease;
+    }
+    /* Optional: Add staggered animation timing to each row for a delayed effect */
+    .js-stagger:nth-child(odd) {
+        animation-delay: 0.2s;
+    }
+
+    .js-stagger:nth-child(even) {
+        animation-delay: 0.4s;
+    }
+
+    .stats {
+        max-width: 960px;
+        margin: 0 auto;
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+    }
+
+    .stats div span {
+        font-size: 120px;
+    }
+
+    .stats div h4 {
+        font-size: 24px;
+        font-weight: 300;
+    }
+    .bg-car-1 {
+        background-image: url("/src/assets/bsrCarBgTemp.jpg");
+    }
+
+    .section-inner-center {
+        position: absolute;
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-transform: uppercase;
+        max-width: 550px;
+        text-align: center;
+    }
+
+    .section-inner-center h3 {
+        font-size: 100px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        animation: fadeInUp 0.5s ease-in-out;
+    }
+
+    .section-inner-center p {
+        font-size: 20px;
+        font-weight: 500;
+        animation: fadeInUp 0.5s ease-in-out 0.2s;
+        animation-fill-mode: both;
+    }
+    /* .section-inner-center-show h3 {
+        font-size: 100px;
+        margin-bottom: 15px;
+        animation: fadeOut 0.5s ease-in-out;
+    }
+
+    .section-inner-center-show p {
+        font-size: 20px;
+        animation: fadeOut 0.5s ease-in-out 0.2s;
+    } */
+</style>

@@ -8,23 +8,6 @@ let lastScrollTop = 0; // To keep track of the last scroll position
 const navbar = document.querySelector(".main-header"); // Get the navbar
 let scrollStarted = false;
 
-btn.addEventListener("click", navToggle);
-document.addEventListener("scroll", scrollpage);
-window.addEventListener("scroll", () => {
-  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (currentScroll > lastScrollTop) {
-    // Scrolling down
-    navbar.classList.add("hide-navbar");
-  } else {
-    // Scrolling up
-    navbar.classList.remove("hide-navbar");
-  }
-
-  // Update lastScrollTop to the current scroll position
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-});
-
 const navToggle = () => {
   btn.classList.toggle("open");
   overlay.classList.toggle("overlay-show");
@@ -44,8 +27,27 @@ const scrollpage = () => {
   }
 };
 
+btn.addEventListener("click", navToggle);
+document.addEventListener("scroll", scrollpage);
+window.addEventListener("scroll", () => {
+  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (currentScroll > lastScrollTop) {
+    // Scrolling down
+    navbar.classList.add("hide-navbar");
+  } else {
+    // Scrolling up
+    navbar.classList.remove("hide-navbar");
+  }
+
+  // Update lastScrollTop to the current scroll position
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+});
+
 const countUp = () => {
   counters.forEach((counter) => {
+    console.log("Counter Found:", counter); // Debugging
+    console.log("Target Value:", counter.getAttribute("data-target"));
     counter.innerText = "0";
 
     const updateCounter = () => {
