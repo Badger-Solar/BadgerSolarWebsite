@@ -28,40 +28,35 @@ import Layout from "../layouts/Layout.astro";
     </div>
 
     <section class="our-team">
-        <div class="reveal-inner section-inner">
-            <div class="inner-left-middle">
-                <div class="text-container">
-                    <p
-                        class="animate"
-                        style="opacity: 1; visibility: inherit; translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px);"
-                    >
-                        Helios is a sleek, aerodynamic, and meticulously
-                        engineered solar-powered vehicle designed to conquer the
-                        challenging American Solar Challenge. Built by dedicated
-                        students, Helios represents the pinnacle of their
-                        ingenuity, incorporating cutting-edge photovoltaic
-                        technology to capture the sun's energy, efficient motor
-                        systems, and lightweight construction to maximize
-                        performance. More than just a race car, Helios serves as
-                        a testament to the team's commitment to sustainable
-                        transportation and a showcase for the university's
-                        engineering prowess. The vehicle's distinctive design
-                        and impressive capabilities embody the team's relentless
-                        pursuit of innovation and victory on the open road.
-                    </p>
-                </div>
-                <div>
-                    <model-viewer
-                        alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
-                        src="/src/assets/models/neel-model.glb"
-                        auto-rotate
-                        camera-controls
-                        touch-action="pan-y"
-                        style="width: 400px; height: 400px;"></model-viewer>
-                </div>
+        <div class="section-inner-model">
+            <div class="text-container">
+                <p
+                    class="animate"
+                    style="opacity: 1; visibility: inherit; translate: none; rotate: none; scale: none; transform: translate3d(0px, 0px, 0px);"
+                >
+                    Helios is a sleek, aerodynamic, and meticulously
+                    engineered solar-powered vehicle designed to conquer the
+                    challenging American Solar Challenge. Built by dedicated
+                    students, Helios represents the pinnacle of their
+                    ingenuity, incorporating cutting-edge photovoltaic
+                    technology to capture the sun's energy, efficient motor
+                    systems, and lightweight construction to maximize
+                    performance. More than just a race car, Helios serves as
+                    a testament to the team's commitment to sustainable
+                    transportation and a showcase for the university's
+                    engineering prowess. The vehicle's distinctive design
+                    and impressive capabilities embody the team's relentless
+                    pursuit of innovation and victory on the open road.
+                </p>
             </div>
-            <div class="image-container">
-                <img src="/src/assets/bsrCarBgTemp.jpg" alt="helios-blur" />
+            <div class="car-model">
+                <model-viewer
+                    alt="model of car"
+                    src="src/assets/neel-model.glb"
+                    auto-rotate
+                    camera-controls
+                    touch-action="pan-y"
+                    style="width: 600px; height: 400px;"></model-viewer>
             </div>
         </div>
     </section>
@@ -107,6 +102,8 @@ import Layout from "../layouts/Layout.astro";
         </div>
     </section>
     <script src="/js/script.js" defer></script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
 </Layout>
 
 <style>
@@ -205,14 +202,38 @@ import Layout from "../layouts/Layout.astro";
         font-weight: 500;
         animation: fadeInUp 0.5s ease-in-out 0.2s;
         animation-fill-mode: both;
+        padding: 0 20px;
     }
 
     .section-animate {
         animation: fadeIn 2s ease-in-out;
     }
 
-    .inner-left-middle {
+    .section-inner-model {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 20px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Allows wrapping on smaller screens */
+        gap: 20px; /* Adds space between text and model */
     }
+
+    .text-container {
+        flex: 1;
+        max-width: 50%; /* Ensures text takes half the space */
+        padding-right: 20px;
+    }
+
+    .car-model {
+        flex: 1;
+        max-width: 50%; /* Ensures model takes half the space */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     /* .section-inner-center-show h3 {
         font-size: 100px;
         margin-bottom: 15px;
