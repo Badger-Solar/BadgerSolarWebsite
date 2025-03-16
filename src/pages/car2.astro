@@ -27,7 +27,7 @@ import Layout from "../layouts/Layout.astro";
         </div>
     </div>
 
-    <section class="our-team">
+    <section class="section-model">
         <div class="carousel-container">
             <button class="carousel-btn prev-btn">❮</button>
             <div class="carousel-track">
@@ -96,6 +96,10 @@ import Layout from "../layouts/Layout.astro";
                 </div>
             </div>
             <button class="carousel-btn next-btn">❯</button>
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
         </div>
     </section>
 
@@ -187,7 +191,7 @@ import Layout from "../layouts/Layout.astro";
             opacity 1s ease,
             transform 1s ease;
     }
-    /* Optional: Add staggered animation timing to each row for a delayed effect */
+
     .js-stagger:nth-child(odd) {
         animation-delay: 0.2s;
     }
@@ -218,6 +222,11 @@ import Layout from "../layouts/Layout.astro";
     .bg-car-2 {
         background-image: url("/src/assets/bsrCarBgTemp.jpg");
     }
+
+    .section-model {
+        padding: 20px 20px;
+    }
+
 
     .section-inner-center {
         position: absolute;
@@ -253,10 +262,11 @@ import Layout from "../layouts/Layout.astro";
         margin: 0 auto;
         padding: 20px 20px;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        flex-wrap: wrap; /* Allows wrapping on smaller screens */
-        gap: 20px; /* Adds space between text and model */
+        flex-wrap: wrap;
+        gap: 20px;
+        height: 100vh;
     }
 
     .text-container {
@@ -319,9 +329,10 @@ import Layout from "../layouts/Layout.astro";
 
     .carousel-btn {
         position: absolute;
-        top: 50%;
+        top: 80%;
         transform: translateY(-50%);
-        background-color: rgba(0, 0, 0, 0.5);
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        background-color: transparent;
         color: white;
         border: none;
         cursor: pointer;
@@ -337,4 +348,5 @@ import Layout from "../layouts/Layout.astro";
     .next-btn {
         right: 10px;
     }
+
 </style>
