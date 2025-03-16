@@ -50,6 +50,15 @@ import Layout from "../layouts/Layout.astro";
                         pursuit of innovation and victory on the open road.
                     </p>
                 </div>
+                <div>
+                    <model-viewer
+                        alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
+                        src="/src/assets/models/neel-model.glb"
+                        auto-rotate
+                        camera-controls
+                        touch-action="pan-y"
+                        style="width: 400px; height: 400px;"></model-viewer>
+                </div>
             </div>
             <div class="image-container">
                 <img src="/src/assets/bsrCarBgTemp.jpg" alt="helios-blur" />
@@ -200,6 +209,9 @@ import Layout from "../layouts/Layout.astro";
 
     .section-animate {
         animation: fadeIn 2s ease-in-out;
+    }
+
+    .inner-left-middle {
     }
     /* .section-inner-center-show h3 {
         font-size: 100px;
