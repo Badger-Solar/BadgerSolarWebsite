@@ -5,47 +5,57 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Sponsors">
     <section class="sponsors">
         <h1>Thank you to our sponsors for supporting our vision</h1>
-        <div class="sponsor-block varsity">
-            <h2>Varsity</h2>
-            <div class="sponsor-images">
-                <img
-                    src="/src/assets/sponsor_logos/Hoffeman_Logo.png"
-                    alt="Hoffeman"
-                />
-                <img
-                    src="/src/assets/sponsor_logos/Altium-1.png"
-                    alt="Altium"
-                />
-                <img
-                    src="/src/assets/sponsor_logos/Siemens_no_bg.png"
-                    alt="Siemens"
-                />
-            </div>
-        </div>
-        <div class="sponsor-block gold">
-            <h2>Gold</h2>
-            <div class="sponsor-images">
-                <img
-                    src="/src/assets/sponsor_logos/Maxeon_Logo.png"
-                    alt="Maxeon"
-                />
-            </div>
-        </div>
-        <div class="sponsor-block bronze">
-            <h2>Bronze</h2>
-            <div class="sponsor-images">
-                <img
-                    src="/src/assets/sponsor_logos/College_of_Engineering_Logo.jpg"
-                    alt="College of Engineering"
-                />
-                <img
-                    src="/src/assets/sponsor_logos/generac-blue-logo.jpg"
-                    alt="Generac"
-                />
-                <img src="/src/assets/sponsor_logos/xes-logo.png" alt="XES" />
+
+        <div class="orbit-container">
+            <div class="orbit">
+                <div class="sponsor-block varsity">
+                    <h2>Varsity</h2>
+                    <div class="sponsor-images">
+                        <img
+                            src="/src/assets/sponsor_logos/Hoffeman_Logo.png"
+                            alt="Hoffeman"
+                        />
+                        <img
+                            src="/src/assets/sponsor_logos/Altium-1.png"
+                            alt="Altium"
+                        />
+                        <img
+                            src="/src/assets/sponsor_logos/Siemens_no_bg.png"
+                            alt="Siemens"
+                        />
+                    </div>
+                </div>
+                <div class="sponsor-block gold">
+                    <h2>Gold</h2>
+                    <div class="sponsor-images">
+                        <img
+                            src="/src/assets/sponsor_logos/Maxeon_Logo.png"
+                            alt="Maxeon"
+                        />
+                    </div>
+                </div>
+                <div class="sponsor-block bronze">
+                    <h2>Bronze</h2>
+                    <div class="sponsor-images">
+                        <img
+                            src="/src/assets/sponsor_logos/College_of_Engineering_Logo.jpg"
+                            alt="College of Engineering"
+                        />
+                        <img
+                            src="/src/assets/sponsor_logos/generac-blue-logo.jpg"
+                            alt="Generac"
+                        />
+                        <img
+                            src="/src/assets/sponsor_logos/xes-logo.png"
+                            alt="XES"
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <script src="/js/sponsorGSAP.js">
+    </script>
 </Layout>
 
 <style>
@@ -79,21 +89,54 @@ import Layout from "../layouts/Layout.astro";
         text-transform: uppercase;
     }
 
+    .orbit-container {
+    }
+
+    .orbit {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        transform: translate(-50%, -50%);
+
+        animation: orbitRotate 10s linear infinite;
+    }
+
+    @keyframes orbitRotate {
+        0% {
+            transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+
     /* Sponsor Blocks */
     .sponsor-block {
-        margin-bottom: 40px;
+        position: absolute;
+        border-radius: 50%;
+        /* margin-bottom: 40px; */
     }
 
     .varsity {
+        width: 50px
         background-color: #d31b38; /* Crimson */
+        transform: rotate(0deg) translateX(100px);
+
     }
 
     .gold {
+
         background-color: #ffb400; /* Gold */
+        transform: rotate(120deg) translateX(100px);
+
     }
 
     .bronze {
         background-color: #f0e1c2; /* BlanchedAlmond */
+        transform: rotate(240deg) translateX(100px);
+
     }
 
     /* Sponsor Images */
