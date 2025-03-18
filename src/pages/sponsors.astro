@@ -3,143 +3,155 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Sponsors">
-    <section class="sponsors">
-        <h1>Thank you to our sponsors for supporting our vision</h1>
-        <div class="sponsor-block varsity">
-            <h2>Varsity</h2>
-            <div class="sponsor-images">
-                <img
-                    src="/src/assets/sponsor_logos/Hoffeman_Logo.png"
-                    alt="Hoffeman"
-                />
-                <img
-                    src="/src/assets/sponsor_logos/Altium-1.png"
-                    alt="Altium"
-                />
-                <img
-                    src="/src/assets/sponsor_logos/Siemens_no_bg.png"
-                    alt="Siemens"
-                />
+  <section class="sponsors">
+    <h1>Thank you to our sponsors for supporting our vision</h1>
+
+    <div class="animation-container">
+      <div class="sponsor-block varsity">
+        <h2>Varsity</h2>
+        <!-- <div class="sponsor-images">
+                    <img
+                        src="/src/assets/sponsor_logos/Hoffeman_Logo.png"
+                        alt="Hoffeman"
+                    />
+                    <img
+                        src="/src/assets/sponsor_logos/Altium-1.png"
+                        alt="Altium"
+                    />
+                    <img
+                        src="/src/assets/sponsor_logos/Siemens_no_bg.png"
+                        alt="Siemens"
+                    />
+                </div> -->
+      </div>
+      <!-- <div class="sponsor-block gold">
+                <h2>Gold</h2>
+                <div class="sponsor-images">
+                    <img
+                        src="/src/assets/sponsor_logos/Maxeon_Logo.png"
+                        alt="Maxeon"
+                    />
+                </div>
             </div>
-        </div>
-        <div class="sponsor-block gold">
-            <h2>Gold</h2>
-            <div class="sponsor-images">
-                <img
-                    src="/src/assets/sponsor_logos/Maxeon_Logo.png"
-                    alt="Maxeon"
-                />
-            </div>
-        </div>
-        <div class="sponsor-block bronze">
-            <h2>Bronze</h2>
-            <div class="sponsor-images">
-                <img
-                    src="/src/assets/sponsor_logos/College_of_Engineering_Logo.jpg"
-                    alt="College of Engineering"
-                />
-                <img
-                    src="/src/assets/sponsor_logos/generac-blue-logo.jpg"
-                    alt="Generac"
-                />
-                <img src="/src/assets/sponsor_logos/xes-logo.png" alt="XES" />
-            </div>
-        </div>
-    </section>
+            <div class="sponsor-block bronze">
+                <h2>Bronze</h2>
+                <div class="sponsor-images">
+                    <img
+                        src="/src/assets/sponsor_logos/College_of_Engineering_Logo.jpg"
+                        alt="College of Engineering"
+                    />
+                    <img
+                        src="/src/assets/sponsor_logos/generac-blue-logo.jpg"
+                        alt="Generac"
+                    />
+                    <img src="/src/assets/sponsor_logos/xes-logo.png" alt="XES" />
+                </div>
+            </div> -->
+    </div>
+  </section>
+  <script type="module" src="/js/sponsorsGSAP.js"></script>
 </Layout>
 
 <style>
-    /* General Reset */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+  /* General Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-    /* Main Section */
-    .sponsors {
-        padding: 60px 20px;
-        background-color: 00000;
-        color: #fff;
-        text-align: center;
-    }
+  /* Main Section */
+  .sponsors {
+    padding: 60px 20px;
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+  }
 
+  .animation-container {
+    position: absolute;
+    width: 1000px;
+    height: 500px;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  /* Sponsor Blocks */
+  .sponsor-block {
+    margin-bottom: 40px;
+    width: 200px;
+    position: relative;
+  }
+
+  .varsity {
+    background-color: #d31b38; /* Crimson */
+  }
+
+  .gold {
+    background-color: #ffb400; /* Gold */
+  }
+
+  .bronze {
+    background-color: #f0e1c2; /* BlanchedAlmond */
+  }
+
+  /* Sponsor Images */
+  .sponsor-images {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .sponsor-images img {
+    width: 50px;
+    max-width: 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .sponsor-images img:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
     h1 {
-        font-size: 2.5rem;
-        font-weight: 700;
-        margin-bottom: 40px;
-        font-family: "Roboto", sans-serif;
+      font-size: 2rem;
     }
 
-    h2 {
-        font-size: 1.5rem;
-        font-weight: 500;
-        color: #fff;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-    }
-
-    /* Sponsor Blocks */
     .sponsor-block {
-        margin-bottom: 40px;
+      padding: 20px;
     }
 
-    .varsity {
-        background-color: #d31b38; /* Crimson */
-    }
-
-    .gold {
-        background-color: #ffb400; /* Gold */
-    }
-
-    .bronze {
-        background-color: #f0e1c2; /* BlanchedAlmond */
-    }
-
-    /* Sponsor Images */
     .sponsor-images {
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        flex-wrap: wrap;
+      gap: 20px;
     }
 
     .sponsor-images img {
-        width: 150px;
-        max-width: 100%;
-        transition: transform 0.3s ease;
+      width: 120px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.5rem;
     }
 
-    .sponsor-images img:hover {
-        transform: scale(1.05); /* Slight zoom effect on hover */
+    .sponsor-images img {
+      width: 100px;
     }
-
-    /* Mobile Responsiveness */
-    @media (max-width: 768px) {
-        h1 {
-            font-size: 2rem;
-        }
-
-        .sponsor-block {
-            padding: 20px;
-        }
-
-        .sponsor-images {
-            gap: 20px;
-        }
-
-        .sponsor-images img {
-            width: 120px;
-        }
-    }
-
-    @media (max-width: 480px) {
-        h1 {
-            font-size: 1.5rem;
-        }
-
-        .sponsor-images img {
-            width: 100px;
-        }
-    }
+  }
 </style>

@@ -4,162 +4,157 @@
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="src/styles/style.css" />
-        <script src="/js/script.js" defer></script>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Badger Solar</title>
-    </head>
-    <body>
-        <div id="overlay"></div>
-        <div id="mobile-menu" class="mobile-main-menu">
-            <ul>
-                <li class="mobile-only"><a href="car2.html">Car 2</a></li>
-                <li class="mobile-only">
-                    <a href="sponsors.html">Sponsors</a>
-                </li>
-                <li class="mobile-only">
-                    <a href="leadership.html">Leadership</a>
-                </li>
-                <li class="mobile-only"><a href="contact.html">Contact</a></li>
-                <!-- add other menu items here that are only in here -->
-                <li><a href="car2.html">blog</a></li>
-                <li><a href="car2.html">join</a></li>
-            </ul>
-        </div>
-        <!-- <header class="main-header"> -->
-        <header class="mainHeader">
-            <div class="logo">
-                <a href="index.html">
-                    <img
-                        src="../src/assets/solar_logos/logo.png"
-                        alt="Badger Solar"
-                    />
-                </a>
-            </div>
-            <nav class="mainMenu">
-                <ul>
-                    <li><a href="car2.html">Car 2</a></li>
-                    <li><a href="overview.html">Team Overview</a></li>
-                    <li><a href="leadership.html">Leadership</a></li>
-                    <li><a href="sponsors.html">Sponsors</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/style.css" />
+    <script src="/js/script.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Badger Solar</title>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    <div id="mobile-menu" class="mobile-main-menu">
+      <ul>
+        <li class="mobile-only"><a href="car2.html">Car 2</a></li>
+        <li class="mobile-only">
+          <a href="sponsors.html">Sponsors</a>
+        </li>
+        <li class="mobile-only">
+          <a href="leadership.html">Leadership</a>
+        </li>
+        <li class="mobile-only"><a href="contact.html">Contact</a></li>
+        <!-- add other menu items here that are only in here -->
+        <li><a href="car2.html">blog</a></li>
+        <li><a href="car2.html">join</a></li>
+      </ul>
+    </div>
+    <!-- <header class="main-header"> -->
+    <header class="mainHeader">
+      <div class="logo">
+        <a href="index.html">
+          <img src="../src/assets/solar_logos/logo.png" alt="Badger Solar" />
+        </a>
+      </div>
+      <nav class="mainMenu">
+        <ul>
+          <li><a href="car2.html">Car 2</a></li>
+          <li><a href="overview.html">Team Overview</a></li>
+          <li><a href="leadership.html">Leadership</a></li>
+          <li><a href="sponsors.html">Sponsors</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        <button id="menu-btn" class="hamburger" type="button">
-            <span class="hamburger-top"></span>
-            <span class="hamburger-middle"></span>
-            <span class="hamburger-bottom"></span>
-        </button>
+    <button id="menu-btn" class="hamburger" type="button">
+      <span class="hamburger-top"></span>
+      <span class="hamburger-middle"></span>
+      <span class="hamburger-bottom"></span>
+    </button>
 
-        <!-- Section A -->
-        <slot />
-        <!-- End Section A -->
-        <footer class="footer">
-            <ul>
-                <li><a href="index.html">&copy; Badger Solar Racing</a></li>
-                <li>
-                    <a
-                        href="https://www.instagram.com/badgersolarracing/"
-                        target="_blank">Instagram</a
-                    >
-                </li>
-                <li>
-                    <a
-                        href="https://www.facebook.com/badgersolarracing/"
-                        target="_blank">Facebook</a
-                    >
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </footer>
-    </body>
+    <!-- Section A -->
+    <slot />
+    <!-- End Section A -->
+    <footer class="footer">
+      <ul>
+        <li><a href="index.html">&copy; Badger Solar Racing</a></li>
+        <li>
+          <a href="https://www.instagram.com/badgersolarracing/" target="_blank"
+            >Instagram</a
+          >
+        </li>
+        <li>
+          <a href="https://www.facebook.com/badgersolarracing/" target="_blank"
+            >Facebook</a
+          >
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </footer>
+  </body>
 </html>
 
 <style>
-    .mainHeader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 3;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-transform: uppercase;
-        height: 100px;
-        padding: 0 30px;
-        transition: top 0.3s;
-    }
+  .mainHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+    height: 100px;
+    padding: 0 30px;
+    transition: top 0.3s;
+  }
 
-    .logo {
-        width: 210px;
-        height: auto;
-    }
+  .logo {
+    width: 210px;
+    height: auto;
+  }
 
-    .mainMenu {
-        margin-right: 50px;
-    }
+  .mainMenu {
+    margin-right: 50px;
+  }
 
-    .mainMenu ul {
-        display: flex;
-    }
+  .mainMenu ul {
+    display: flex;
+  }
 
-    .mainMenu ul li {
-        position: relative;
-        margin-right: 20px;
-        padding-bottom: 2px;
-    }
+  .mainMenu ul li {
+    position: relative;
+    margin-right: 20px;
+    padding-bottom: 2px;
+  }
 
-    .mainMenu ul li a::after {
-        content: " ";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 1px;
-        background: #fff;
-        transform: scaleX(0);
-        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-    }
+  .mainMenu ul li a::after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    transform: scaleX(0);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
 
-    .mainMenu ul li a:hover::after {
-        transform: scaleX(1);
-        transition: transform 0.5s;
-    }
+  .mainMenu ul li a:hover::after {
+    transform: scaleX(1);
+    transition: transform 0.5s;
+  }
 
-    .footer {
-        position: relative;
-        padding: 55px 0;
-    }
+  .footer {
+    position: relative;
+    padding: 55px 0;
+  }
 
-    .footer ul {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-    }
+  .footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
-    .footer ul li {
-        margin-right: 20px;
-        color: #aaa;
-        text-transform: uppercase;
-        font-size: 12px;
-        line-height: 2.5;
-    }
+  .footer ul li {
+    margin-right: 20px;
+    color: #aaa;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 2.5;
+  }
 
-    .footer ul li a {
-        color: #fff;
-        transition: color 0.5s;
-    }
+  .footer ul li a {
+    color: #fff;
+    transition: color 0.5s;
+  }
 
-    .footer ul li a:hover {
-        color: #aaa;
-    }
+  .footer ul li a:hover {
+    color: #aaa;
+  }
 </style>

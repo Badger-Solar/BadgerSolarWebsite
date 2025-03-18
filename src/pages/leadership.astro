@@ -4,126 +4,115 @@ import LeaderCard from "../components/LeaderCard.astro";
 ---
 
 <Layout title="Leadership">
-    <!--styling is broken -->
-    <section class="our-team-section">
-        <h2>Our Team</h2>
-        <h4>Leadership</h4>
-        <model-viewer
-            alt="Neil Armstrong's Spacesuit from the Smithsonian Digitization Programs Office and National Air and Space Museum"
-            src="/src/assets/models/neel-model.glb"
-            ar
-            <!--
-            environment-image="shared-assets/environments/moon_1k.hdr"
-            --
-        >
-            <!-- poster="shared-assets/models/NeilArmstrong.webp" -->
-            shadow-intensity="1" camera-controls touch-action="pan-y"></model-viewer
-        >
-    </section>
-    <!-- --------- -->
-    <section class="leadership-section">
-        <div class="team-members">
-            <LeaderCard
-                name="Jack Verich"
-                email="jverich@wisc.edu"
-                role="President"
-                imageURL="src/assets/lead_headshots/Jack_Verich.jpeg"
-            />
-            <div class="sub-members">
-                <div class="one-sub">
-                    <LeaderCard
-                        name="Ryan Van Elles"
-                        email="rvanells@wisc.edu"
-                        role="Electrical Director"
-                        imageURL="src/assets/lead_headshots/Ryan_Van_Ells.jpeg"
-                    />
-                    <p><strong>Battery:</strong> William LaCroix</p>
-                    <p><strong>Solar Array:</strong> Sarah Gerovac</p>
-                    <p><strong>Powertrain:</strong> Sukriti Somvanshi</p>
-                    <p><strong>Low Voltage:</strong> Charlie Steimke</p>
-                    <p><strong>Software:</strong> Hailey Andersen</p>
-                    <p><strong>Firmware:</strong> Bowen Quan</p>
-                    <p><strong>Race Strategy:</strong> Harry Luo</p>
-                </div>
-                <div class="one-sub">
-                    <LeaderCard
-                        name="Nishil Patel"
-                        email="nbpatel2@wisc.edu"
-                        role="Operations Director"
-                        imageURL="src/assets/lead_headshots/Nishil_Patel.jpeg"
-                    />
-                    <p><strong>Industry Relations:</strong> Amit Hegde</p>
-                    <p><strong>Vehicle Logistics:</strong> Neel Shah</p>
-                </div>
-                <div class="one-sub">
-                    <LeaderCard
-                        name="Evan Alexander"
-                        email="eralexander@wisc.edu"
-                        role="Mechanical Director"
-                        imageURL="src/assets/lead_headshots/Evan_Alexander.jpeg"
-                    />
-                    <p><strong>Body:</strong> Maanik Chawla</p>
-                    <p><strong>Structures:</strong> Devansh Kumaria</p>
-                    <p><strong>Composites:</strong> Emma Hellen</p>
-                    <p><strong>Vehicle Dynamics:</strong> Alex Nealy</p>
-                    <p><strong>Mechatronics:</strong> Audric Buslim</p>
-                    <p><strong>Braking:</strong> Owen Wagner</p>
-                    <p><strong>Suspension:</strong> Landen Heim</p>
-                </div>
-            </div>
+  <!--styling is broken -->
+  <section class="our-team-section">
+    <h2>Our Team</h2>
+    <h4>Leadership</h4>
+  </section>
+  <!-- --------- -->
+  <section class="leadership-section">
+    <div class="team-members">
+      <LeaderCard
+        name="Jack Verich"
+        email="jverich@wisc.edu"
+        role="President"
+        imageURL="src/assets/lead_headshots/Jack_Verich.jpeg"
+      />
+      <div class="sub-members">
+        <div class="one-sub">
+          <LeaderCard
+            name="Ryan Van Elles"
+            email="rvanells@wisc.edu"
+            role="Electrical Director"
+            imageURL="src/assets/lead_headshots/Ryan_Van_Ells.jpeg"
+          />
+          <p><strong>Battery:</strong> William LaCroix</p>
+          <p><strong>Solar Array:</strong> Sarah Gerovac</p>
+          <p><strong>Powertrain:</strong> Sukriti Somvanshi</p>
+          <p><strong>Low Voltage:</strong> Charlie Steimke</p>
+          <p><strong>Software:</strong> Hailey Andersen</p>
+          <p><strong>Firmware:</strong> Bowen Quan</p>
+          <p><strong>Race Strategy:</strong> Harry Luo</p>
         </div>
-    </section>
+        <div class="one-sub">
+          <LeaderCard
+            name="Nishil Patel"
+            email="nbpatel2@wisc.edu"
+            role="Operations Director"
+            imageURL="src/assets/lead_headshots/Nishil_Patel.jpeg"
+          />
+          <p><strong>Industry Relations:</strong> Amit Hegde</p>
+          <p><strong>Vehicle Logistics:</strong> Neel Shah</p>
+        </div>
+        <div class="one-sub">
+          <LeaderCard
+            name="Evan Alexander"
+            email="eralexander@wisc.edu"
+            role="Mechanical Director"
+            imageURL="src/assets/lead_headshots/Evan_Alexander.jpeg"
+          />
+          <p><strong>Body:</strong> Maanik Chawla</p>
+          <p><strong>Structures:</strong> Devansh Kumaria</p>
+          <p><strong>Composites:</strong> Emma Hellen</p>
+          <p><strong>Vehicle Dynamics:</strong> Alex Nealy</p>
+          <p><strong>Mechatronics:</strong> Audric Buslim</p>
+          <p><strong>Braking:</strong> Owen Wagner</p>
+          <p><strong>Suspension:</strong> Landen Heim</p>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
-    .our-team-section {
-        position: relative;
-        text-align: center;
-        margin: 10px 0 10px 0;
-        padding: 50px 50px;
-        background-color: #000000;
-    }
+  .our-team-section {
+    position: relative;
+    text-align: center;
+    margin: 10px 0 10px 0;
+    padding: 50px 50px;
+    background-color: #000000;
+  }
 
-    .our-team-section h2 {
-        font-size: 2rem;
-        margin-bottom: 20px;
-        opacity: 1;
-    }
+  .our-team-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    opacity: 1;
+  }
 
-    /* Added a class for the leadership section */
-    .leadership-section {
-        margin-top: 20px;
-        margin-bottom: 100px; /* Added margin to avoid overlap with the footer */
-        padding: 50px 20px;
-        text-align: center;
-    }
+  /* Added a class for the leadership section */
+  .leadership-section {
+    margin-top: 20px;
+    margin-bottom: 100px; /* Added margin to avoid overlap with the footer */
+    padding: 50px 20px;
+    text-align: center;
+  }
 
-    .team-members {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        flex-wrap: wrap;
-    }
+  .team-members {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
 
-    .sub-members {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 40px;
-    }
+  .sub-members {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+  }
 
-    .one-sub {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 10px;
-    }
+  .one-sub {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
 
-    .one-sub p {
-        font-size: 0.8rem;
-        margin-top: 10px;
-    }
+  .one-sub p {
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
 </style>

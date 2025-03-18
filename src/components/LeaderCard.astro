@@ -3,40 +3,40 @@ const { name, email, role, imageURL } = Astro.props;
 ---
 
 <div class="member">
-    <img src={imageURL} alt="Team Member" />
-    <h3>{name}</h3>
-    <h3>{email}</h3>
-    <h3>{role}</h3>
+  <img src={imageURL} alt="Team Member" />
+  <h3>{name}</h3>
+  <h3>{email}</h3>
+  <h3>{role}</h3>
 </div>
 
 <style>
-    .img {
-        padding: 10px;
-    }
-    .member {
-        background: rgba(0, 0, 0, 0.3);
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        text-align: center;
-        width: 400px;
-        justify-content: center;
-        align-items: center;
-    }
-    .member img {
-        width: 250px;
-        height: 250px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
+  .img {
+    padding: 10px;
+  }
+  .member {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+  }
+  .member img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
 
-    .member h3 {
-        margin: 10px 0 5px;
-        font-size: 1.2rem;
-        color: #ffffff;
-    }
+  .member h3 {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+    color: #ffffff;
+  }
 
-    /* .member:hover {
+  /* .member:hover {
         transform: scale(1.05);
     } */
 </style>

@@ -3,122 +3,125 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <section class="section-b">
-        <video autoplay muted loop playsinline class="background-video">
-            <source src="src/assets/LandingVideoEdited.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="overlay-content">
-            <h1>BADGER SOLAR RACING</h2>
-            <p>Pushing the limits of solar racing with innovation, speed, and efficiency.</p>
-        </div>
-        <div class="scroll-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                <path
-                    stroke="ffffff"
-                    d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"
-                ></path>
-            </svg>
-        </div>
-    </section>
-    <section class="section-a">
-        <div class="section-inner">
-            <h4>Upcoming Car</h4>
-            <h2>CAR-2 Helios</h2>
-            <a href="#" class="btn">
-                <div class="hover"></div>
-                <span>Learn More</span>
-            </a>
-        </div>
+  <section class="section-b">
+    <video autoplay muted loop playsinline class="background-video">
+      <source src="src/assets/LandingVideoEdited.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay-content">
+      <h1>BADGER SOLAR RACING</h1>
+      <p>
+        Pushing the limits of solar racing with innovation, speed, and
+        efficiency.
+      </p>
+    </div>
+    <div class="scroll-arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+        <path
+          stroke="ffffff"
+          d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"
+        ></path>
+      </svg>
+    </div>
+  </section>
+  <section class="section-a">
+    <div class="section-inner">
+      <h4>Upcoming Car</h4>
+      <h2>CAR-2 Helios</h2>
+      <a href="#" class="btn">
+        <div class="hover"></div>
+        <span>Learn More</span>
+      </a>
+    </div>
 
-        <div class="scroll-arrow">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-                <path
-                    stroke="ffffff"
-                    d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"
-                ></path>
-            </svg>
-        </div>
-    </section>
+    <div class="scroll-arrow">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+        <path
+          stroke="ffffff"
+          d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z"
+        ></path>
+      </svg>
+    </div>
+  </section>
 </Layout>
 
 <style>
-    .section-b {
-        position: relative;
-        width: 100%;
-        height: 100vh; /* Full-screen */
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .section-b {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full-screen */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .background-video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        z-index: -1; 
-    }
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
 
-    .section-b overlay-content {
-        position: relative;
-        color: white;
-        text-align: center;
-        z-index: 1;
-        background: rgba(0, 0, 0, 0.5); 
-        padding: 20px;
-        border-radius: 10px;
-    }
+  .section-b overlay-content {
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
 
-    .section-b h1 {
-        font-size: 3rem;
-        margin-bottom: 10px;
-    }
+  .section-b h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
 
-    .section-a {
-        /* background-image: url("/src/assets/bsrCarBgUgly.jpg"); */
-        background-image:
-            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),
-            url("/src/assets/bsrCarBgUgly.jpg");
-        background-size: cover;
-        background-position: center;
-    }
-    .btn {
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-        text-align: center;
-        min-width: 130px;
-        padding: 15px 50px;
-        margin-top: 10px;
-        border: 2px solid #fff;
-        text-transform: uppercase;
-        font-weight: bold;
-        overflow: hidden;
-        z-index: 2;
-    }
+  .section-a {
+    /* background-image: url("/src/assets/bsrCarBgUgly.jpg"); */
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)),
+      url("/src/assets/bsrCarBgUgly.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .btn {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    min-width: 130px;
+    padding: 15px 50px;
+    margin-top: 10px;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    overflow: hidden;
+    z-index: 2;
+  }
 
-    .btn:hover span {
-        color: #000;
-    }
+  .btn:hover span {
+    color: #000;
+  }
 
-    .btn .hover {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #fff;
-        color: #000;
-        z-index: -1;
-        transform: translateY(100%);
-        transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-    }
+  .btn .hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    color: #000;
+    z-index: -1;
+    transform: translateY(100%);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
 
-    .btn:hover .hover {
-        transform: translateY(0);
-    }
+  .btn:hover .hover {
+    transform: translateY(0);
+  }
 </style>

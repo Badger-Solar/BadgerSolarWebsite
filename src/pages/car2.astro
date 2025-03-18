@@ -4,286 +4,288 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-    <section class="section-animate bg-car-2"></section>
-    <div id="section-inner-center" class="section-inner-center">
-        <h3>Helios</h3>
-        <p>Car 1 Helios is designed to be aerodynamic and energy efficient.</p>
+  <section class="section-animate bg-car-2"></section>
+  <div id="section-inner-center" class="section-inner-center">
+    <h3>Helios</h3>
+    <p>Car 1 Helios is designed to be aerodynamic and energy efficient.</p>
+  </div>
+  <div class="stats">
+    <div>
+      <span class="counter" data-target="64">13</span>
+      <h4>Top Speed</h4>
+      mph
     </div>
-    <div class="stats">
-        <div>
-            <span class="counter" data-target="64">13</span>
-            <h4>Top Speed</h4>
-            mph
-        </div>
-        <div>
-            <span class="counter" data-target="32">5</span>
-            <h4>Fastest Lap</h4>
-            sec
-        </div>
-        <div>
-            <span class="counter" data-target="332">200</span>
-            <h4>Total Range</h4>
-            miles
-        </div>
+    <div>
+      <span class="counter" data-target="32">5</span>
+      <h4>Fastest Lap</h4>
+      sec
     </div>
+    <div>
+      <span class="counter" data-target="332">200</span>
+      <h4>Total Range</h4>
+      miles
+    </div>
+  </div>
 
-    <section class="section-model">
-        <div class="carousel-container">
-            <button class="carousel-btn prev-btn">❮</button>
-            <div class="carousel-track">
-                <div class="carousel-item">
-                    <div class="section-inner-model">
-                        <div class="text-container">
-                            <p>
-                                Helios is a sleek, aerodynamic, and meticulously
-                                engineered solar-powered vehicle designed to conquer
-                                the challenging American Solar Challenge.
-                            </p>
-                        </div>
-                        <div class="car-model">
-                            <model-viewer
-                                alt="Helios model"
-                                src="src/assets/neel-model.glb"
-                                auto-rotate
-                                camera-controls
-                                touch-action="pan-y"
-                                style="width: 600px; height: 400px;">
-                            </model-viewer>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="carousel-item">
-                    <div class="section-inner-model">
-                        <div class="text-container">
-                            <p>
-                                Apollo is a next-generation solar vehicle with an
-                                emphasis on speed and efficiency.
-                            </p>
-                        </div>
-                        <div class="car-model">
-                            <model-viewer
-                                alt="Apollo model"
-                                src="src/assets/neel-model.glb"
-                                auto-rotate
-                                camera-controls
-                                touch-action="pan-y"
-                                style="width: 600px; height: 400px;">
-                            </model-viewer>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="carousel-item">
-                    <div class="section-inner-model">
-                        <div class="text-container">
-                            <p>
-                                Orion focuses on maximizing energy efficiency with
-                                innovative solar panel integration.
-                            </p>
-                        </div>
-                        <div class="car-model">
-                            <model-viewer
-                                alt="Orion model"
-                                src="src/assets/neel-model.glb"
-                                auto-rotate
-                                camera-controls
-                                touch-action="pan-y"
-                                style="width: 600px; height: 400px;">
-                            </model-viewer>
-                        </div>
-                    </div>
-                </div>
+  <section class="section-model">
+    <div class="carousel-container">
+      <button class="carousel-btn prev-btn">❮</button>
+      <div class="carousel-track">
+        <div class="carousel-item">
+          <div class="section-inner-model">
+            <div class="text-container">
+              <p>
+                Helios is a sleek, aerodynamic, and meticulously engineered
+                solar-powered vehicle designed to conquer the challenging
+                American Solar Challenge.
+              </p>
             </div>
-            <button class="carousel-btn next-btn">❯</button>
-        </div>
-        <div class="carousel-dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-        </div>
-    </section>
-
-    <section class="section-overview">
-        <div class="section-inner-stats">
-            <div class="inner-left-middle">
-                <p class="js-bounding" style="margin-bottom: 5px;">
-                    2023 - Helios
-                </p>
-                <h2 class="js-stagger" style="margin-bottom: 10px;">
-                    Vehicle Specifications
-                </h2>
-                <table class="data additional-toggle" style="display: table;">
-                    <tbody>
-                        <tr class="js-stagger">
-                            <td>HEIGHT</td>
-                            <td>1.46 m <span>/ 4.8 ft</span></td>
-                        </tr>
-                        <tr class="js-stagger">
-                            <td>LENGTH</td>
-                            <td>3.04 m <span>/ 10.0 ft</span></td>
-                        </tr>
-                        <tr class="js-stagger">
-                            <td>MASS</td>
-                            <td>181 kg <span>/ 400 lb</span></td>
-                        </tr>
-                        <tr class="js-stagger">
-                            <td>TOP SPEED</td>
-                            <td>64 mph <span>/ 103 km/h</span></td>
-                        </tr>
-                        <tr class="js-stagger">
-                            <td>RANGE</td>
-                            <td>332 miles <span>/ 534 km</span></td>
-                        </tr>
-                        <tr class="js-stagger">
-                            <td>ACCELERATION (0-60 mph)</td>
-                            <td>7.6 sec</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="car-model">
+              <model-viewer
+                alt="Helios model"
+                src="src/assets/neel-model.glb"
+                auto-rotate
+                camera-controls
+                touch-action="pan-y"
+                style="width: 600px; height: 400px;"
+              >
+              </model-viewer>
             </div>
+          </div>
         </div>
-    </section>
-    <script src="/js/script.js" defer></script>
-    <script src="/js/modelCarousel.js" defer></script>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
+        <div class="carousel-item">
+          <div class="section-inner-model">
+            <div class="text-container">
+              <p>
+                Apollo is a next-generation solar vehicle with an emphasis on
+                speed and efficiency.
+              </p>
+            </div>
+            <div class="car-model">
+              <model-viewer
+                alt="Apollo model"
+                src="src/assets/neel-model.glb"
+                auto-rotate
+                camera-controls
+                touch-action="pan-y"
+                style="width: 600px; height: 400px;"
+              >
+              </model-viewer>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="section-inner-model">
+            <div class="text-container">
+              <p>
+                Orion focuses on maximizing energy efficiency with innovative
+                solar panel integration.
+              </p>
+            </div>
+            <div class="car-model">
+              <model-viewer
+                alt="Orion model"
+                src="src/assets/neel-model.glb"
+                auto-rotate
+                camera-controls
+                touch-action="pan-y"
+                style="width: 600px; height: 400px;"
+              >
+              </model-viewer>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-btn next-btn">❯</button>
+    </div>
+    <div class="carousel-dots">
+      <span class="dot active" onclick="currentSlide(0)"></span>
+      <span class="dot" onclick="currentSlide(1)"></span>
+    </div>
+  </section>
+
+  <section class="section-overview">
+    <div class="section-inner-stats">
+      <div class="inner-left-middle">
+        <p class="js-bounding" style="margin-bottom: 5px;">2023 - Helios</p>
+        <h2 class="js-stagger" style="margin-bottom: 10px;">
+          Vehicle Specifications
+        </h2>
+        <table class="data additional-toggle" style="display: table;">
+          <tbody>
+            <tr class="js-stagger">
+              <td>HEIGHT</td>
+              <td>1.46 m <span>/ 4.8 ft</span></td>
+            </tr>
+            <tr class="js-stagger">
+              <td>LENGTH</td>
+              <td>3.04 m <span>/ 10.0 ft</span></td>
+            </tr>
+            <tr class="js-stagger">
+              <td>MASS</td>
+              <td>181 kg <span>/ 400 lb</span></td>
+            </tr>
+            <tr class="js-stagger">
+              <td>TOP SPEED</td>
+              <td>64 mph <span>/ 103 km/h</span></td>
+            </tr>
+            <tr class="js-stagger">
+              <td>RANGE</td>
+              <td>332 miles <span>/ 534 km</span></td>
+            </tr>
+            <tr class="js-stagger">
+              <td>ACCELERATION (0-60 mph)</td>
+              <td>7.6 sec</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <script src="/js/script.js" defer></script>
+  <script src="/js/modelCarousel.js" defer></script>
+  <script
+    type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+  ></script>
 </Layout>
 
 <style>
-    .image-container {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .image-container img {
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px; /* Optional: rounds the corners of the image */
-    }
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional: rounds the corners of the image */
+  }
 
-    .text-container {
-        flex: 1;
-        padding-right: 20px; /* Space between text and image */
-    }
+  .text-container {
+    flex: 1;
+    padding-right: 20px; /* Space between text and image */
+  }
 
-    .text-container p {
-        font-size: 1rem;
-        line-height: 1.8;
-        max-width: 900px;
-        margin: 0 auto;
-    }
-    /* Styling for the Reveal Inner Section with Text and Image */
-    .reveal-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 20px;
-    }
+  .text-container p {
+    font-size: 1rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  /* Styling for the Reveal Inner Section with Text and Image */
+  .reveal-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+  }
 
-    .js-stagger {
-        opacity: 0;
-        transform: translateY(
-            30px
-        ); /* Optionally add a slight downward offset for smoother animation */
-        transition:
-            opacity 1s ease,
-            transform 1s ease;
-    }
+  .js-stagger {
+    opacity: 0;
+    transform: translateY(
+      30px
+    ); /* Optionally add a slight downward offset for smoother animation */
+    transition:
+      opacity 1s ease,
+      transform 1s ease;
+  }
 
-    .js-stagger:nth-child(odd) {
-        animation-delay: 0.2s;
-    }
+  .js-stagger:nth-child(odd) {
+    animation-delay: 0.2s;
+  }
 
-    .js-stagger:nth-child(even) {
-        animation-delay: 0.4s;
-    }
+  .js-stagger:nth-child(even) {
+    animation-delay: 0.4s;
+  }
 
-    .stats {
-        max-width: 960px;
-        margin: 0 auto;
-        padding-top: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        text-transform: uppercase;
-    }
+  .stats {
+    max-width: 960px;
+    margin: 0 auto;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+  }
 
-    .stats div span {
-        font-size: 120px;
-    }
+  .stats div span {
+    font-size: 120px;
+  }
 
-    .stats div h4 {
-        font-size: 24px;
-        font-weight: 300;
-    }
-    .bg-car-2 {
-        background-image: url("/src/assets/bsrCarBgTemp.jpg");
-    }
+  .stats div h4 {
+    font-size: 24px;
+    font-weight: 300;
+  }
+  .bg-car-2 {
+    background-image: url("/src/assets/bsrCarBgTemp.jpg");
+  }
 
-    .section-model {
-        padding: 20px 20px;
-    }
+  .section-model {
+    padding: 20px 20px;
+  }
 
+  .section-inner-center {
+    position: absolute;
+    top: 42%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    max-width: 550px;
+    text-align: center;
+  }
 
-    .section-inner-center {
-        position: absolute;
-        top: 42%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-transform: uppercase;
-        max-width: 550px;
-        text-align: center;
-    }
+  .section-inner-center h3 {
+    font-size: 100px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    animation: fadeInUp 0.5s ease-in-out;
+  }
 
-    .section-inner-center h3 {
-        font-size: 100px;
-        font-weight: 700;
-        margin-bottom: 15px;
-        animation: fadeInUp 0.5s ease-in-out;
-    }
+  .section-inner-center p {
+    font-size: 20px;
+    font-weight: 500;
+    animation: fadeInUp 0.5s ease-in-out 0.2s;
+    animation-fill-mode: both;
+    padding: 0 20px;
+  }
 
-    .section-inner-center p {
-        font-size: 20px;
-        font-weight: 500;
-        animation: fadeInUp 0.5s ease-in-out 0.2s;
-        animation-fill-mode: both;
-        padding: 0 20px;
-    }
+  .section-animate {
+    animation: fadeIn 2s ease-in-out;
+  }
 
-    .section-animate {
-        animation: fadeIn 2s ease-in-out;
-    }
+  .section-inner-model {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 100vh;
+  }
 
-    .section-inner-model {
-        max-width: 1280px;
-        margin: 0 auto;
-        padding: 20px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        height: 100vh;
-    }
+  .text-container {
+    flex: 1;
+    max-width: 50%; /* Ensures text takes half the space */
+    padding-right: 20px;
+  }
 
-    .text-container {
-        flex: 1;
-        max-width: 50%; /* Ensures text takes half the space */
-        padding-right: 20px;
-    }
+  .car-model {
+    flex: 1;
+    max-width: 50%; /* Ensures model takes half the space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .car-model {
-        flex: 1;
-        max-width: 50%; /* Ensures model takes half the space */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* .section-inner-center-show h3 {
+  /* .section-inner-center-show h3 {
         font-size: 100px;
         margin-bottom: 15px;
         animation: fadeOut 0.5s ease-in-out;
@@ -294,59 +296,58 @@ import Layout from "../layouts/Layout.astro";
         animation: fadeOut 0.5s ease-in-out 0.2s;
     } */
 
-    /* Styling for the Carousel Section warning chat made this */
-    .carousel-container {
-        position: relative;
-        width: 100%;
-        max-width: 90%;
-        margin: auto;
-        overflow: hidden;
-    }
+  /* Styling for the Carousel Section warning chat made this */
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 90%;
+    margin: auto;
+    overflow: hidden;
+  }
 
-    .carousel-track {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-    }
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
 
-    .carousel-item {
-        min-width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    }
+  .carousel-item {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
 
-    .text-container {
-        max-width: 50%;
-    }
+  .text-container {
+    max-width: 50%;
+  }
 
-    .car-model {
-        max-width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+  .car-model {
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    .carousel-btn {
-        position: absolute;
-        top: 80%;
-        transform: translateY(-50%);
-        /* background-color: rgba(0, 0, 0, 0.5); */
-        background-color: transparent;
-        color: white;
-        border: none;
-        cursor: pointer;
-        padding: 10px 15px;
-        font-size: 20px;
-        z-index: 10;
-    }
+  .carousel-btn {
+    position: absolute;
+    top: 80%;
+    transform: translateY(-50%);
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-color: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 20px;
+    z-index: 10;
+  }
 
-    .prev-btn {
-        left: 10px;
-    }
+  .prev-btn {
+    left: 10px;
+  }
 
-    .next-btn {
-        right: 10px;
-    }
-
+  .next-btn {
+    right: 10px;
+  }
 </style>
