@@ -4,52 +4,96 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="Sponsors">
   <section class="sponsors">
-    <h1>Thank you to our sponsors for supporting our vision</h1>
+    <!-- <h1>Thank you to our sponsors for supporting our vision</h1> -->
 
-    <div class="animation-container">
-      <div class="sponsor-block varsity">
-        <h2>Varsity</h2>
-        <!-- <div class="sponsor-images">
-                    <img
-                        src="/src/assets/sponsor_logos/Hoffeman_Logo.png"
-                        alt="Hoffeman"
-                    />
-                    <img
-                        src="/src/assets/sponsor_logos/Altium-1.png"
-                        alt="Altium"
-                    />
-                    <img
-                        src="/src/assets/sponsor_logos/Siemens_no_bg.png"
-                        alt="Siemens"
-                    />
-                </div> -->
+    <!-- <div class="animation-container"> -->
+    <svg
+      id="motion-path-svg"
+      viewBox="0 0 1500 1000"
+      style="display: block; margin: auto;"
+    >
+      <path id="motion-path" d="M 750,0 A 750,500 0 1,0 750.1,0" fill="none">
+      </path>
+    </svg>
+    <div class="sponsor-block" id="varsity">
+      <h2>Varsity</h2>
+      <div class="sponsor-images">
+        <img
+          src="/src/assets/sponsor_logos/hoffeman-white.png"
+          alt="Hoffeman"
+        />
+        <img src="/src/assets/sponsor_logos/altium-color.png" alt="Altium" />
+        <img src="/src/assets/sponsor_logos/siemens-white.png" alt="Siemens" />
       </div>
-      <!-- <div class="sponsor-block gold">
-                <h2>Gold</h2>
-                <div class="sponsor-images">
-                    <img
-                        src="/src/assets/sponsor_logos/Maxeon_Logo.png"
-                        alt="Maxeon"
-                    />
-                </div>
-            </div>
-            <div class="sponsor-block bronze">
-                <h2>Bronze</h2>
-                <div class="sponsor-images">
-                    <img
-                        src="/src/assets/sponsor_logos/College_of_Engineering_Logo.jpg"
-                        alt="College of Engineering"
-                    />
-                    <img
-                        src="/src/assets/sponsor_logos/generac-blue-logo.jpg"
-                        alt="Generac"
-                    />
-                    <img src="/src/assets/sponsor_logos/xes-logo.png" alt="XES" />
-                </div>
-            </div> -->
     </div>
+
+    <div class="sponsor-block" id="gold">
+      <h2>Gold</h2>
+      <div class="sponsor-images">
+        <img src="/src/assets/sponsor_logos/maxeon-white.png" alt="Maxeon" />
+      </div>
+    </div>
+    <div class="sponsor-block" id="bronze">
+      <h2>Bronze</h2>
+      <div class="sponsor-images">
+        <img
+          src="/src/assets/sponsor_logos/coe-color.png"
+          alt="College of Engineering"
+        />
+        <img src="/src/assets/sponsor_logos/generac-color.png" alt="Generac" />
+        <img src="/src/assets/sponsor_logos/xes-color.png" alt="XES" />
+      </div>
+    </div>
+    <!-- </div> -->
   </section>
-  <script type="module" src="/js/sponsorsGSAP.js"></script>
+  <script>
+    import { gsap } from "gsap";
+    import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+
+    gsap.registerPlugin(MotionPathPlugin);
+
+    gsap.to("#varsity", {
+      duration: 30, // Controls the time it takes to complete one circle
+      repeat: -1, // Infinite loop
+      ease: "linear", // Keeps speed constant
+      motionPath: {
+        path: "#motion-path",
+        align: "#motion-path",
+        alignOrigin: [0.5, 0.5],
+        autoRotate: false, // Ensures the rectangle follows the path's direction
+        start: 0,
+        end: 1,
+      },
+    });
+
+    gsap.to("#gold", {
+      duration: 30, // Controls the time it takes to complete one circle
+      repeat: -1, // Infinite loop
+      ease: "linear", // Keeps speed constant
+      motionPath: {
+        path: "#motion-path",
+        align: "#motion-path",
+        alignOrigin: [0.5, 0.5],
+        autoRotate: false, // Ensures the rectangle follows the path's direction
+        start: 0.333333,
+        end: 1.333333,
+      },
+    });
+
+    gsap.to("#bronze", {
+      duration: 30, // Controls the time it takes to complete one circle
+      repeat: -1, // Infinite loop
+      ease: "linear", // Keeps speed constant
+      motionPath: {
+        path: "#motion-path",
+        align: "#motion-path",
+        alignOrigin: [0.5, 0.5],
+        autoRotate: false, // Ensures the rectangle follows the path's direction
+        start: 0.666666,
+        end: 1.66666,
+      },
+    });
+  </script>
 </Layout>
 
 <style>
@@ -62,16 +106,25 @@ import Layout from "../layouts/Layout.astro";
 
   /* Main Section */
   .sponsors {
-    padding: 60px 20px;
-    background-color: #000000;
-    color: #fff;
-    text-align: center;
+    /* padding: 60px 20px; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .animation-container {
-    position: absolute;
-    width: 1000px;
-    height: 500px;
+    /* position: absolute; */
+    /* width: 1000px;
+    height: 500px; */
+  }
+
+  svg {
+    display: block; /* Makes <svg> behave like a block element */
+    margin: 0 auto; /* Horizontally center it (if a fixed width is set) */
+    width: 650px; /* You can change this to any size you like */
+    height: auto; /* Maintain aspect ratio */
+    /* or you could do max-width: 100% for responsiveness */
   }
 
   h1 {
@@ -91,21 +144,33 @@ import Layout from "../layouts/Layout.astro";
 
   /* Sponsor Blocks */
   .sponsor-block {
-    margin-bottom: 40px;
-    width: 200px;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 30px;
   }
 
-  .varsity {
+  #varsity {
     background-color: #d31b38; /* Crimson */
+    width: 400px;
+    height: 400px;
   }
 
-  .gold {
+  #gold {
     background-color: #ffb400; /* Gold */
+    width: 325px;
+    height: 325px;
   }
 
-  .bronze {
-    background-color: #f0e1c2; /* BlanchedAlmond */
+  #bronze {
+    background-color: #6e4d25; /* BlanchedAlmond */
+    width: 250px;
+    height: 250px;
   }
 
   /* Sponsor Images */
