@@ -17,8 +17,8 @@ import LeaderCard from "../components/LeaderCard.astro";
         leadership growth, empowering our members to excel both on and off the
         track
       </p>
-      <img src="src/assets/overview_map.png" />
     </div>
+
     <div class="leadership">
       <LeaderCard
         name="Jack Verich"
@@ -33,7 +33,10 @@ import LeaderCard from "../components/LeaderCard.astro";
   <section class="overview operations">
     <div class="description">
       <h1>Operations</h1>
-      <p>Meetings and Work Sessions: Every Tuesday 6-9 pm in ME 1255</p>
+      <p>
+        Meetings and Work Sessions:<br />
+        Every Tuesday 6–9 pm in Mechanical Engineering Building | Room Number: 1255
+      </p>
     </div>
     <div class="leadership">
       <LeaderCard
@@ -49,7 +52,10 @@ import LeaderCard from "../components/LeaderCard.astro";
   <section class="overview mechanical">
     <div class="description">
       <h1>Mechanical</h1>
-      <p>Meetings and Work Sessions: Every Tuesday 6-9 pm in ME 1235</p>
+      <p>
+        Meetings and Work Sessions: <br />
+        Every Tuesday 6-9 pm in Mechanical Engineering Building | Room Number: 1235
+      </p>
     </div>
     <div class="leadership">
       <LeaderCard
@@ -70,16 +76,18 @@ import LeaderCard from "../components/LeaderCard.astro";
   <section class="overview electrical">
     <div class="description">
       <h1>Electrical</h1>
-      <p>Meetings and Work Sessions: Every Tuesday 6-9 pm in ME 1245</p>
       <p>
+        Meetings and Work Sessions:<br />
+        Every Tuesday 6-9 pm in the Mechanical Engineering Building | Room Number:
+        1245
+        <br />
+        <br />
+
         Description: Our Electrical team is responsible for all custom hardware
         on the vehicle. It’s projects span from a custom MPPT that achieves 97%
         efficiency to a 5 kWh lithium-ion battery pack manufactured on campus
         and everything in between.
       </p>
-
-      <h1>Software & Firmware</h1>
-      <p>Meetings and Work Sessions: Every Wednesday 6-9 pm in ME 1245</p>
     </div>
     <div class="leadership">
       <LeaderCard
@@ -102,17 +110,38 @@ import LeaderCard from "../components/LeaderCard.astro";
 <style>
   .overview {
     position: relative;
-    padding: 150px 50px;
-    /* I dont know what the css above actually does */
+    padding-top: clamp(3rem, 9vw, 8rem);
+    padding-left: clamp(1rem, 2vw, 8rem);
+    padding-right: clamp(1rem, 2vw, 8rem);
     background-size: cover;
     background-position: center;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
   }
 
   h1 {
-    font-size: 80px;
+    font-size: clamp(1.5rem, 10vw, 5rem);
+  }
+
+  .description {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .description p {
+    padding: clamp(0.2rem, 4vw, 3rem);
+    /* line-height: clamp(1rem, 3vw, 3rem); */
+    font-size: clamp(0.2rem, 2vw, 1rem);
+    background-color: rgba(60, 60, 60, 0.5);
+    border-radius: 20px;
+  }
+
+  .leadership {
+    display: flex;
+    flex-direction: row;
+  }
+  .leadership p {
+    font-size: clamp(0.2rem, 2vw, 1rem);
   }
 
   .team {
@@ -140,5 +169,18 @@ import LeaderCard from "../components/LeaderCard.astro";
 
   .overview img {
     width: 700px;
+  }
+
+  @media (min-width: 768px) {
+    .overview {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .description {
+      width: 40%;
+    }
+    .leadership {
+      flex-direction: column;
+    }
   }
 </style>

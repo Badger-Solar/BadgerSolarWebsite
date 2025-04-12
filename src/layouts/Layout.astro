@@ -93,7 +93,7 @@
   }
 
   .logo {
-    width: 210px;
+    width: clamp(0.2rem, 10vw, 9rem);
     height: auto;
   }
 
@@ -109,6 +109,10 @@
     position: relative;
     margin-right: 20px;
     padding-bottom: 2px;
+    font-size: clamp(0.2rem, 2vw, 0.9rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .mainMenu ul li a::after {
@@ -144,7 +148,7 @@
     margin-right: 20px;
     color: #aaa;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: clamp(0.5rem, 1vw, 1rem);
     line-height: 2.5;
   }
 

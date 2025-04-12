@@ -15,6 +15,10 @@
   font-style: normal;
 }
 
+html {
+  font-size: 18px;
+}
+
 body {
   /* font-family: "Bruno Ace SC", sans-serif; */
   font-family: D-DIN-Bold, Arial, Verdana, sans-serif;

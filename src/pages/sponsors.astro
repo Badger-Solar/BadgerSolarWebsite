@@ -15,6 +15,7 @@ import Layout from "../layouts/Layout.astro";
       <path id="motion-path" d="M 750,0 A 750,500 0 1,0 750.1,0" fill="none">
       </path>
     </svg>
+
     <div class="sponsor-block" id="varsity">
       <h2>Varsity</h2>
       <div class="sponsor-images">
@@ -33,6 +34,7 @@ import Layout from "../layouts/Layout.astro";
         <img src="/src/assets/sponsor_logos/maxeon-white.png" alt="Maxeon" />
       </div>
     </div>
+
     <div class="sponsor-block" id="bronze">
       <h2>Bronze</h2>
       <div class="sponsor-images">
@@ -44,7 +46,10 @@ import Layout from "../layouts/Layout.astro";
         <img src="/src/assets/sponsor_logos/xes-color.png" alt="XES" />
       </div>
     </div>
-    <!-- </div> -->
+    <div id="sponsor-deep">
+      <h2 id="sponsor-category">Sponsor Category</h2>
+      <div id="sponsor-body"></div>
+    </div>
   </section>
   <script>
     import { gsap } from "gsap";
@@ -52,7 +57,7 @@ import Layout from "../layouts/Layout.astro";
 
     gsap.registerPlugin(MotionPathPlugin);
 
-    gsap.to("#varsity", {
+    const varsityAnimation = gsap.to("#varsity", {
       duration: 30, // Controls the time it takes to complete one circle
       repeat: -1, // Infinite loop
       ease: "linear", // Keeps speed constant
@@ -66,7 +71,7 @@ import Layout from "../layouts/Layout.astro";
       },
     });
 
-    gsap.to("#gold", {
+    const goldAnimation = gsap.to("#gold", {
       duration: 30, // Controls the time it takes to complete one circle
       repeat: -1, // Infinite loop
       ease: "linear", // Keeps speed constant
@@ -80,7 +85,7 @@ import Layout from "../layouts/Layout.astro";
       },
     });
 
-    gsap.to("#bronze", {
+    const bronzeAnimation = gsap.to("#bronze", {
       duration: 30, // Controls the time it takes to complete one circle
       repeat: -1, // Infinite loop
       ease: "linear", // Keeps speed constant
@@ -93,6 +98,75 @@ import Layout from "../layouts/Layout.astro";
         end: 1.66666,
       },
     });
+
+    const varsityObj = document.getElementById("varsity")!;
+    const goldObj = document.getElementById("gold")!;
+    const bronzeObj = document.getElementById("bronze")!;
+    const sponsor_deep = document.getElementById("sponsor-deep")!;
+    const sponsor_category = document.getElementById("sponsor-category")!;
+    const sponsor_body = document.getElementById("sponsor-body")!;
+
+    const sponsorInfo = {
+      Varsity: [
+        { name: "Hoffeman", info: "desc" },
+        { name: "Altium", info: "desc" },
+        { name: "Siemens", info: "desc" },
+      ],
+      Gold: [{ name: "Maxeon", info: "desc" }],
+      Bronze: [
+        { name: "College of Engineering", info: "desc" },
+        { name: "Generac", info: "desc" },
+        { name: "XES", info: "desc" },
+      ],
+    };
+
+    const setDescription = (block: "Varsity" | "Gold" | "Bronze") => {
+      sponsor_category.textContent = block;
+      sponsor_body.innerHTML = "";
+
+      sponsorInfo[block].forEach((oneSponsor) => {
+        const name_element = document.createElement("h3");
+        name_element.textContent = oneSponsor.name;
+
+        const description_element = document.createElement("p");
+        description_element.textContent = oneSponsor.info;
+
+        sponsor_body.appendChild(name_element);
+        sponsor_body.appendChild(description_element);
+      });
+    };
+
+    varsityObj.addEventListener("click", () => {
+      setDescription("Varsity");
+      sponsor_deep.classList.add("active");
+    });
+
+    goldObj.addEventListener("click", () => {
+      setDescription("Gold");
+      sponsor_deep.classList.add("active");
+    });
+
+    bronzeObj.addEventListener("click", () => {
+      setDescription("Bronze");
+      sponsor_deep.classList.add("active");
+    });
+    // document.querySelector("#varsity")?.addEventListener("mouseleave", () => {
+    //   varsityAnimation.resume(); // Resume the Varsity animation
+    // });
+
+    // document.querySelector("#gold")?.addEventListener("mouseenter", () => {
+    //   goldAnimation.pause(); // Pause the Gold animation
+    // });
+    // document.querySelector("#gold")?.addEventListener("mouseleave", () => {
+    //   goldAnimation.resume(); // Resume the Gold animation
+    // });
+
+    // document.querySelector("#bronze")?.addEventListener("mouseenter", () => {
+    //   bronzeAnimation.pause(); // Pause the Bronze animation
+    // });
+    // document.querySelector("#bronze")?.addEventListener("mouseleave", () => {
+    //   bronzeAnimation.resume(); // Resume the Bronze animation
+    // });
   </script>
 </Layout>
 
@@ -153,24 +227,41 @@ import Layout from "../layouts/Layout.astro";
     /* justify-content: center; */
     align-items: center;
     padding: 30px;
+    transition: transform 0.3s ease;
+  }
+
+  .sponsor-block:hover {
+    transform: scale(1.05);
   }
 
   #varsity {
     background-color: #d31b38; /* Crimson */
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
+
+    img {
+      width: 100px;
+    }
   }
 
   #gold {
     background-color: #ffb400; /* Gold */
-    width: 325px;
-    height: 325px;
+    width: 250px;
+    height: 250px;
+
+    img {
+      width: 75px;
+    }
   }
 
   #bronze {
     background-color: #6e4d25; /* Bronze */
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
+
+    img {
+      width: 50px;
+    }
   }
 
   /* Sponsor Images */
@@ -181,15 +272,25 @@ import Layout from "../layouts/Layout.astro";
     flex-wrap: wrap;
   }
 
-  .sponsor-images img {
-    width: 50px;
-    max-width: 100%;
-    transition: transform 0.3s ease;
+  #sponsor-deep {
+    display: none;
+    padding: 15px;
+    margin: 30px;
+    border-radius: 20px;
+    background-color: rgb(60, 60, 60);
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    width: 40%;
   }
 
-  .sponsor-images img:hover {
-    transform: scale(1.05); /* Slight zoom effect on hover */
+  #sponsor-deep.active {
+    display: block;
   }
+
+  /* .sponsor-images img:hover {
+    transform: scale(1.05);
+  } */
 
   /* Mobile Responsiveness */
   @media (max-width: 768px) {
