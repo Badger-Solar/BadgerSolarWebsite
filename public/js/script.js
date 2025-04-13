@@ -1,34 +1,22 @@
-const btn = document.getElementById("menu-btn");
+const menu_btn = document.getElementById("menu-btn");
 const overlay = document.getElementById("overlay");
 const menu = document.getElementById("mobile-menu");
 const sectionInnnerCenter = document.getElementById("section-inner-center");
-const counters = document.querySelectorAll(".counter");
 const aboutSection = document.querySelector(".about");
 let lastScrollTop = 0; // To keep track of the last scroll position
 const navbar = document.querySelector(".main-header"); // Get the navbar
 let scrollStarted = false;
 
 const navToggle = () => {
-  btn.classList.toggle("open");
+  menu_btn.classList.toggle("open");
   overlay.classList.toggle("overlay-show");
   document.body.classList.toggle("no-scroll");
   menu.classList.toggle("show-menu");
 };
 
-const scrollpage = () => {
-  if (window.scrollY > 100 && !scrollStarted) {
-    countUp();
-    // sectionInnnerCenter.classList.toggle('section-inner-center-show');
-    scrollStarted = true;
-  } else if (window.scrollY < 100 && scrollStarted) {
-    resetCounter();
-    // sectionInnnerCenter.classList.toggle('section-inner-center-show');
-    scrollStarted = false;
-  }
-};
 
-btn.addEventListener("click", navToggle);
-document.addEventListener("scroll", scrollpage);
+
+menu_btn.addEventListener("click", navToggle);
 window.addEventListener("scroll", () => {
   let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -43,42 +31,6 @@ window.addEventListener("scroll", () => {
   // Update lastScrollTop to the current scroll position
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
-
-const countUp = () => {
-  counters.forEach((counter) => {
-    console.log("Counter Found:", counter); // Debugging
-    console.log("Target Value:", counter.getAttribute("data-target"));
-    counter.innerText = "0";
-
-    const updateCounter = () => {
-      const target = +counter.getAttribute("data-target");
-      const c = +counter.innerText;
-
-      const increment = target / 100;
-
-      if (c < target) {
-        counter.innerText = `${Math.ceil(c + increment)}`;
-        setTimeout(updateCounter, 1);
-      } else {
-        counter.innerText = target;
-      }
-    };
-
-    updateCounter();
-  });
-};
-
-const removeText = () => {
-  counters.forEach((counter) => {
-    counter.innerText = "";
-  });
-};
-
-const resetCounter = () => {
-  counters.forEach((counter) => {
-    counter.innerText = "0";
-  });
-};
 
 document.addEventListener("DOMContentLoaded", () => {
   const aboutTextElements = document.querySelectorAll(".about h2, .about p");

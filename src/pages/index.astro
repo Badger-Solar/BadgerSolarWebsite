@@ -67,18 +67,21 @@ import Layout from "../layouts/Layout.astro";
     z-index: -1;
   }
 
-  .section-b overlay-content {
+  .overlay-content {
     position: relative;
     color: white;
     text-align: center;
     z-index: 1;
-    background: rgba(0, 0, 0, 0.5);
     padding: 20px;
-    border-radius: 10px;
   }
 
-  .section-b h1 {
-    font-size: 3rem;
+  .overlay-content h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    margin-bottom: 10px;
+  }
+
+  .overlay-content p {
+    font-size: clamp(0.7rem, 1.7vw, 1rem);
     margin-bottom: 10px;
   }
 
@@ -124,5 +127,12 @@ import Layout from "../layouts/Layout.astro";
 
   .btn:hover .hover {
     transform: translateY(0);
+  }
+  .scroll-arrow {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fadeBounce 3s infinite;
   }
 </style>

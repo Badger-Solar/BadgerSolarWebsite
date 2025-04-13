@@ -34,7 +34,10 @@ import Layout from "../layouts/Layout.astro";
 <style>
   .contact {
     text-align: center;
-    padding: 150px 20px;
+    padding-top: clamp(4rem, 10vw, 5rem);
+    /* padding-bottom: clamp(1rem, 10vw, 5rem); */
+    padding-left: clamp(1rem, 10vw, 5rem);
+    padding-right: clamp(1rem, 10vw, 5rem);
     /* background-color: #111; */
     /* background-image: url("/src/assets/car_imgs/blurry_speed.jpg"); */
     background-image:
@@ -45,17 +48,17 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .contact h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: clamp(2rem, 3vw, 4rem);
+    margin-bottom: 1rem;
     color: #fff;
   }
 
   .contact p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 1vw, 1.5rem);
     color: #ccc;
   }
   form {
-    max-width: 400px;
+    width: clamp(15rem, 80vw, 25rem);
     margin: 20px auto;
     padding: 20px;
     background: rgba(34, 34, 34, 0.4);
@@ -63,11 +66,12 @@ import Layout from "../layouts/Layout.astro";
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
   }
   .form-group {
-    margin-bottom: 15px;
+    margin-bottom: clamp(0.5rem, 1vw, 1rem);
     text-align: left;
   }
 
   .form-group label {
+    font-size: clamp(1rem, 2vw, 1.2rem);
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
@@ -83,6 +87,22 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1rem;
     background: rgba(51, 51, 51, 0.5);
     color: #fff;
+  }
+
+  button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background: #0056b3;
   }
 
   /* use for the spinning loading annimation (from chat) */

@@ -74,6 +74,7 @@
       </ul>
     </footer>
   </body>
+  <script></script>
 </html>
 
 <style>
@@ -93,12 +94,18 @@
   }
 
   .logo {
-    width: clamp(0.2rem, 10vw, 9rem);
+    width: clamp(8rem, 10vw, 9rem);
+    height: auto;
+  }
+  .logo img {
+    display: block;
+    width: 100%;
     height: auto;
   }
 
   .mainMenu {
     margin-right: 50px;
+    display: none;
   }
 
   .mainMenu ul {
@@ -132,6 +139,104 @@
     transition: transform 0.5s;
   }
 
+  .show-menu {
+    transform: translateX(0);
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
+  .mobile-main-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100%;
+    background: #000;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  .mobile-main-menu ul {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    padding: 50px;
+    width: 100%;
+  }
+
+  .mobile-main-menu ul li {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-bottom: 1px #555 dotted;
+    width: 100%;
+    text-align: right;
+    padding-bottom: 8px;
+  }
+
+  .mobile-main-menu ul li a {
+    color: #fff;
+    transition: color 0.5s;
+  }
+
+  .mobile-main-menu ul li a:hover {
+    color: #aaa;
+  }
+
+  .hamburger {
+    position: fixed;
+    top: 40px;
+    right: 20px;
+    z-index: 10;
+    width: 20px;
+    height: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transition: all 0.5s;
+  }
+
+  .hamburger-middle {
+    transform: translateY(5px);
+  }
+
+  .hamburger-bottom {
+    transform: translateY(10px);
+  }
+
+  .open .hamburger {
+    transform: rotate(45deg);
+  }
+
+  .open .hamburger-top {
+    transform: translateY(-5px);
+  }
+
+  .open .hamburger-middle {
+    transform: translateY(5px);
+  }
+
+  .open .hamburger-bottom {
+    transform: translateY(15px);
+  }
+
   .footer {
     position: relative;
     padding: 55px 0;
@@ -160,4 +265,38 @@
   .footer ul li a:hover {
     color: #aaa;
   }
+
+  .overlay-show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 3;
+  }
+
+  .no-scroll {
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .hamburger {
+      display: none;
+    }
+    .mainMenu {
+      display: block;
+    }
+  }
+
+  /* @media (max-width: 960px) {
+    .mobile-only {
+      display: block;
+    }
+  }
+  @media (max-width: 600px) {
+    .main-menu ul li {
+      margin-right: 10px;
+    }
+  } */
 </style>
