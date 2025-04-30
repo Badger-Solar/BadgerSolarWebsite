@@ -26,8 +26,6 @@ import LeaderCard from "../components/LeaderCard.astro";
         role="President"
         imageURL="src/assets/lead_headshots/Jack_Verich.jpeg"
       />
-      <p><strong>Industry Relations:</strong> Amit Hegde</p>
-      <p><strong>Vehicle Logistics:</strong> Neel Shah</p>
     </div>
   </section>
   <section class="overview operations">
@@ -45,8 +43,10 @@ import LeaderCard from "../components/LeaderCard.astro";
         role="Operations Director"
         imageURL="src/assets/lead_headshots/Nishil_Patel.jpeg"
       />
-      <p><strong>Industry Relations:</strong> Amit Hegde</p>
-      <p><strong>Vehicle Logistics:</strong> Neel Shah</p>
+      <div class="teamLeads">
+        <p><strong>Industry Relations:</strong> Amit Hegde</p>
+        <p><strong>Vehicle Logistics:</strong> Neel Shah</p>
+      </div>
     </div>
   </section>
   <section class="overview mechanical">
@@ -64,13 +64,15 @@ import LeaderCard from "../components/LeaderCard.astro";
         role="Mechanical Director"
         imageURL="src/assets/lead_headshots/Evan_Alexander.jpeg"
       />
-      <p><strong>Body:</strong> Maanik Chawla</p>
-      <p><strong>Structures:</strong> Devansh Kumaria</p>
-      <p><strong>Composites:</strong> Emma Hellen</p>
-      <p><strong>Vehicle Dynamics:</strong> Alex Nealy</p>
-      <p><strong>Mechatronics:</strong> Audric Buslim</p>
-      <p><strong>Braking:</strong> Owen Wagner</p>
-      <p><strong>Suspension:</strong> Landen Heim</p>
+      <div class="teamLeads">
+        <p><strong>Body:</strong> Maanik Chawla</p>
+        <p><strong>Structures:</strong> Devansh Kumaria</p>
+        <p><strong>Composites:</strong> Emma Hellen</p>
+        <p><strong>Vehicle Dynamics:</strong> Alex Nealy</p>
+        <p><strong>Mechatronics:</strong> Audric Buslim</p>
+        <p><strong>Braking:</strong> Owen Wagner</p>
+        <p><strong>Suspension:</strong> Landen Heim</p>
+      </div>
     </div>
   </section>
   <section class="overview electrical">
@@ -83,8 +85,8 @@ import LeaderCard from "../components/LeaderCard.astro";
         <br />
         <br />
 
-        Description: Our Electrical team is responsible for all custom hardware
-        on the vehicle. It’s projects span from a custom MPPT that achieves 97%
+        Our Electrical team is responsible for all custom hardware on the
+        vehicle. It’s projects span from a custom MPPT that achieves 97%
         efficiency to a 5 kWh lithium-ion battery pack manufactured on campus
         and everything in between.
       </p>
@@ -96,13 +98,15 @@ import LeaderCard from "../components/LeaderCard.astro";
         role="Electrical Director"
         imageURL="src/assets/lead_headshots/Ryan_Van_Ells.jpeg"
       />
-      <p><strong>Battery:</strong> William LaCroix</p>
-      <p><strong>Solar Array:</strong> Sarah Gerovac</p>
-      <p><strong>Powertrain:</strong> Sukriti Somvanshi</p>
-      <p><strong>Low Voltage:</strong> Charlie Steimke</p>
-      <p><strong>Software:</strong> Hailey Andersen</p>
-      <p><strong>Firmware:</strong> Bowen Quan</p>
-      <p><strong>Race Strategy:</strong> Harry Luo</p>
+      <div class="teamLeads">
+        <p><strong>Battery:</strong> William LaCroix</p>
+        <p><strong>Solar Array:</strong> Sarah Gerovac</p>
+        <p><strong>Powertrain:</strong> Sukriti Somvanshi</p>
+        <p><strong>Low Voltage:</strong> Charlie Steimke</p>
+        <p><strong>Software:</strong> Hailey Andersen</p>
+        <p><strong>Firmware:</strong> Bowen Quan</p>
+        <p><strong>Race Strategy:</strong> Harry Luo</p>
+      </div>
     </div>
   </section>
 </Layout>
@@ -124,14 +128,18 @@ import LeaderCard from "../components/LeaderCard.astro";
   }
 
   .description {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     padding: 10px;
     margin: 10px;
   }
 
   .description p {
     padding: clamp(0.2rem, 4vw, 3rem);
-    /* line-height: clamp(1rem, 3vw, 3rem); */
-    font-size: clamp(0.2rem, 2vw, 1rem);
+    line-height: 1.4;
+    letter-spacing: 0.08rem;
+    font-size: clamp(1rem, 1.6vw, 2rem);
     background-color: rgba(60, 60, 60, 0.5);
     border-radius: 20px;
   }
@@ -139,31 +147,41 @@ import LeaderCard from "../components/LeaderCard.astro";
   .leadership {
     display: flex;
     flex-direction: row;
+    gap: 2rem;
   }
-  .leadership p {
-    font-size: clamp(0.2rem, 2vw, 1rem);
+
+  .teamLeads {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .teamLeads p {
+    font-size: clamp(1rem, 1.2vw, 2rem);
+  }
+  .teamLeads strong {
+    text-decoration: underline;
   }
 
   .team {
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
       url("/src/assets/about_page_imgs/our_team.jpg");
   }
   .operations {
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
       url("/src/assets/about_page_imgs/operations.jpg");
   }
 
   .mechanical {
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
       url("/src/assets/about_page_imgs/mechE.jpg");
   }
 
   .electrical {
     background-image:
-      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
       url("src/assets/car_imgs/off_car1_4.jpg");
   }
 

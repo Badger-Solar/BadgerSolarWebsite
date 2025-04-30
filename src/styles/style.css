@@ -36,10 +36,6 @@ ul {
   list-style: none;
 }
 
-.hide-navbar {
-  top: -100px; /* Adjust based on the height of your navbar */
-}
-
 /* bg images */
 
 section {

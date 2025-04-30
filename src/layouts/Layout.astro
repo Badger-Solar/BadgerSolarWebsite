@@ -27,11 +27,10 @@
         </li>
         <li class="mobile-only"><a href="contact.html">Contact</a></li>
         <!-- add other menu items here that are only in here -->
-        <li><a href="car2.html">blog</a></li>
-        <li><a href="car2.html">join</a></li>
+        <!-- <li><a href="car2.html">blog</a></li>
+        <li><a href="car2.html">join</a></li> -->
       </ul>
     </div>
-    <!-- <header class="main-header"> -->
     <header class="mainHeader">
       <div class="logo">
         <a href="index.html">
@@ -46,13 +45,12 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
+      <button id="menu-btn" class="hamburger" type="button">
+        <span class="hamburger-top"></span>
+        <span class="hamburger-middle"></span>
+        <span class="hamburger-bottom"></span>
+      </button>
     </header>
-
-    <button id="menu-btn" class="hamburger" type="button">
-      <span class="hamburger-top"></span>
-      <span class="hamburger-middle"></span>
-      <span class="hamburger-bottom"></span>
-    </button>
 
     <!-- Section A -->
     <slot />
@@ -74,7 +72,36 @@
       </ul>
     </footer>
   </body>
-  <script></script>
+  <script>
+    const menu_btn = document.getElementById("menu-btn")!;
+    const overlay = document.getElementById("overlay")!;
+    const side_menu = document.getElementById("mobile-menu")!;
+    const navbar = document.querySelector(".mainHeader")!; // Get the navbar
+
+    const navToggle = () => {
+      menu_btn.classList.toggle("open");
+      overlay.classList.toggle("overlay-show");
+      document.body.classList.toggle("no-scroll");
+      side_menu.classList.toggle("show-menu");
+    };
+    menu_btn.addEventListener("click", navToggle);
+
+    window.addEventListener("scroll", () => {
+      let currentScroll =
+        window.pageYOffset || document.documentElement.scrollTop;
+
+      if (currentScroll > lastScrollTop) {
+        // Scrolling down
+        navbar.classList.add("hide-navbar");
+      } else {
+        // Scrolling up
+        navbar.classList.remove("hide-navbar");
+      }
+
+      // Update lastScrollTop to the current scroll position
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  </script>
 </html>
 
 <style>
@@ -93,8 +120,12 @@
     transition: top 0.3s;
   }
 
+  .mainHeader.hide-navbar {
+    top: -100px; /* Adjust based on the height of your navbar */
+  }
+
   .logo {
-    width: clamp(8rem, 10vw, 9rem);
+    width: clamp(6rem, 10vw, 9rem);
     height: auto;
   }
   .logo img {
@@ -104,7 +135,6 @@
   }
 
   .mainMenu {
-    margin-right: 50px;
     display: none;
   }
 
@@ -139,10 +169,6 @@
     transition: transform 0.5s;
   }
 
-  .show-menu {
-    transform: translateX(0);
-  }
-
   .mobile-only {
     display: none;
   }
@@ -161,6 +187,11 @@
     transform: translateX(100%);
     transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
   }
+
+  .mobile-main-menu.show-menu {
+    transform: translateX(0);
+  }
+
   .mobile-main-menu ul {
     display: flex;
     flex-direction: column;
@@ -190,9 +221,9 @@
   }
 
   .hamburger {
-    position: fixed;
-    top: 40px;
-    right: 20px;
+    position: relative;
+    top: 0px;
+    right: 0px;
     z-index: 10;
     width: 20px;
     height: 20px;
@@ -289,7 +320,7 @@
     }
   }
 
-  /* @media (max-width: 960px) {
+  @media (max-width: 960px) {
     .mobile-only {
       display: block;
     }
@@ -298,5 +329,5 @@
     .main-menu ul li {
       margin-right: 10px;
     }
-  } */
+  }
 </style>

@@ -1,36 +1,10 @@
-const menu_btn = document.getElementById("menu-btn");
-const overlay = document.getElementById("overlay");
-const menu = document.getElementById("mobile-menu");
 const sectionInnnerCenter = document.getElementById("section-inner-center");
 const aboutSection = document.querySelector(".about");
 let lastScrollTop = 0; // To keep track of the last scroll position
-const navbar = document.querySelector(".main-header"); // Get the navbar
 let scrollStarted = false;
 
-const navToggle = () => {
-  menu_btn.classList.toggle("open");
-  overlay.classList.toggle("overlay-show");
-  document.body.classList.toggle("no-scroll");
-  menu.classList.toggle("show-menu");
-};
 
 
-
-menu_btn.addEventListener("click", navToggle);
-window.addEventListener("scroll", () => {
-  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-  if (currentScroll > lastScrollTop) {
-    // Scrolling down
-    navbar.classList.add("hide-navbar");
-  } else {
-    // Scrolling up
-    navbar.classList.remove("hide-navbar");
-  }
-
-  // Update lastScrollTop to the current scroll position
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   const aboutTextElements = document.querySelectorAll(".about h2, .about p");
