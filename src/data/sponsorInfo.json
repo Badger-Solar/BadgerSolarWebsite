@@ -1,0 +1,43 @@
+{
+    "Varsity": [
+        {
+            "name": "Hoffeman",
+            "link": "https://www.hoffmanev.com/",
+            "info": "Based in Madison, Wisconsin, Hoffman EV specializes in transforming classic vehicles into high-performance electric masterpieces. By blending timeless design with cutting-edge electric technology, they offer sustainable automotive solutions without compromising on elegance or performance. Their in-house metal fabrication capabilities ensure each conversion meets precise specifications, delivering bespoke electric vehicles that honor the legacy of the originals."
+        },
+        {
+            "name": "Altium",
+            "link": "https://www.altium.com/",
+            "info": "Altium Limited is a global leader in electronic design automation (EDA) software, empowering engineers to design printed circuit boards (PCBs) and electronic systems with precision and efficiency. Founded in 1985 as Protel Systems in Australia, Altium has evolved into a multinational company with regional headquarters in the United States, Australia, China, Europe, and Japan. Its flagship product, Altium Designer, offers a unified platform for PCB design, widely adopted across industries such as automotive, aerospace, defense, and telecommunications."
+        },
+        {
+            "name": "Siemens",
+            "link": "https://www.sw.siemens.com/en-US/",
+            "info": "Siemens AG is a global technology powerhouse headquartered in Munich and Berlin, Germany. Founded in 1847, the company specializes in industrial automation, smart infrastructure, mobility solutions, and healthcare technology. With a presence in over 190 countries and a workforce of approximately 327,000 employees, Siemens is committed to driving digital transformation and sustainability across industries. Its portfolio includes advanced software, electrification systems, and cutting-edge innovations like the Siemens Industrial Copilot, a generative AI tool that enhances industrial automation."
+        }
+    ],
+    "Gold": [
+        {
+            "name": "Maxeon",
+            "link": "https://www.maxeon.com/",
+            "info": "Maxeon Solar Technologies is a global leader in solar innovation, designing and manufacturing high-efficiency solar panels under the Maxeon® and SunPower® brands. Headquartered in Singapore, the company serves customers in over 100 countries, delivering sustainable energy solutions for residential, commercial, and utility-scale applications. With a commitment to durability, performance, and environmental responsibility, Maxeon offers industry-leading products backed by a 40-year warranty, empowering a cleaner and more resilient energy future."
+        }
+    ],
+    "Bronze": [
+        {
+            "name": "College of Engineering",
+            "link": "https://engineering.wisc.edu/",
+            "info": "The University of Wisconsin–Madison College of Engineering is a top-ranked, research-intensive institution dedicated to developing innovative solutions to global challenges. With over 6,000 undergraduate and graduate students, the college offers a comprehensive range of programs across eight departments, including Biomedical, Chemical and Biological, Civil and Environmental, Electrical and Computer, Industrial and Systems, Materials Science, Mechanical, and Nuclear Engineering."
+        },
+        {
+            "name": "Generac",
+            "link": "https://www.generac.com/",
+            "info": "Generac is a leading energy technology company based in Waukesha, Wisconsin, specializing in backup power solutions for residential, commercial, and industrial applications. Founded in 1959, Generac pioneered the affordable home standby generator and has since expanded its offerings to include portable generators, solar battery storage systems, EV chargers, and energy management technologies. With a commitment to innovation and sustainability, Generac empowers customers to maintain energy resilience amid an evolving power grid."
+        },
+        {
+            "name": "XES",
+            "link": "https://www.xes-inc.com/",
+            "info": "Extreme Engineering Solutions (X-ES) is a U.S.-based company specializing in the design, manufacture, and support of embedded computing solutions for compute-intensive applications in military, aerospace, industrial, and commercial sectors. Founded in 2002 and headquartered in Verona, Wisconsin, X-ES offers a comprehensive portfolio of products, including rugged single board computers, FPGA modules, Ethernet switches, routers, power supplies, and fully integrated systems. All products are engineered and manufactured in the United States, ensuring high reliability and performance in the most demanding environments."
+        }
+    ]
+}

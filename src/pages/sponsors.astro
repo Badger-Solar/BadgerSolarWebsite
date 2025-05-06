@@ -1,5 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SponsorBlock from "../components/SponsorBlock.astro";
+
+const tiers = [
+  {
+    id: "varsity",
+    title: "Varsity",
+    color: "rgba(211, 27, 56, 0.2)",
+    size: 300,
+    logos: [
+      { src: "/src/assets/sponsor_logos/hoffeman-white.png", alt: "Hoffeman" },
+      { src: "/src/assets/sponsor_logos/altium-color.png", alt: "Altium" },
+      { src: "/src/assets/sponsor_logos/siemens-white.png", alt: "Siemens" },
+    ],
+  },
+  {
+    id: "gold",
+    title: "Gold",
+    color: "rgba(255, 180, 0, 0.2)",
+    size: 250,
+    logos: [
+      { src: "/src/assets/sponsor_logos/maxeon-white.png", alt: "Maxeon" },
+    ],
+  },
+  {
+    id: "bronze",
+    title: "Bronze",
+    color: "rgba(110, 77, 37, 0.2)",
+    size: 200,
+    logos: [
+      {
+        src: "/src/assets/sponsor_logos/coe-color.png",
+        alt: "College of Engineering",
+      },
+      { src: "/src/assets/sponsor_logos/generac-color.png", alt: "Generac" },
+      { src: "/src/assets/sponsor_logos/xes-color.png", alt: "XES" },
+    ],
+  },
+];
 ---
 
 <Layout title="Sponsors">
@@ -12,39 +50,42 @@ import Layout from "../layouts/Layout.astro";
       viewBox="0 0 1500 1000"
       style="display: block; margin: auto;"
     >
-      <path id="motion-path" d="M 750,0 A 750,500 0 1,0 750.1,0" fill="none">
+      <path
+        id="motion-path"
+        d="M 750,0 A 750,500 0 1,0 750.1,0"
+        fill="none"
+        transform="translate(500, 0)"
+      >
       </path>
     </svg>
 
-    <div class="sponsor-block" id="varsity">
-      <h2>Varsity</h2>
-      <div class="sponsor-images">
-        <img
-          src="/src/assets/sponsor_logos/hoffeman-white.png"
-          alt="Hoffeman"
-        />
-        <img src="/src/assets/sponsor_logos/altium-color.png" alt="Altium" />
-        <img src="/src/assets/sponsor_logos/siemens-white.png" alt="Siemens" />
-      </div>
-    </div>
+    {tiers.map((tier) => <SponsorBlock {...tier} />)}
 
-    <div class="sponsor-block" id="gold">
-      <h2>Gold</h2>
-      <div class="sponsor-images">
-        <img src="/src/assets/sponsor_logos/maxeon-white.png" alt="Maxeon" />
-      </div>
-    </div>
-
-    <div class="sponsor-block" id="bronze">
-      <h2>Bronze</h2>
-      <div class="sponsor-images">
-        <img
-          src="/src/assets/sponsor_logos/coe-color.png"
-          alt="College of Engineering"
-        />
-        <img src="/src/assets/sponsor_logos/generac-color.png" alt="Generac" />
-        <img src="/src/assets/sponsor_logos/xes-color.png" alt="XES" />
-      </div>
+    <div id="info-sponsors">
+      <h2>Varsity Sponsors</h2>
+      <p>
+        Varsity sponsors are our highest tier, providing essential financial or
+        in-kind support. Their logos are prominently featured on our solar
+        vehicle, team uniforms, and all outreach materials. These sponsors have
+        the opportunity to be highlighted in race-day media, social campaigns,
+        and alumni newsletters. Recent Varsity sponsors include Siemens, Altium,
+        and Hoffman Manufacturing.
+      </p>
+      <h2>Gold Sponsors</h2>
+      <p>
+        Gold sponsors are vital to our vehicle manufacturing, covering key
+        components and operations. They receive significant logo placement on
+        the car and are acknowledged in team presentations, social media
+        features, and select apparel. Maxeon Solar Technologies is one of our
+        2025 Gold partners.
+      </p>
+      <h2>Bronze Sponsors</h2>
+      <p>
+        Our Bronze sponsors fuel the day-to-day operations — materials, tooling,
+        and testing. They receive logo placement on our website and media kits,
+        and are highlighted in our sponsor recap reports. Current Bronze
+        sponsors include Generac, X-ES, and the UW College of Engineering.
+      </p>
     </div>
     <div id="sponsor-deep">
       <h2 id="sponsor-category">Sponsor Category</h2>
@@ -54,6 +95,9 @@ import Layout from "../layouts/Layout.astro";
   <script>
     import { gsap } from "gsap";
     import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+    import sponsorInfoJSON from "../data/sponsorInfo.json";
+
+    let circleSelected = false;
 
     gsap.registerPlugin(MotionPathPlugin);
 
@@ -105,56 +149,29 @@ import Layout from "../layouts/Layout.astro";
     const sponsor_deep = document.getElementById("sponsor-deep")!;
     const sponsor_category = document.getElementById("sponsor-category")!;
     const sponsor_body = document.getElementById("sponsor-body")!;
-
-    const sponsorInfo = {
-      Varsity: [
-        {
-          name: "Hoffeman",
-          link: "https://www.hoffmanev.com/",
-          info: "Based in Madison, Wisconsin, Hoffman EV specializes in transforming classic vehicles into high-performance electric masterpieces. By blending timeless design with cutting-edge electric technology, they offer sustainable automotive solutions without compromising on elegance or performance. Their in-house metal fabrication capabilities ensure each conversion meets precise specifications, delivering bespoke electric vehicles that honor the legacy of the originals.",
-        },
-        {
-          name: "Altium",
-          link: "https://www.altium.com/",
-          info: "Altium Limited is a global leader in electronic design automation (EDA) software, empowering engineers to design printed circuit boards (PCBs) and electronic systems with precision and efficiency. Founded in 1985 as Protel Systems in Australia, Altium has evolved into a multinational company with regional headquarters in the United States, Australia, China, Europe, and Japan . Its flagship product, Altium Designer, offers a unified platform for PCB design, widely adopted across industries such as automotive, aerospace, defense, and telecommunications.",
-        },
-        {
-          name: "Siemens",
-          link: "https://www.sw.siemens.com/en-US/",
-          info: "Siemens AG is a global technology powerhouse headquartered in Munich and Berlin, Germany. Founded in 1847, the company specializes in industrial automation, smart infrastructure, mobility solutions, and healthcare technology. With a presence in over 190 countries and a workforce of approximately 327,000 employees, Siemens is committed to driving digital transformation and sustainability across industries. Its portfolio includes advanced software, electrification systems, and cutting-edge innovations like the Siemens Industrial Copilot, a generative AI tool that enhances industrial automation.",
-        },
-      ],
-      Gold: [
-        {
-          name: "Maxeon",
-          link: "https://www.maxeon.com/",
-          info: "Maxeon Solar Technologies is a global leader in solar innovation, designing and manufacturing high-efficiency solar panels under the Maxeon® and SunPower® brands. Headquartered in Singapore, the company serves customers in over 100 countries, delivering sustainable energy solutions for residential, commercial, and utility-scale applications. With a commitment to durability, performance, and environmental responsibility, Maxeon offers industry-leading products backed by a 40-year warranty, empowering a cleaner and more resilient energy future.",
-        },
-      ],
-      Bronze: [
-        {
-          name: "College of Engineering",
-          link: "https://engineering.wisc.edu/",
-          info: "The University of Wisconsin–Madison College of Engineering is a top-ranked, research-intensive institution dedicated to developing innovative solutions to global challenges. With over 6,000 undergraduate and graduate students, the college offers a comprehensive range of programs across eight departments, including Biomedical, Chemical and Biological, Civil and Environmental, Electrical and Computer, Industrial and Systems, Materials Science, Mechanical, and Nuclear Engineering. ",
-        },
-        {
-          name: "Generac",
-          link: "https://www.generac.com/",
-          info: "Generac is a leading energy technology company based in Waukesha, Wisconsin, specializing in backup power solutions for residential, commercial, and industrial applications. Founded in 1959, Generac pioneered the affordable home standby generator and has since expanded its offerings to include portable generators, solar battery storage systems, EV chargers, and energy management technologies. With a commitment to innovation and sustainability, Generac empowers customers to maintain energy resilience amid an evolving power grid. ",
-        },
-        {
-          name: "XES",
-          link: "https://www.xes-inc.com/",
-          info: "Extreme Engineering Solutions (X-ES) is a U.S.-based company specializing in the design, manufacture, and support of embedded computing solutions for compute-intensive applications in military, aerospace, industrial, and commercial sectors. Founded in 2002 and headquartered in Verona, Wisconsin, X-ES offers a comprehensive portfolio of products, including rugged single board computers, FPGA modules, Ethernet switches, routers, power supplies, and fully integrated systems. All products are engineered and manufactured in the United States, ensuring high reliability and performance in the most demanding environments.  ",
-        },
-      ],
-    };
+    const info_sponsors = document.getElementById("info-sponsors")!;
 
     const setDescription = (block: "Varsity" | "Gold" | "Bronze") => {
+      if (circleSelected) {
+        varsityAnimation.resume();
+        goldAnimation.resume();
+        bronzeAnimation.resume();
+        varsityObj.classList.remove("large");
+        goldObj.classList.remove("large");
+        bronzeObj.classList.remove("large");
+        varsityObj.classList.remove("hidden");
+        goldObj.classList.remove("hidden");
+        bronzeObj.classList.remove("hidden");
+        sponsor_deep.classList.remove("active");
+        info_sponsors.classList.remove("hidden");
+        circleSelected = false;
+        return;
+      }
+
       sponsor_category.textContent = block;
       sponsor_body.innerHTML = "";
 
-      sponsorInfo[block].forEach((oneSponsor) => {
+      sponsorInfoJSON[block].forEach((oneSponsor: any) => {
         const name_element = document.createElement("a");
         name_element.textContent = oneSponsor.name;
         name_element.href = oneSponsor.link;
@@ -166,37 +183,37 @@ import Layout from "../layouts/Layout.astro";
         sponsor_body.appendChild(name_element);
         sponsor_body.appendChild(description_element);
       });
+
+      if (block === "Varsity") {
+        varsityObj.style.transform = "none";
+        varsityObj.classList.add("large");
+        goldObj.classList.add("hidden");
+        bronzeObj.classList.add("hidden");
+      } else if (block === "Gold") {
+        goldObj.style.transform = "none";
+        varsityObj.classList.add("hidden");
+        goldObj.classList.add("large");
+        bronzeObj.classList.add("hidden");
+      } else {
+        bronzeObj.style.transform = "none";
+        varsityObj.classList.add("hidden");
+        goldObj.classList.add("hidden");
+        bronzeObj.classList.add("large");
+      }
+
+      varsityAnimation.pause();
+      goldAnimation.pause();
+      bronzeAnimation.pause();
+
+      sponsor_deep.classList.add("active");
+      info_sponsors.classList.add("hidden");
+      circleSelected = true;
     };
 
-    varsityObj.addEventListener("click", () => {
-      varsityAnimation.kill();
-      varsityObj.style.transform = "none";
-      varsityObj.classList.add("large");
-      goldObj.classList.add("hidden");
-      bronzeObj.classList.add("hidden");
-      setDescription("Varsity");
-      sponsor_deep.classList.add("active");
-    });
+    varsityObj.addEventListener("click", () => setDescription("Varsity"));
+    goldObj.addEventListener("click", () => setDescription("Gold"));
+    bronzeObj.addEventListener("click", () => setDescription("Bronze"));
 
-    goldObj.addEventListener("click", () => {
-      goldAnimation.kill();
-      goldObj.style.transform = "none";
-      varsityObj.classList.add("hidden");
-      goldObj.classList.add("large");
-      bronzeObj.classList.add("hidden");
-      setDescription("Gold");
-      sponsor_deep.classList.add("active");
-    });
-
-    bronzeObj.addEventListener("click", () => {
-      bronzeAnimation.kill();
-      bronzeObj.style.transform = "none";
-      varsityObj.classList.add("hidden");
-      goldObj.classList.add("hidden");
-      bronzeObj.classList.add("large");
-      setDescription("Bronze");
-      sponsor_deep.classList.add("active");
-    });
     // document.querySelector("#varsity")?.addEventListener("mouseleave", () => {
     //   varsityAnimation.resume(); // Resume the Varsity animation
     // });
@@ -250,114 +267,51 @@ import Layout from "../layouts/Layout.astro";
 
   h1 {
     font-size: 2.5rem;
-    font-weight: 700;
     margin-bottom: 40px;
-    font-family: "Roboto", sans-serif;
   }
 
   h2 {
     font-size: 1.5rem;
-    font-weight: 500;
     color: #fff;
-    margin-bottom: 20px;
     text-transform: uppercase;
   }
 
   /* Sponsor Blocks */
-  .sponsor-block {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 50%;
-    /* justify-content: center; */
-    align-items: center;
-    padding: 30px;
-    transition: transform 0.3s ease;
-    border-style: solid;
-    border-width: 1px;
+
+  .sponsor-block h2 {
+    margin-bottom: 20px;
   }
 
   /* .sponsor-block:hover {
     transform: scale(1.05);
   } */
 
-  .sponsor-block.hidden {
-    display: none;
-  }
-
-  .sponsor-block.large {
-    border-width: 3px;
-  }
-
-  #varsity {
-    background-color: rgba(211, 27, 56, 0.2); /* Crimson */
-    /* background-color: transparent; */
-    width: 300px;
-    height: 300px;
-
-    img {
-      width: 90px;
-    }
-  }
-
-  #gold {
-    background-color: rgba(255, 180, 0, 0.2); /* Gold */
-    width: 250px;
-    height: 250px;
-
-    img {
-      width: 75px;
-    }
-  }
-
-  #bronze {
-    background-color: rgba(110, 77, 37, 0.2); /* Bronze */
-    width: 200px;
-    height: 200px;
-
-    img {
-      width: 45px;
-    }
-  }
-
-  #varsity.large,
-  #gold.large,
-  #bronze.large {
-    position: fixed;
-    top: 100px;
-    left: 100px;
-    width: 700px;
-    height: 700px;
-  }
-
-  #varsity.large img,
-  #gold.large img,
-  #bronze.large img {
-    width: 200px;
-  }
-
-  #varsity.large h2,
-  #gold.large h2,
-  #bronze.large h2 {
-    font-size: 3rem;
-  }
-
   /* Sponsor Images */
-  .sponsor-images {
+
+  #info-sponsors {
+    position: absolute;
+    top: 150px;
+    left: 30px;
     display: flex;
-    justify-content: center;
-    /* background-color: aqua; */
-    gap: 40px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: rgb(60, 60, 60);
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    width: 30%;
+  }
+
+  #info-sponsors.hidden {
+    display: none;
   }
 
   #sponsor-deep {
     position: absolute;
     top: 100px;
     right: 10px;
-    display: none;
     padding: 15px;
     border-radius: 20px;
     background-color: rgb(60, 60, 60);
@@ -365,10 +319,15 @@ import Layout from "../layouts/Layout.astro";
     border-width: 2px;
     border-style: solid;
     width: 40%;
+    display: none;
   }
 
   #sponsor-deep.active {
     display: block;
+  }
+
+  #sponsor-category {
+    padding-bottom: 20px;
   }
 
   #sponsor-body {
@@ -404,6 +363,9 @@ import Layout from "../layouts/Layout.astro";
   }
 
   #sponsor-body p {
+  }
+
+  #motion-path-svg {
   }
 
   /* .sponsor-images img:hover {

@@ -1,0 +1,100 @@
+---
+const { id, title, logos, color, size } = Astro.props;
+---
+
+<div class="sponsor-block" id={id}>
+  <h2>{title}</h2>
+  <div class="sponsor-images">
+    {
+      logos.map((oneLogo: any) => (
+        <img src={oneLogo.src} alt={oneLogo.alt} loading="lazy" />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .sponsor-block {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 30px;
+    transition: transform 0.3s ease;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .sponsor-block.hidden {
+    display: none;
+  }
+
+  .sponsor-block.large {
+    border-width: 3px;
+  }
+
+  #varsity {
+    background-color: rgba(211, 27, 56, 0.2); /* Crimson */
+    /* background-color: transparent; */
+    width: 300px;
+    height: 300px;
+
+    img {
+      width: 90px;
+    }
+  }
+
+  #gold {
+    background-color: rgba(255, 180, 0, 0.2); /* Gold */
+    width: 250px;
+    height: 250px;
+
+    img {
+      width: 75px;
+    }
+  }
+
+  #bronze {
+    background-color: rgba(110, 77, 37, 0.2); /* Bronze */
+    width: 200px;
+    height: 200px;
+
+    img {
+      width: 45px;
+    }
+  }
+
+  #varsity.large,
+  #gold.large,
+  #bronze.large {
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    width: 700px;
+    height: 700px;
+  }
+
+  #varsity.large img,
+  #gold.large img,
+  #bronze.large img {
+    width: 200px;
+  }
+
+  #varsity.large h2,
+  #gold.large h2,
+  #bronze.large h2 {
+    font-size: 3rem;
+  }
+
+  .sponsor-images {
+    display: flex;
+    justify-content: center;
+    /* background-color: aqua; */
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+</style>

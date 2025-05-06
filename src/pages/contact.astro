@@ -6,11 +6,24 @@ import Layout from "../layouts/Layout.astro";
   <section class="contact">
     <h2>Contact Us</h2>
     <p>Have questions or want to get in touch? Fill out the form below!</p>
-
+    <div class="formToggle">
+      <h3 class="slideName" id="joinButton">Join the Team</h3>
+      <h3 class="slideName" id="sponsorButton">Become a Sponsor</h3>
+    </div>
     <form id="contactFormTeams" action="#" method="post">
+      <div id="companyInput" class="form-group hidden">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" />
+      </div>
+
+      <div id="companyWebsiteInput" class="form-group hidden">
+        <label for="company-website">Company Website</label>
+        <input type="text" id="company-website" name="company-website" />
+      </div>
+
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
+        <input type="text" id="name" name="name" />
       </div>
 
       <div class="form-group">
@@ -20,7 +33,7 @@ import Layout from "../layouts/Layout.astro";
 
       <div class="form-group">
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
+        <textarea id="message" name="message" rows="5"></textarea>
       </div>
 
       <button type="submit">Send Message</button>
@@ -38,8 +51,6 @@ import Layout from "../layouts/Layout.astro";
     /* padding-bottom: clamp(1rem, 10vw, 5rem); */
     padding-left: clamp(1rem, 10vw, 5rem);
     padding-right: clamp(1rem, 10vw, 5rem);
-    /* background-color: #111; */
-    /* background-image: url("/src/assets/car_imgs/blurry_speed.jpg"); */
     background-image:
       linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.1)),
       url("/src/assets/car_imgs/blurry_speed.jpg");
@@ -50,13 +61,35 @@ import Layout from "../layouts/Layout.astro";
   .contact h2 {
     font-size: clamp(2rem, 3vw, 4rem);
     margin-bottom: 1rem;
-    color: #fff;
+  }
+
+  .slideName {
+    width: 50%;
+    font-size: clamp(1rem, 1.3vw, 2rem);
+    padding: 10px 0 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .slideName.active {
+    background-color: rgba(0, 0, 0, 0.4);
   }
 
   .contact p {
     font-size: clamp(0.9rem, 1vw, 1.5rem);
     color: #ccc;
   }
+
+  .formToggle {
+    max-width: clamp(15rem, 80vw, 25rem);
+    margin: 1.5rem auto 1.5rem auto;
+    /* padding: 10px; */
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+
   form {
     width: clamp(15rem, 80vw, 25rem);
     margin: 20px auto;
@@ -68,6 +101,10 @@ import Layout from "../layouts/Layout.astro";
   .form-group {
     margin-bottom: clamp(0.5rem, 1vw, 1rem);
     text-align: left;
+  }
+
+  .form-group.hidden {
+    display: none;
   }
 
   .form-group label {
@@ -87,6 +124,16 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1rem;
     background: rgba(51, 51, 51, 0.5);
     color: #fff;
+    resize: none;
+  }
+
+  .form-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
   }
 
   button {
@@ -115,6 +162,10 @@ import Layout from "../layouts/Layout.astro";
     animation: spin 1s linear infinite;
     display: none; /* Hide by default */
     margin: 20px auto;
+  }
+
+  #statusMessage {
+    padding: 10px;
   }
 
   @keyframes spin {
