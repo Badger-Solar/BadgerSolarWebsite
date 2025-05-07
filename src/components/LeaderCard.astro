@@ -1,5 +1,11 @@
 ---
-const { name, email, role, imageURL } = Astro.props;
+type LeaderCardProps = {
+  name: string;
+  email: string;
+  role: string;
+  imageURL: string;
+};
+const { name, email, role, imageURL } = Astro.props as LeaderCardProps;
 ---
 
 <div class="member">

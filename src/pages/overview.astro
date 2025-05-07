@@ -1,6 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import LeaderCard from "../components/LeaderCard.astro";
+import jackImg from "../assets/lead_headshots/Jack_Verich.jpeg";
+import nishilImg from "../assets/lead_headshots/Nishil_Patel.jpeg";
+import evanImg from "../assets/lead_headshots/Evan_Alexander.jpeg";
+import ryanImg from "../assets/lead_headshots/Ryan_Van_Ells.jpeg";
 
 // need to change title and header content for this page
 ---
@@ -24,7 +28,7 @@ import LeaderCard from "../components/LeaderCard.astro";
         name="Jack Verich"
         email="jverich@wisc.edu"
         role="President"
-        imageURL="src/assets/lead_headshots/Jack_Verich.jpeg"
+        imageURL={jackImg.src}
       />
     </div>
   </section>
@@ -41,7 +45,7 @@ import LeaderCard from "../components/LeaderCard.astro";
         name="Nishil Patel"
         email="nbpatel2@wisc.edu"
         role="Operations Director"
-        imageURL="src/assets/lead_headshots/Nishil_Patel.jpeg"
+        imageURL={nishilImg.src}
       />
       <div class="teamLeads">
         <p><strong>Industry Relations:</strong> Amit Hegde</p>
@@ -62,7 +66,7 @@ import LeaderCard from "../components/LeaderCard.astro";
         name="Evan Alexander"
         email="eralexander@wisc.edu"
         role="Mechanical Director"
-        imageURL="src/assets/lead_headshots/Evan_Alexander.jpeg"
+        imageURL={evanImg.src}
       />
       <div class="teamLeads">
         <p><strong>Body:</strong> Maanik Chawla</p>
@@ -96,7 +100,7 @@ import LeaderCard from "../components/LeaderCard.astro";
         name="Ryan Van Elles"
         email="rvanells@wisc.edu"
         role="Electrical Director"
-        imageURL="src/assets/lead_headshots/Ryan_Van_Ells.jpeg"
+        imageURL={ryanImg.src}
       />
       <div class="teamLeads">
         <p><strong>Battery:</strong> William LaCroix</p>
