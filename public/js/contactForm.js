@@ -42,7 +42,7 @@ contactFormTeams.addEventListener("submit", async (e) => {
   const formatMessage = `${contactCompany && `SPONSOR ALERT\n\n\nCompany:  ${contactCompany}\n\nWebsite: ${contactWebsite}`}\n\nName: ${contactName}\n\nEmail: ${contactEmail}\n\nMessage: ${message}`;
   const payload = { text: formatMessage };
   try {
-    const response = await fetch(demoCORSurl + teamsWebhookURL, {
+    const response = await fetch(teamsWebhookURL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
