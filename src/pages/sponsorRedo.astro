@@ -209,7 +209,7 @@ const ranks = ["Varsity", "Gold", "Silver", "Bronze", "Friend"];
       display: flex;
       flex-direction: column;
       gap: 2rem;
-      padding: 120px 100px;
+      padding: clamp(1rem, 12vh, 20rem) clamp(1rem, 12vw, 20rem);
       justify-content: center;
     }
 
@@ -230,9 +230,9 @@ const ranks = ["Varsity", "Gold", "Silver", "Bronze", "Friend"];
     }
 
     .sponsor-card {
-      padding: 20px;
+      padding: clamp(10px, 2vw, 25px);
       background-color: rgb(60, 60, 60);
-      border-radius: 20px;
+      border-radius: clamp(10px, 2vw, 25px);
     }
 
     .sponsor-grid img {
