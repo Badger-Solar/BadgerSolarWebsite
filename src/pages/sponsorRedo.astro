@@ -142,7 +142,7 @@ const ranks = ["Varsity", "Gold", "Silver", "Bronze", "Friend"];
 <Layout title="Sponsors">
   <section class="sponsors">
     {
-      ranks.map((tier) => {
+      ranks.slice(0, 2).map((tier) => {
         const sponsorsInTier = tiers.filter((s) => s.rank === tier);
         return (
           <div class="sponsor-group">
@@ -151,8 +151,44 @@ const ranks = ["Varsity", "Gold", "Silver", "Bronze", "Friend"];
               {sponsorsInTier.map((sponsor) => (
                 <a href={sponsor.link} target="_blank" class="sponsor-card">
                   <img src={sponsor.logo.src} alt={`${sponsor.name} logo`} />
-                  {/* <h3>{sponsor.name}</h3> */}
-                  {/* <p>{sponsor.info}</p> */}
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })
+    }
+  </section>
+  <section class="sponsors">
+    {
+      ranks.slice(2, 4).map((tier) => {
+        const sponsorsInTier = tiers.filter((s) => s.rank === tier);
+        return (
+          <div class="sponsor-group">
+            <h2>{tier} Sponsors</h2>
+            <div class="sponsor-grid">
+              {sponsorsInTier.map((sponsor) => (
+                <a href={sponsor.link} target="_blank" class="sponsor-card">
+                  <img src={sponsor.logo.src} alt={`${sponsor.name} logo`} />
+                </a>
+              ))}
+            </div>
+          </div>
+        );
+      })
+    }
+  </section>
+  <section class="sponsors">
+    {
+      ranks.slice(4).map((tier) => {
+        const sponsorsInTier = tiers.filter((s) => s.rank === tier);
+        return (
+          <div class="sponsor-group">
+            <h2>{tier} Sponsors</h2>
+            <div class="sponsor-grid">
+              {sponsorsInTier.map((sponsor) => (
+                <a href={sponsor.link} target="_blank" class="sponsor-card">
+                  <img src={sponsor.logo.src} alt={`${sponsor.name} logo`} />
                 </a>
               ))}
             </div>
@@ -174,29 +210,34 @@ const ranks = ["Varsity", "Gold", "Silver", "Bronze", "Friend"];
       flex-direction: column;
       gap: 2rem;
       padding: 120px 100px;
+      justify-content: center;
     }
 
     .sponsor-group {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 1rem;
+    }
+
+    .sponsor-group h2 {
+      font-size: 3rem;
     }
 
     .sponsor-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.7rem;
+      gap: 1rem;
     }
 
     .sponsor-card {
-      padding: 10px;
-      background-color: rgb(20, 30, 30);
-      border-radius: 10px;
+      padding: 20px;
+      background-color: rgb(60, 60, 60);
+      border-radius: 20px;
     }
 
     .sponsor-grid img {
       /* width: 300px; */
-      height: 50px;
+      height: 90px;
     }
   </style>
 </Layout>
