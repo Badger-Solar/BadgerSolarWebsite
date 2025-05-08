@@ -30,6 +30,7 @@ contactFormTeams.addEventListener("submit", async (e) => {
   const teamsWebhookURL =
     "https://uwprod.webhook.office.com/webhookb2/6a03ad30-c770-4955-b28f-763caa75c448@2ca68321-0eda-4908-88b2-424a8cb4b0f9/IncomingWebhook/f51fced44aca4c2ab2b0def2bbce7276/2cb6e2a1-9847-4d6c-842b-0959445ea61f/V21VW-MWY99_ZanWS5rzByoaHzc6G8kOZBxeDtys43ays1";
 
+  const urlNetlify = "https://badgersolarbackend.netlify.app/.netlify/functions/send-to-teams"
   statusMessage.innerText = "";
   loader.style.display = "block";
 
@@ -42,7 +43,7 @@ contactFormTeams.addEventListener("submit", async (e) => {
   const formatMessage = `${contactCompany && `SPONSOR ALERT\n\n\nCompany:  ${contactCompany}\n\nWebsite: ${contactWebsite}`}\n\nName: ${contactName}\n\nEmail: ${contactEmail}\n\nMessage: ${message}`;
   const payload = { text: formatMessage };
   try {
-    const response = await fetch(teamsWebhookURL, {
+    const response = await fetch(urlNetlify, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
