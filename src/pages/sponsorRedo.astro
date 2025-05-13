@@ -140,7 +140,7 @@ const ranks = ["Varsity", "Gold", "Silver", "Bronze", "Friend"];
 ---
 
 <Layout title="Sponsors">
-  <section class="sponsors">
+  <section class="sponsors varsity">
     {
       ranks.slice(0, 2).map((tier) => {
         const sponsorsInTier = tiers.filter((s) => s.rank === tier);
@@ -159,9 +159,9 @@ const ranks = ["Varsity", "Gold", "Silver", "Bronze", "Friend"];
       })
     }
   </section>
-  <section class="sponsors">
+  <section class="sponsors silver">
     {
-      ranks.slice(2, 4).map((tier) => {
+      ranks.slice(2, 3).map((tier) => {
         const sponsorsInTier = tiers.filter((s) => s.rank === tier);
         return (
           <div class="sponsor-group">
@@ -178,9 +178,9 @@ const ranks = ["Varsity", "Gold", "Silver", "Bronze", "Friend"];
       })
     }
   </section>
-  <section class="sponsors">
+  <section class="sponsors bronze">
     {
-      ranks.slice(4).map((tier) => {
+      ranks.slice(3).map((tier) => {
         const sponsorsInTier = tiers.filter((s) => s.rank === tier);
         return (
           <div class="sponsor-group">
@@ -238,6 +238,24 @@ const ranks = ["Varsity", "Gold", "Silver", "Bronze", "Friend"];
     .sponsor-grid img {
       /* width: 300px; */
       height: clamp(2rem, 6vw, 5rem);
+    }
+
+    .varsity {
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("src/assets/sponsor_page_imgs/sponsor-varsity.jpg");
+    }
+
+    .silver {
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("src/assets/sponsor_page_imgs/sponsor-silver.jpg");
+    }
+
+    .bronze {
+      background-image:
+        linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+        url("src/assets/sponsor_page_imgs/sponsor-bronze.jpg");
     }
   </style>
 </Layout>

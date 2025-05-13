@@ -4,8 +4,6 @@ let lastScrollTop = 0; // To keep track of the last scroll position
 let scrollStarted = false;
 
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const aboutTextElements = document.querySelectorAll(".about h2, .about p");
 
