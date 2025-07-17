@@ -1,0 +1,232 @@
+---
+import type { SponsorEntry, SponsorTier } from "../data/sponsorInfo";
+
+const { tier, color, sponsors } = Astro.props as {
+  tier: SponsorTier;
+  color: string;
+  sponsors: SponsorEntry[];
+};
+---
+
+<div class="total" style=`background-color: ${color};`>
+  <div class="left">
+    <!-- <div class="tierNameContainer"> -->
+    <h2 class="tierName">{tier} Sponsors</h2>
+    <!-- </div> -->
+    {
+      sponsors.map((sponsor) => (
+        <div class="sponsor-section" data-sponsor={sponsor.name}>
+          <p class="sponsor-description">{sponsor.info}</p>
+        </div>
+      ))
+    }
+  </div>
+  <div class="right">
+    <div class="logoContainer">
+      {
+        sponsors.map((sponsor) => (
+          <img
+            src={sponsor.logo.src}
+            alt={`${sponsor.name} logo`}
+            data-sponsor={sponsor.name}
+            class="logo"
+          />
+        ))
+      }
+    </div>
+  </div>
+  <script>
+    import gsap from "gsap";
+    import ScrollTrigger from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const sections = document.querySelectorAll<HTMLElement>(".sponsor-section");
+
+    sections.forEach((section) => {
+      console.log("Registering Each Section: ", section);
+      const sponsorID = section.dataset.sponsor;
+      const logo = document.querySelector(`img[data-sponsor="${sponsorID}"]`);
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => highlightLogo(logo),
+        onEnterBack: () => highlightLogo(logo),
+      });
+    });
+
+    const highlightLogo = (active: Element | null) => {
+      console.log("Currently Highlighing: ", active);
+      gsap.to(".logo", {
+        filter: "grayscale(1)",
+        opacity: 0.4,
+        scale: 0.85,
+        duration: 0.3,
+      });
+
+      gsap.to(active, {
+        filter: "none",
+        opacity: 1,
+        scale: 1.1,
+        duration: 0.3,
+      });
+    };
+
+    const leftContainer = document.querySelectorAll<HTMLElement>(".left");
+
+    leftContainer.forEach((element) => {
+      const startDistance = window.innerHeight * 0.15;
+      const endDistance = element.offsetHeight - window.innerHeight * 0.4;
+      const tierName = element.querySelector(".tierName") as HTMLElement;
+
+      ScrollTrigger.create({
+        trigger: tierName,
+        // start: `top+=${startDistance}`,
+        start: "top top+=10%",
+        end: `+=${endDistance}`,
+        pin: true,
+        pinSpacing: false,
+        markers: false, // Set to true for debugging
+      });
+
+      const sections =
+        element.querySelectorAll<HTMLElement>(".sponsor-section");
+
+      sections.forEach((section) => {
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top top+=20%",
+          end: "top -=20%",
+          onUpdate: (self) => {
+            if (self.direction === 1 && self.progress >= 0.9) {
+              gsap.to(section, { opacity: 0, duration: 0.2, overwrite: true });
+            } else {
+              gsap.to(section, { opacity: 1, duration: 0.2, overwrite: true });
+            }
+          },
+          markers: false,
+        });
+      });
+    });
+
+    const rightContainer = document.querySelectorAll<HTMLElement>(".right");
+
+    rightContainer.forEach((element) => {
+      const startDistance = window.innerHeight * 0.15;
+      const endDistance = element.offsetHeight - window.innerHeight * 0.6;
+      const logoContainer = element.querySelector(
+        ".logoContainer",
+      ) as HTMLElement;
+
+      ScrollTrigger.create({
+        trigger: logoContainer,
+        // start: `top+=${startDistance}`,
+        start: "center center",
+        end: `+=${endDistance}`,
+        pin: true,
+        markers: false, // Set to true for debugging
+      });
+    });
+  </script>
+</div>
+
+<style>
+  img {
+    height: clamp(2rem, 6vw, 5rem);
+  }
+  .total {
+    display: flex;
+    flex-direction: row;
+    gap: 4vw;
+    padding-top: 10vh;
+    padding-left: clamp(1rem, 2vw, 8rem);
+    padding-right: clamp(1rem, 2vw, 8rem);
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: red; */
+  }
+  .left {
+    width: 58vw;
+    align-items: center;
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: orange; */
+  }
+  .right {
+    width: 38vw;
+    /* padding-top: 40vh; */
+    /* padding-bottom: 30vh; */
+    /* transform: translateY(-50%); /* Pull it up so it's *centered* */
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: yellow; */
+  }
+  .logoContainer {
+    /* position: sticky;
+    top: 50%; */
+    /* transform: translateY(-50%); */
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    gap: 1rem;
+    /* height: fit-content; */
+    max-height: 60vh;
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: green; */
+  }
+
+  .logo {
+    flex: 1;
+
+    max-width: 80%;
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+
+    filter: grayscale(1);
+    opacity: 0.4;
+    transform: scale(0.85);
+    transition: all 0.1s ease;
+    display: block;
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: pink; */
+  }
+  .tierName {
+    /* position: sticky;
+    top: 15vh; */
+    font-size: clamp(0.7rem, 3vw, 3rem);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .sponsor-section {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    padding-bottom: 4rem;
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: black; */
+  }
+  .sponsor-description {
+    font-family: D-DIN-Regular;
+    font-size: clamp(0.7rem, 1.5vw, 4rem);
+    line-height: 1.6;
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: brown; */
+  }
+</style>

@@ -20,10 +20,10 @@ import logo from "../assets/solar_logos/logo.png";
       <ul>
         <!-- <li class="mobile-only"><a href="car2.html">Car 2</a></li> -->
         <li class="mobile-only">
-          <a href="/sponsorRedo">Sponsors</a>
+          <a href="/sponsors">Sponsors</a>
         </li>
         <li class="mobile-only">
-          <a href="/overview">Team Overview</a>
+          <a href="/about">Team Overview</a>
         </li>
         <li class="mobile-only"><a href="/contact">Contact</a></li>
         <!-- add other menu items here that are only in here -->
@@ -32,7 +32,7 @@ import logo from "../assets/solar_logos/logo.png";
       </ul>
     </div>
     <header id="header" role="navigation">
-      <div class="logo">
+      <div class="official-logo">
         <a href="/">
           <img src={logo.src} alt=" Badger Solar" />
         </a>
@@ -40,8 +40,8 @@ import logo from "../assets/solar_logos/logo.png";
       <nav id="navigation">
         <ul>
           <!-- <li><a href="car2.html">Car 2</a></li> -->
-          <li><a href="/overview">Team Overview</a></li>
-          <li><a href="/sponsorRedo">Sponsors</a></li>
+          <li><a href="/about">Team Overview</a></li>
+          <li><a href="/sponsors">Sponsors</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
@@ -105,6 +105,13 @@ import logo from "../assets/solar_logos/logo.png";
 </html>
 
 <style>
+  #wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
   #header {
     position: fixed;
     top: 0;
@@ -125,11 +132,11 @@ import logo from "../assets/solar_logos/logo.png";
     top: -100px; /* Adjust based on the height of your navbar */
   }
 
-  .logo {
+  .official-logo {
     width: clamp(6rem, 10vw, 9rem);
     height: auto;
   }
-  .logo img {
+  .official-logo img {
     display: block;
     width: 100%;
     height: auto;

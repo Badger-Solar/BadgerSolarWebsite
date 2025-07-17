@@ -1,0 +1,199 @@
+---
+import type { Team } from "../data/leadInfo";
+
+const { teamName, teamData } = Astro.props as {
+  teamName: string;
+  teamData: Team;
+};
+---
+
+<div
+  class="about"
+  id={`section-${teamName}`}
+  data-team={teamName}
+  style={`background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+      url(${teamData.backgroundImg.src});`}
+>
+  <div class="title-container"><h1 class="title">{teamName}</h1></div>
+
+  <div class="about-intro">
+    <div class="img-container">
+      <img class="headshot" src={teamData.lead.photo.src} />
+    </div>
+    <div class="right">
+      <h4 class="director-text">Your Director,</h4>
+      <h4 class="lead-name">{teamData.lead.name}</h4>
+      <h4 class="team-description">{teamData.description}</h4>
+    </div>
+  </div>
+
+  <div class="subteam-grid">
+    {
+      teamData.subteamLeads.map((oneLead) => (
+        <div class="one-subteam-lead">
+          <img class="sub-headshot" src={oneLead.photo.src} />
+          <h4 class="sub-title">{oneLead.position} Lead</h4>
+          <h4 class="sub-name">{oneLead.name}</h4>
+        </div>
+      ))
+    }
+  </div>
+</div>
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const sections: NodeListOf<HTMLElement> =
+    document.querySelectorAll("[data-team]");
+  sections.forEach((section) => {
+    const intro = section.querySelector<HTMLElement>(".about-intro")!;
+    const grid = section.querySelector<HTMLElement>(".subteam-grid")!;
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: "+=250%",
+        scrub: true,
+        pin: true,
+        id: "main-transition",
+      },
+    });
+
+    timeline.to({}, { duration: 0.3 });
+    timeline.to(intro, { opacity: 0, duration: 0.4 });
+    timeline.to(grid, { opacity: 1, y: 0, duration: 0.8 }, "-=0.2");
+  });
+</script>
+
+<style>
+  .about {
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: green; */
+  }
+  .about-intro {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    opacity: 1;
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: ghostwhite; */
+  }
+  .img-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: start;
+    height: 100vh;
+    transform: translateX(-10%);
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: orange; */
+  }
+
+  .headshot {
+    height: 80%;
+    object-fit: contain;
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: pink; */
+  }
+
+  .title-container {
+    padding-top: 5vh;
+    padding-left: 2vw;
+  }
+  .title {
+    font-size: clamp(0.7rem, 8vw, 5rem);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .right {
+    padding-top: 20vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .director-text {
+    font-size: clamp(0.7rem, 2vw, 4rem);
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  .lead-name {
+    font-size: clamp(0.7rem, 5vw, 4rem);
+
+    /* padding-bottom: 20px; */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .team-description {
+    font-size: clamp(0.7rem, 1.5vw, 4rem);
+    font-family: D-DIN-Regular;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+    line-height: 1.6;
+  }
+
+  .subteam-grid {
+    position: absolute;
+    inset: 0;
+
+    padding-top: 10vh;
+    padding-inline: 2rem;
+    padding-bottom: 2rem;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+    gap: 1.5rem;
+
+    opacity: 0;
+    justify-items: center;
+    align-items: center;
+
+    /* border-radius: 1px;
+    border-style: solid;
+    border-color: yellowgreen; */
+  }
+
+  .one-subteam-lead {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    overflow: hidden;
+  }
+
+  .sub-headshot {
+    width: 20vw;
+    height: 20vw;
+    max-width: 8rem;
+    max-height: 8rem;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 50%;
+    display: block;
+  }
+  .sub-title {
+    margin: 10px 0 5px;
+    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+  }
+  .sub-name {
+    margin: 10px 0 5px;
+    font-size: clamp(1rem, 1vw, 1.5rem);
+  }
+</style>

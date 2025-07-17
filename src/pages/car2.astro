@@ -4,10 +4,19 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
+  <!-- <div id="scroller">
+    <div id="feature" class="section">
+      <div id="section-inner-center" class="section-inner-center">
+        <h3>Car 2</h3>
+        <p>Designed to be aerodynamic and energy efficient.</p>
+      </div>
+    </div>
+  </div> -->
+
   <section class="section-animate bg-car-2"></section>
   <div id="section-inner-center" class="section-inner-center">
-    <h3>Helios</h3>
-    <p>Car 1 Helios is designed to be aerodynamic and energy efficient.</p>
+    <h3>Car 2</h3>
+    <p>Designed to be aerodynamic and energy efficient.</p>
   </div>
   <div class="stats">
     <div>
@@ -208,6 +217,21 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style>
+  .section {
+    display: block;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  #scroller {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    will-change: transform;
+  }
   .section-overview {
     padding: 50px 20px;
     background-color: #000000;
@@ -304,7 +328,7 @@ import Layout from "../layouts/Layout.astro";
     font-weight: 300;
   }
   .bg-car-2 {
-    background-image: url("/src/assets/bsrCarBgTemp.jpg");
+    background-image: url("/src/assets/bsrCarBgUgly.jpg");
   }
 
   .section-model {

@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+import OneAboutPage from "../components/OneAboutPage.astro";
+import { leadsByTeam } from "../data/leadInfo";
+---
+
+<Layout title="About">
+  <section class="intro">
+    <div class="overlay-content">
+      <h1 class="title">We are Badger Solar Racing</h1>
+      <p class="quote">"If you ain't first, you're last!" - Ricky Bobby</p>
+      <p class="description">
+        Badger Solar Racing is a student-run engineering team at the University
+        of Wisconsin–Madison dedicated to designing, building, and racing a
+        solar-powered vehicle. Our mission is to promote sustainability,
+        innovation, and hands-on learning through real-world engineering
+        challenges. We unite students from diverse disciplines to push the
+        boundaries of clean energy transportation.
+      </p>
+      <p class="construction">
+        This page of the Bader Solar Racing Website is still under construction!
+      </p>
+    </div>
+  </section>
+  {
+    Object.entries(leadsByTeam).map(([teamName, teamData]) => (
+      <OneAboutPage teamName={teamName} teamData={teamData} />
+    ))
+  }
+</Layout>
+
+<style>
+  .intro {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+      url("src/assets/about_back_1.jpeg");
+    display: flex;
+    justify-content: center;
+  }
+  .overlay-content {
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 6vw, 9rem);
+    padding-top: 25vh;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .quote {
+    font-size: clamp(0.7rem, 1.3vw, 4rem);
+    font-family: D-DIN-Regular;
+    padding-bottom: 20px;
+    letter-spacing: 5px;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+
+  .description {
+    font-size: clamp(0.7rem, 1.5vw, 4rem);
+    font-family: D-DIN-Regular;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 5px;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+  .construction {
+    font-size: clamp(0.7rem, 1vw, 4rem);
+    font-family: D-DIN-Regular;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    letter-spacing: 5px;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+</style>

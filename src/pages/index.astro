@@ -1,13 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import carImage from "../assets/bsrCarBgUgly.jpg";
-import landingVideo from "../assets/LandingVideoEdited.mp4";
+import landingVideoMP4 from "../assets/videos/landing-video.mp4";
+import landingVideoWEBM from "../assets/videos/landing-video.webm";
 ---
 
 <Layout>
   <section class="section-b">
     <video autoplay muted loop playsinline class="background-video">
-      <source src={landingVideo} type="video/mp4" />
+      <source src={landingVideoWEBM} type="video/webm" />
+      <source src={landingVideoMP4} type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <div class="overlay-content">
@@ -50,9 +52,7 @@ import landingVideo from "../assets/LandingVideoEdited.mp4";
 <style>
   .section-b {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
-    position: relative;
     width: 100%;
-    height: 100vh; /* Full-screen */
     overflow: hidden;
     display: flex;
     justify-content: center;

@@ -13,6 +13,7 @@
     "@google/model-viewer": "^4.0.0",
     "astro": "^5.7.9",
     "gsap": "^3.12.7",
+    "normalize.css": "^8.0.1",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
