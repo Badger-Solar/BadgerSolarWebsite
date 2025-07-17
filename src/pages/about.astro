@@ -2,10 +2,16 @@
 import Layout from "../layouts/Layout.astro";
 import OneAboutPage from "../components/OneAboutPage.astro";
 import { leadsByTeam } from "../data/leadInfo";
+
+import About_1_Img from "../assets/about_back_1.jpeg";
 ---
 
 <Layout title="About">
-  <section class="intro">
+  <section
+    class="intro"
+    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+      url(${About_1_Img.src});`}
+  >
     <div class="overlay-content">
       <h1 class="title">We are Badger Solar Racing</h1>
       <p class="quote">"If you ain't first, you're last!" - Ricky Bobby</p>
@@ -31,9 +37,9 @@ import { leadsByTeam } from "../data/leadInfo";
 
 <style>
   .intro {
-    background-image:
+    /* background-image:
       linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-      url("src/assets/about_back_1.jpeg");
+      url("src/assets/about_back_1.jpeg"); */
     display: flex;
     justify-content: center;
   }
