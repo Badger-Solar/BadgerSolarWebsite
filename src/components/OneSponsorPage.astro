@@ -1,22 +1,44 @@
 ---
 import type { SponsorEntry, SponsorTier } from "../data/sponsorInfo";
+import { sanityClient } from "sanity:client";
 
 const { tier, color, sponsors } = Astro.props as {
   tier: SponsorTier;
   color: string;
   sponsors: SponsorEntry[];
 };
+
+const oneSponsorTier = await sanityClient.fetch(
+  `*[_type == "sponsorTier" && lower(tierName) == lower($tier)][0] {
+    tierName,
+    rank,
+    sponsorArray[] {
+      name,
+      link,
+      description,
+      logo {
+        asset->{
+          url
+        }
+      }
+    }
+  }`,
+  { tier },
+);
+
+// console.log("One Sponsor Tier: ", oneSponsorTier);
+// console.log(JSON.stringify(oneSponsorTier, null, 2));
 ---
 
 <div class="total" style=`background-color: ${color};`>
   <div class="left">
     <!-- <div class="tierNameContainer"> -->
-    <h2 class="tierName">{tier} Sponsors</h2>
+    <h2 class="tierName">{oneSponsorTier["tierName"]} Sponsors</h2>
     <!-- </div> -->
     {
-      sponsors.map((sponsor) => (
+      oneSponsorTier["sponsorArray"].map((sponsor: any) => (
         <div class="sponsor-section" data-sponsor={sponsor.name}>
-          <p class="sponsor-description">{sponsor.info}</p>
+          <p class="sponsor-description">{sponsor.description}</p>
         </div>
       ))
     }
@@ -24,9 +46,9 @@ const { tier, color, sponsors } = Astro.props as {
   <div class="right">
     <div class="logoContainer">
       {
-        sponsors.map((sponsor) => (
+        oneSponsorTier["sponsorArray"].map((sponsor: any) => (
           <img
-            src={sponsor.logo.src}
+            src={sponsor.logo.asset.url}
             alt={`${sponsor.name} logo`}
             data-sponsor={sponsor.name}
             class="logo"

@@ -1,37 +1,75 @@
 ---
 import type { Team } from "../data/leadInfo";
+import { sanityClient } from "sanity:client";
 
 const { teamName, teamData } = Astro.props as {
   teamName: string;
   teamData: Team;
 };
+
+const oneSubTeam = await sanityClient.fetch(
+  `*[_type == "subTeam" && lower(subTeamName) == lower($teamName)][0] {
+    subTeamName,
+    rank,
+    subTeamDirector[] {
+      name,
+      email,
+      year,
+      position,
+      photo {
+        asset->{
+          url
+        }
+      }
+    },
+    subTeamLeads[] {
+      name,
+      email,
+      year,
+      position,
+      photo {
+        asset->{
+          url
+        }
+      }
+    }
+  }`,
+  { teamName },
+);
+
+console.log(JSON.stringify(oneSubTeam, null, 2));
 ---
 
 <div
   class="about"
-  id={`section-${teamName}`}
-  data-team={teamName}
+  id={`section-${oneSubTeam.subTeamName}`}
+  data-team={oneSubTeam.subTeamName}
   style={`background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
       url(${teamData.backgroundImg.src});`}
 >
-  <div class="title-container"><h1 class="title">{teamName}</h1></div>
+  <div class="title-container">
+    <h1 class="title">{oneSubTeam.subTeamName}</h1>
+  </div>
 
   <div class="about-intro">
     <div class="img-container">
-      <img class="headshot" src={teamData.lead.photo.src} />
+      <img
+        class="headshot"
+        src={oneSubTeam.subTeamDirector[0].photo.asset.url}
+      />
     </div>
     <div class="right">
       <h4 class="director-text">Your Director,</h4>
-      <h4 class="lead-name">{teamData.lead.name}</h4>
+      <h4 class="lead-name">{oneSubTeam.subTeamDirector[0].name}</h4>
       <h4 class="team-description">{teamData.description}</h4>
     </div>
   </div>
 
   <div class="subteam-grid">
     {
-      teamData.subteamLeads.map((oneLead) => (
+      oneSubTeam.subTeamLeads.map((oneLead: any) => (
         <div class="one-subteam-lead">
-          <img class="sub-headshot" src={oneLead.photo.src} />
+          <img class="sub-headshot" src={oneLead.photo.asset.url} />
           <h4 class="sub-title">{oneLead.position} Lead</h4>
           <h4 class="sub-name">{oneLead.name}</h4>
         </div>
