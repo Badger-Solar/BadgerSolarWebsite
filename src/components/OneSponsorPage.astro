@@ -27,16 +27,16 @@ const oneSponsorTier = await sanityClient.fetch(
 );
 
 // console.log("One Sponsor Tier: ", oneSponsorTier);
-// console.log(JSON.stringify(oneSponsorTier, null, 2));
+console.log(JSON.stringify(oneSponsorTier, null, 2));
 ---
 
 <div class="total" style=`background-color: ${color};`>
   <div class="left">
     <!-- <div class="tierNameContainer"> -->
-    <h2 class="tierName">{oneSponsorTier["tierName"]} Sponsors</h2>
+    <h2 class="tierName">{oneSponsorTier.tierName} Sponsors</h2>
     <!-- </div> -->
     {
-      oneSponsorTier["sponsorArray"].map((sponsor: any) => (
+      oneSponsorTier.sponsorArray.map((sponsor: any) => (
         <div class="sponsor-section" data-sponsor={sponsor.name}>
           <p class="sponsor-description">{sponsor.description}</p>
         </div>
@@ -46,7 +46,7 @@ const oneSponsorTier = await sanityClient.fetch(
   <div class="right">
     <div class="logoContainer">
       {
-        oneSponsorTier["sponsorArray"].map((sponsor: any) => (
+        oneSponsorTier.sponsorArray.map((sponsor: any) => (
           <img
             src={sponsor.logo.asset.url}
             alt={`${sponsor.name} logo`}
