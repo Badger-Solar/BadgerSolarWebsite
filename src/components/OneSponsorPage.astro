@@ -27,7 +27,7 @@ const oneSponsorTier = await sanityClient.fetch(
 );
 
 // console.log("One Sponsor Tier: ", oneSponsorTier);
-console.log(JSON.stringify(oneSponsorTier, null, 2));
+// console.log(JSON.stringify(oneSponsorTier, null, 2));
 ---
 
 <div class="total" style=`background-color: ${color};`>
@@ -57,6 +57,39 @@ console.log(JSON.stringify(oneSponsorTier, null, 2));
       }
     </div>
   </div>
+  <!-- 
+  <script define:vars={{ tier }}>
+    const projectID = "3r1aka6c";
+    const version = "v2025-09-10";
+    console.log("Tier: ", tier);
+    const query = `*[_type == "sponsorTier" && lower(tierName) == lower("${tier}")][0] {tierName, rank, sponsorArray[] { name, link, description, logo {asset->{url}}}}`;
+    const queryUnwrapped = `%2A%5B_type%20%3D%3D%20%22sponsorTier%22%20%26%26%20lower%28tierName%29%20%3D%3D%20lower%28%22${tier}%22%29%5D%5B0%5D%20%7BtierName%2C%20rank%2C%20sponsorArray%5B%5D%20%7B%20name%2C%20link%2C%20description%2C%20logo%20%7Basset-%3E%7Burl%7D%7D%7D%7D&returnQuery=true`;
+    const baseURL = `https://${projectID}.api.sanity.io/${version}/data/query/production?query=${queryUnwrapped}`;
+
+    const loadTeam = async () => {
+      try {
+        const res = await fetch(baseURL);
+        console.log("RES: ", res);
+        const json = await res.json();
+        const data = json.result;
+
+        document.querySelectorAll(".logoContainer")[0].innerHTML =
+          data.sponsorArray
+            .map(
+              (sponsor) =>
+                `<img src="${sponsor.logo.asset.url}" alt="${sponsor.name} logo" data-sponsor="${sponsor.name}" class="logo"/>`,
+            )
+            .join("");
+
+        console.log("DATA TEAM: ", data);
+      } catch (e) {
+        console.log("ERR Loading Member Data");
+      }
+    };
+    console.log("GETS HERE");
+    loadTeam();
+  </script> -->
+
   <script>
     import gsap from "gsap";
     import ScrollTrigger from "gsap/ScrollTrigger";
