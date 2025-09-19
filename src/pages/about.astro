@@ -4,13 +4,19 @@ import OneAboutPage from "../components/OneAboutPage.astro";
 import { leadsByTeam } from "../data/leadInfo";
 
 import About_1_Img from "../assets/about_back_1.jpeg";
+import MeshGradient14 from "../assets/mesh_gradients/Gradient-Mesh-14.jpg";
+import MeshGradient20 from "../assets/mesh_gradients/Gradient-Mesh-20.jpg";
+import MeshGradient22 from "../assets/mesh_gradients/Gradient-Mesh-22.jpg";
+import MeshGradient24 from "../assets/mesh_gradients/Gradient-Mesh-24.jpg";
+
+// style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(${About_1_Img.src});`}
+// style={`background-image:  url(${MeshGradient14.src});`}
 ---
 
 <Layout title="About">
   <section
     class="intro"
-    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-      url(${About_1_Img.src});`}
+    style={`background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(${About_1_Img.src});`}
   >
     <div class="overlay-content">
       <h1 class="title">We are Badger Solar Racing</h1>

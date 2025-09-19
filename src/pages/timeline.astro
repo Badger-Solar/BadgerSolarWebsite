@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { sanityClient } from "sanity:client";
+
+const allInstances = await sanityClient.fetch(
+  `*[_type = "timelineInstance"] {
+    description, logo {
+        asset->{
+            url
+        }
+    }
+   }`,
+);
+---
+
+<Layout>
+  <div id="timeline-container">
+    {
+      allInstances.map((oneInstance: any) => (
+        <div class="instance-container">
+          <img src={oneInstance.logo.asset.url} />
+          <p>{oneInstance.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</Layout>
+
+<style></style>

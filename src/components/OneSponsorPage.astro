@@ -2,6 +2,12 @@
 import type { SponsorEntry, SponsorTier } from "../data/sponsorInfo";
 import { sanityClient } from "sanity:client";
 
+import VarsityMesh from "../assets/mesh_gradients/red-mesh.jpg";
+import GoldMesh from "../assets/mesh_gradients/yellow-mesh.jpg";
+import SilverMesh from "../assets/mesh_gradients/silver-mesh.jpg";
+import BronzeMesh from "../assets/mesh_gradients/bronze-mesh.jpg";
+import FriendMesh from "../assets/mesh_gradients/purple-mesh.jpg";
+
 const { tier, color, sponsors } = Astro.props as {
   tier: SponsorTier;
   color: string;
@@ -26,11 +32,34 @@ const oneSponsorTier = await sanityClient.fetch(
   { tier },
 );
 
+const getBackground = () => {
+  if (tier == "varsity") {
+    return VarsityMesh.src;
+  }
+  if (tier == "gold") {
+    return GoldMesh.src;
+  }
+  if (tier == "silver") {
+    return SilverMesh.src;
+  }
+  if (tier == "bronze") {
+    return BronzeMesh.src;
+  }
+  if (tier == "friend") {
+    return FriendMesh.src;
+  }
+};
+
 // console.log("One Sponsor Tier: ", oneSponsorTier);
 // console.log(JSON.stringify(oneSponsorTier, null, 2));
+
+//style=`background-color: ${color}
 ---
 
-<div class="total" style=`background-color: ${color};`>
+<div
+  class="total"
+  style={`background: url(${getBackground()}) no-repeat center / cover; background-attachment: fixed;`}
+>
   <div class="left">
     <!-- <div class="tierNameContainer"> -->
     <h2 class="tierName">{oneSponsorTier.tierName} Sponsors</h2>
@@ -59,26 +88,12 @@ const oneSponsorTier = await sanityClient.fetch(
   </div>
 
   <script>
-    import gsap from "gsap";
-    import ScrollTrigger from "gsap/ScrollTrigger";
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
 
     gsap.registerPlugin(ScrollTrigger);
 
     const sections = document.querySelectorAll<HTMLElement>(".sponsor-section");
-
-    sections.forEach((section) => {
-      console.log("Registering Each Section: ", section);
-      const sponsorID = section.dataset.sponsor;
-      const logo = document.querySelector(`img[data-sponsor="${sponsorID}"]`);
-
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => highlightLogo(logo),
-        onEnterBack: () => highlightLogo(logo),
-      });
-    });
 
     const highlightLogo = (active: Element | null) => {
       console.log("Currently Highlighing: ", active);
@@ -96,6 +111,20 @@ const oneSponsorTier = await sanityClient.fetch(
         duration: 0.3,
       });
     };
+
+    sections.forEach((section) => {
+      console.log("Registering Each Section: ", section);
+      const sponsorID = section.dataset.sponsor;
+      const logo = document.querySelector(`img[data-sponsor="${sponsorID}"]`);
+
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top center",
+        end: "bottom center",
+        onEnter: () => highlightLogo(logo),
+        onEnterBack: () => highlightLogo(logo),
+      });
+    });
 
     const leftContainer = document.querySelectorAll<HTMLElement>(".left");
 
@@ -167,6 +196,8 @@ const oneSponsorTier = await sanityClient.fetch(
     padding-left: clamp(1rem, 2vw, 8rem);
     padding-right: clamp(1rem, 2vw, 8rem);
 
+    min-height: 100vh;
+    width: 100%;
     /* border-radius: 1px;
     border-style: solid;
     border-color: red; */
