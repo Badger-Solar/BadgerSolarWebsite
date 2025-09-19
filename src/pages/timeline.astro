@@ -1,16 +1,16 @@
----
+<!-- ---
 import Layout from "../layouts/Layout.astro";
 import { sanityClient } from "sanity:client";
 
-const allInstances = await sanityClient.fetch(
-  `*[_type = "timelineInstance"] {
-    description, logo {
-        asset->{
-            url
-        }
-    }
-   }`,
-);
+// const allInstances = await sanityClient.fetch(
+//   `*[_type = "timelineInstance"] {
+//     description, logo {
+//         asset->{
+//             url
+//         }
+//     }
+//    }`,
+// );
 ---
 
 <Layout>
@@ -26,4 +26,4 @@ const allInstances = await sanityClient.fetch(
   </div>
 </Layout>
 
-<style></style>
+<style></style> -->
