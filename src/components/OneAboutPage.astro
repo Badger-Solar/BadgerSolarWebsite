@@ -1,6 +1,8 @@
 ---
 import type { Team } from "../data/leadInfo";
 import { sanityClient } from "sanity:client";
+import SubLeadCard from "../components/SubLeadCard.astro";
+import DirectorCard from "../components/DirectorCard.astro";
 
 const { teamName, teamData } = Astro.props as {
   teamName: string;
@@ -44,35 +46,31 @@ console.log(JSON.stringify(oneSubTeam, null, 2));
   class="about"
   id={`section-${oneSubTeam.subTeamName}`}
   data-team={oneSubTeam.subTeamName}
-  style={`background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+  style={`background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url(${teamData.backgroundImg.src});`}
 >
-  <div class="title-container">
-    <h1 class="title">{oneSubTeam.subTeamName}</h1>
-  </div>
-
-  <div class="about-intro">
-    <div class="img-container">
-      <img
-        class="headshot"
-        src={oneSubTeam.subTeamDirector[0].photo.asset.url}
-      />
-    </div>
-    <div class="right">
-      <h4 class="director-text">Your Director,</h4>
-      <h4 class="lead-name">{oneSubTeam.subTeamDirector[0].name}</h4>
-      <h4 class="team-description">{teamData.description}</h4>
-    </div>
+  <h1 class="title">{oneSubTeam.subTeamName}</h1>
+  <div class="bottom">
+    <DirectorCard
+      imageURL={oneSubTeam.subTeamDirector[0].photo.asset.url}
+      name={oneSubTeam.subTeamDirector[0].name}
+    />
+    <h4 class="team-description">{teamData.description}</h4>
   </div>
 
   <div class="subteam-grid">
     {
       oneSubTeam.subTeamLeads.map((oneLead: any) => (
-        <div class="one-subteam-lead">
-          <img class="sub-headshot" src={oneLead.photo.asset.url} />
-          <h4 class="sub-title">{oneLead.position} Lead</h4>
-          <h4 class="sub-name">{oneLead.name}</h4>
-        </div>
+        // <div class="one-subteam-lead">
+        //   <img class="sub-headshot" src={oneLead.photo.asset.url} />
+        //   <h4 class="sub-title">{oneLead.position}</h4>
+        //   <h4 class="sub-name">{oneLead.name}</h4>
+        // </div>
+        <SubLeadCard
+          imageURL={oneLead.photo.asset.url}
+          name={oneLead.name}
+          title={oneLead.position}
+        />
       ))
     }
   </div>
@@ -86,23 +84,27 @@ console.log(JSON.stringify(oneSubTeam, null, 2));
   const sections: NodeListOf<HTMLElement> =
     document.querySelectorAll("[data-team]");
   sections.forEach((section) => {
-    const intro = section.querySelector<HTMLElement>(".about-intro")!;
+    const bottom = section.querySelector<HTMLElement>(".bottom")!;
     const grid = section.querySelector<HTMLElement>(".subteam-grid")!;
+
+    gsap.set(grid, { y: 90, autoAlpha: 0 });
 
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=250%",
+        end: "+=550%",
         scrub: true,
         pin: true,
         id: "main-transition",
       },
     });
-
-    timeline.to({}, { duration: 0.3 });
-    timeline.to(intro, { opacity: 0, duration: 0.4 });
-    timeline.to(grid, { opacity: 1, y: 0, duration: 0.8 }, "-=0.2");
+    timeline
+      .to({}, { duration: 0.3 })
+      .to(bottom, { autoAlpha: 0, duration: 0.4 })
+      .to({}, { duration: 0.3 })
+      .to(grid, { y: 0, autoAlpha: 1, duration: 0.8 }, "-=0.2")
+      .to({}, { duration: 0.3 });
   });
 </script>
 
@@ -113,84 +115,33 @@ console.log(JSON.stringify(oneSubTeam, null, 2));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    padding-top: 10vh;
 
     /* border-radius: 1px;
     border-style: solid;
     border-color: green; */
   }
-  .about-intro {
-    position: absolute;
-    inset: 0;
+
+  .bottom {
+    position: relative;
+    z-index: 1;
     display: flex;
-    opacity: 1;
-
-    /* border-radius: 1px;
-    border-style: solid;
-    border-color: ghostwhite; */
-  }
-  .img-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: start;
-    height: 100vh;
-    transform: translateX(-10%);
-
-    /* border-radius: 1px;
-    border-style: solid;
-    border-color: orange; */
+    margin: 5vh;
+    /* border: 2px solid green; */
+    height: 65vh;
   }
 
-  .headshot {
-    height: clamp(
-      50%,
-      60vw,
-      80%
-    ); /* clamp(50%, 60vw, 80%) TODO | Need to choose this to fit better. */
-    object-fit: contain;
-
-    /* border-radius: 1px;
-    border-style: solid;
-    border-color: pink; */
-  }
-
-  .title-container {
-    padding-top: 5vh;
-    padding-left: 2vw;
-  }
   .title {
+    margin: 0 2vw;
+    padding: 2vh 2vw;
     font-size: clamp(0.7rem, 8vw, 5rem);
     letter-spacing: 4px;
     text-transform: uppercase;
-  }
+    border-radius: 25px;
 
-  .right {
-    position: absolute;
-
-    right: clamp(5rem, 8vw, 10rem);
-    width: clamp(5rem, 70vw, 40rem);
-    min-width: none;
-    max-width: none;
-
-    padding-top: 20vh;
-    padding-bottom: 0;
-    display: flex;
-    flex-direction: column;
-
-    /* outline: 2px solid hotpink; */
-  }
-
-  .director-text {
-    font-size: clamp(0.7rem, 2vw, 4rem);
-    padding-bottom: 10px;
-    letter-spacing: 1px;
-  }
-  .lead-name {
-    font-size: clamp(0.7rem, 5vw, 4rem);
-
-    /* padding-bottom: 20px; */
-    letter-spacing: 5px;
-    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .team-description {
@@ -200,52 +151,42 @@ console.log(JSON.stringify(oneSubTeam, null, 2));
     padding-bottom: 20px;
     letter-spacing: 1px;
     line-height: 1.6;
+    margin: 5vh 2vw;
+    padding: 2vh 2vw;
+
+    border-radius: 25px;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .subteam-grid {
     position: absolute;
     inset: 0;
+    z-index: 2;
 
-    padding-top: 10vh;
+    padding-top: 35vh;
     padding-inline: 2rem;
     padding-bottom: 2rem;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
-    gap: 1.5rem;
+    /* grid-auto-flow: column;
+    grid-template-rows: repeat(2, 1fr); */
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(clamp(220px, 30vw, 420px), 1fr)
+    );
+    gap: 1rem;
 
     opacity: 0;
+    visibility: hidden;
+    transform: translateY(40px);
+    will-change: transform, opacity;
+
     justify-items: center;
     align-items: center;
 
-    /* border-radius: 1px;
-    border-style: solid;
-    border-color: yellowgreen; */
-  }
-
-  .one-subteam-lead {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    overflow: hidden;
-  }
-
-  .sub-headshot {
-    width: 20vw;
-    height: 20vw;
-    max-width: 8rem;
-    max-height: 8rem;
-    object-fit: cover;
-    object-position: top;
-    border-radius: 50%;
-    display: block;
-  }
-  .sub-title {
-    margin: 10px 0 5px;
-    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
-  }
-  .sub-name {
-    margin: 10px 0 5px;
-    font-size: clamp(1rem, 1vw, 1.5rem);
+    /* border: 2px solid yellowgreen; */
   }
 </style>

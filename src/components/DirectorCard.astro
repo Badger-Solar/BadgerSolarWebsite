@@ -1,0 +1,58 @@
+---
+const { imageURL, name } = Astro.props as {
+  imageURL: string;
+  name: string;
+};
+---
+
+<div class="lead">
+  <img class="image" src={imageURL} />
+  <div class="text-container">
+    <h4 class="director-text">Your Director,</h4>
+    <h4 class="name">{name}</h4>
+  </div>
+</div>
+
+<style>
+  .lead {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    /* border: 2px solid red; */
+    /* width: 80v; */
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+
+    padding: 2vh 2vw;
+    margin: 5vh 2vw;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .image {
+    border-radius: 15%;
+
+    width: min(35vw, 35vh);
+    object-fit: contain;
+    object-position: center;
+    margin-bottom: 2vw;
+  }
+
+  .text-container {
+    padding: 0 10px;
+  }
+
+  .name {
+    font-size: clamp(0.7rem, min(3.5vw, 5vh), 3rem);
+
+    /* padding-bottom: 20px; */
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .director-text {
+    font-size: clamp(0.7rem, min(2vw, 4vh), 4rem);
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+  }
+</style>

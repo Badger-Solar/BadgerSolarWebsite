@@ -1,0 +1,65 @@
+---
+const { imageURL, name, title } = Astro.props as {
+  imageURL: string;
+  name: string;
+  title: string;
+};
+---
+
+<div class="lead">
+  <img class="image" src={imageURL} />
+  <div class="text-container">
+    <p class="name">{name}</p>
+    <p class="title">{title}</p>
+  </div>
+</div>
+
+<style>
+  .lead {
+    display: flex;
+    flex-direction: row;
+
+    background-color: transparent;
+    /* border: 2px solid red; */
+    /* width: 80vw; */
+  }
+  .lead::before {
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 0;
+  }
+  .lead-content {
+    position: relative;
+    z-index: 1;
+  }
+  .image {
+    border-radius: 15%;
+
+    width: min(15vw, 20vh);
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .name {
+    margin: 10px 0 5px;
+    font-size: clamp(0.5rem, 5vw, 2rem);
+    padding: 2px;
+  }
+
+  .title {
+    margin: 10px 0 5px;
+    font-size: clamp(0.7rem, 1.7vw, 3rem);
+    padding: 2px;
+  }
+</style>

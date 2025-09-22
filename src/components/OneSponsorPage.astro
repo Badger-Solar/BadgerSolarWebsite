@@ -54,11 +54,12 @@ const getBackground = () => {
 // console.log(JSON.stringify(oneSponsorTier, null, 2));
 
 //style=`background-color: ${color}
+//  style={`background: url(${getBackground()}) no-repeat center / cover; background-attachment: fixed;`}
 ---
 
 <div
   class="total"
-  style={`background: url(${getBackground()}) no-repeat center / cover; background-attachment: fixed;`}
+  style={`--bg-url: url(${getBackground()}); --bg-color: ${color}`}
 >
   <div class="left">
     <!-- <div class="tierNameContainer"> -->
@@ -86,103 +87,102 @@ const getBackground = () => {
       }
     </div>
   </div>
+</div>
 
-  <script>
-    import { gsap } from "gsap";
-    import { ScrollTrigger } from "gsap/ScrollTrigger";
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-    gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
-    const sections = document.querySelectorAll<HTMLElement>(".sponsor-section");
+  const sections = document.querySelectorAll<HTMLElement>(".sponsor-section");
 
-    const highlightLogo = (active: Element | null) => {
-      console.log("Currently Highlighing: ", active);
-      gsap.to(".logo", {
-        filter: "grayscale(1)",
-        opacity: 0.4,
-        scale: 0.85,
-        duration: 0.3,
-      });
+  const highlightLogo = (active: Element | null) => {
+    console.log("Currently Highlighing: ", active);
+    gsap.to(".logo", {
+      filter: "grayscale(1)",
+      opacity: 0.4,
+      scale: 0.85,
+      duration: 0.3,
+    });
 
-      gsap.to(active, {
-        filter: "none",
-        opacity: 1,
-        scale: 1.1,
-        duration: 0.3,
-      });
-    };
+    gsap.to(active, {
+      filter: "none",
+      opacity: 1,
+      scale: 1.1,
+      duration: 0.3,
+    });
+  };
+
+  sections.forEach((section) => {
+    console.log("Registering Each Section: ", section);
+    const sponsorID = section.dataset.sponsor;
+    const logo = document.querySelector(`img[data-sponsor="${sponsorID}"]`);
+
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top center",
+      end: "bottom center",
+      onEnter: () => highlightLogo(logo),
+      onEnterBack: () => highlightLogo(logo),
+    });
+  });
+
+  const leftContainer = document.querySelectorAll<HTMLElement>(".left");
+
+  leftContainer.forEach((element) => {
+    const startDistance = window.innerHeight * 0.15;
+    const endDistance = element.offsetHeight - window.innerHeight * 0.4;
+    const tierName = element.querySelector(".tierName") as HTMLElement;
+
+    ScrollTrigger.create({
+      trigger: tierName,
+      // start: `top+=${startDistance}`,
+      start: "top top+=10%",
+      end: `+=${endDistance}`,
+      pin: true,
+      pinSpacing: false,
+      markers: false, // Set to true for debugging
+    });
+
+    const sections = element.querySelectorAll<HTMLElement>(".sponsor-section");
 
     sections.forEach((section) => {
-      console.log("Registering Each Section: ", section);
-      const sponsorID = section.dataset.sponsor;
-      const logo = document.querySelector(`img[data-sponsor="${sponsorID}"]`);
-
       ScrollTrigger.create({
         trigger: section,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => highlightLogo(logo),
-        onEnterBack: () => highlightLogo(logo),
+        start: "top top+=20%",
+        end: "top -=20%",
+        onUpdate: (self) => {
+          if (self.direction === 1 && self.progress >= 0.9) {
+            gsap.to(section, { opacity: 0, duration: 0.2, overwrite: true });
+          } else {
+            gsap.to(section, { opacity: 1, duration: 0.2, overwrite: true });
+          }
+        },
+        markers: false,
       });
     });
+  });
 
-    const leftContainer = document.querySelectorAll<HTMLElement>(".left");
+  const rightContainer = document.querySelectorAll<HTMLElement>(".right");
 
-    leftContainer.forEach((element) => {
-      const startDistance = window.innerHeight * 0.15;
-      const endDistance = element.offsetHeight - window.innerHeight * 0.4;
-      const tierName = element.querySelector(".tierName") as HTMLElement;
+  rightContainer.forEach((element) => {
+    const startDistance = window.innerHeight * 0.15;
+    const endDistance = element.offsetHeight - window.innerHeight * 0.6;
+    const logoContainer = element.querySelector(
+      ".logoContainer",
+    ) as HTMLElement;
 
-      ScrollTrigger.create({
-        trigger: tierName,
-        // start: `top+=${startDistance}`,
-        start: "top top+=10%",
-        end: `+=${endDistance}`,
-        pin: true,
-        pinSpacing: false,
-        markers: false, // Set to true for debugging
-      });
-
-      const sections =
-        element.querySelectorAll<HTMLElement>(".sponsor-section");
-
-      sections.forEach((section) => {
-        ScrollTrigger.create({
-          trigger: section,
-          start: "top top+=20%",
-          end: "top -=20%",
-          onUpdate: (self) => {
-            if (self.direction === 1 && self.progress >= 0.9) {
-              gsap.to(section, { opacity: 0, duration: 0.2, overwrite: true });
-            } else {
-              gsap.to(section, { opacity: 1, duration: 0.2, overwrite: true });
-            }
-          },
-          markers: false,
-        });
-      });
+    ScrollTrigger.create({
+      trigger: logoContainer,
+      // start: `top+=${startDistance}`,
+      start: "center center",
+      end: `+=${endDistance}`,
+      pin: true,
+      markers: false, // Set to true for debugging
     });
-
-    const rightContainer = document.querySelectorAll<HTMLElement>(".right");
-
-    rightContainer.forEach((element) => {
-      const startDistance = window.innerHeight * 0.15;
-      const endDistance = element.offsetHeight - window.innerHeight * 0.6;
-      const logoContainer = element.querySelector(
-        ".logoContainer",
-      ) as HTMLElement;
-
-      ScrollTrigger.create({
-        trigger: logoContainer,
-        // start: `top+=${startDistance}`,
-        start: "center center",
-        end: `+=${endDistance}`,
-        pin: true,
-        markers: false, // Set to true for debugging
-      });
-    });
-  </script>
-</div>
+  });
+</script>
 
 <style>
   img {
@@ -201,7 +201,22 @@ const getBackground = () => {
     /* border-radius: 1px;
     border-style: solid;
     border-color: red; */
+
+    background-image: var(--bg-url);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
+
+  @supports (-webkit-touch-callout: none) {
+    .total {
+      background-image: none;
+      background-color: var(--bg-color);
+      background-attachment: scroll;
+    }
+  }
+
   .left {
     width: 58vw;
     align-items: center;
